@@ -22,6 +22,12 @@ import { AmazonCasesRowComponent } from './Components/Amazon-Parts/Amazon-Cases/
 import { AmazonCasesListComponent } from './Components/Amazon-Parts/Amazon-Cases/amazon-cases-list/amazon-cases-list.component';
 import { AmazonCpuListComponent } from './Components/Amazon-Parts/Amazon-CPUs/amazon-cpu-list/amazon-cpu-list.component';
 import { AmazonGpuListComponent } from './Components/Amazon-Parts/Amazon-GPUs/amazon-gpu-list/amazon-gpu-list.component';
+import { MonitorDetailsComponent } from './Components/Internal-API-Parts/monitor/monitor-details/monitor-details.component';
+import { MonitorFormComponent } from './Components/Internal-API-Parts/monitor/monitor-form/monitor-form.component';
+import { MonitorListComponent } from './Components/Internal-API-Parts/monitor/monitor-list/monitor-list.component';
+import { MonitorRowComponent } from './Components/Internal-API-Parts/monitor/monitor-row/monitor-row.component';
+import { LoginComponent } from './Components/login/login.component';
+import { LogoutComponent } from './Components/logout/logout.component';
 
 
 
@@ -41,6 +47,12 @@ import { AmazonGpuListComponent } from './Components/Amazon-Parts/Amazon-GPUs/am
     AmazonCasesListComponent,
     AmazonCpuListComponent,
     AmazonGpuListComponent,
+    MonitorDetailsComponent,
+    MonitorFormComponent,
+    MonitorListComponent,
+    MonitorRowComponent,
+    LoginComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

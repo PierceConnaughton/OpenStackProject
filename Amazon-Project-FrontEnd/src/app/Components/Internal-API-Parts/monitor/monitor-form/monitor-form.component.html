@@ -1,0 +1,125 @@
+
+{{message}}
+
+<button type="button" class="close" aria-label="Close" (click)="closeForm()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+<form [formGroup]="monitorForm" (ngSubmit) = "onSubmit()" class="form-inline justify-content-center">
+    
+    <div class="row">
+    <div class="form-group">
+        <label  class="control-label col-md-4" for="monitorID">
+            Monitor ID:
+        </label>  
+        <div class="col-md-2">
+            <input id="monitorID" type="text" formControlName="monitorID" class="form-control" placeholder="M***">
+            
+        </div>
+        
+    </div>
+    
+
+    <div class="form-group">
+        <label class="control-label col-md-3" for="brand">
+            Brand:
+        </label>  
+        <div class="col-md-2">
+            <input id="brand" type="text" formControlName="brand" class="form-control" placeholder="Brand Name">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="size">
+            Size:
+        </label>  
+        <div class="col-md-2">
+            <select id="size" type="text" formControlName="size" class="form-control" placeholder="23">
+                <option>23</option>
+                <option>28</option>
+                <option>31</option>
+                <option>32</option>
+                <option>34</option>
+              </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="version">
+            Version:
+        </label>  
+        <div class="col-md-2">
+            <input id="version" type="text" formControlName="version" class="form-control" placeholder="Monitor Version">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="color">
+            Color:
+        </label>  
+        <div class="col-md-2">
+            <select id="color" type="text" formControlName="color" class="form-control" placeholder="Black">
+                <option>Black</option>
+                <option>Red</option>
+                <option>Silver</option>
+                <option>Gold</option>
+                <option>Rose Gold</option>
+              </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-7" for="refreshRate">
+            Refresh Rate:
+        </label>  
+        <div class="col-md-1">
+            <select id="refreshRate" type="text" formControlName="refreshRate" class="form-control">
+                <option>60</option>
+                <option>75</option>
+                <option>120</option>
+                <option>144</option>
+                <option>240</option>
+              </select>
+        </div>
+    </div>
+
+    
+        <div class="col-sm">
+    <button type="submit" [disabled]="!monitorForm.valid" class="btn btn btn-info">Submit</button>
+        </div>
+
+    </div>
+    
+
+
+    
+</form>
+
+<br>
+
+<div class="row justify-content-center">
+    <div *ngIf="monitorID.invalid && monitorID.touched" class="alert alert-danger col-sm-2" >
+        Monitor ID is required
+    </div>
+    <div *ngIf="brand.invalid && brand.touched"  class="alert alert-danger col-sm-2" >
+        Brand is required
+    </div>
+    
+    <div *ngIf="size.invalid && size.touched" class="alert alert-danger col-sm-2" >
+        Size is required
+    </div>
+    <div *ngIf="version.invalid && version.touched" class="alert alert-danger col-sm-2" >
+        Version is required
+    </div>
+    <div *ngIf="color.invalid && color.touched" class="alert alert-danger col-sm-2" >
+        Color is required
+    </div>
+    
+</div>
+
+
+<!--
+{{this.monitorForm.get('brand').value}}
+
+{{monitorID.value}}
+    -->

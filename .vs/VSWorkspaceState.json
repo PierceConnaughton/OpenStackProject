@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\Amazon-Project-BackEnd",
+    "\\Amazon-Project-BackEnd\\middleware",
+    "\\Amazon-Project-BackEnd\\models",
+    "\\Amazon-Project-BackEnd\\routes",
     "\\Amazon-Project-FrontEnd"
   ],
-  "SelectedNode": "\\Amazon-Project-FrontEnd",
+  "SelectedNode": "\\Amazon-Project-BackEnd\\middleware\\verifyuser.js",
   "PreviewInSolutionExplorer": false
 }

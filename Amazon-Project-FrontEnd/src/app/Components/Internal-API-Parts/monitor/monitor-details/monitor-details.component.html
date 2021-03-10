@@ -1,0 +1,13 @@
+
+<div class="container-md ">
+    <ul class = "list-group">
+        <li class = "list-group-item">
+           <h3 class = "list-group-item-heading">All the details about {{monitor.monitorID}}</h3>
+           <p class = "list-group-item-text">Brand: {{monitor.brand}}</p>
+           <p class = "list-group-item-text">Size: "{{monitor.size}}</p>
+           <p class = "list-group-item-text">Version: {{monitor.version}}</p>
+           <p class = "list-group-item-text">Color: {{monitor.color}}</p>
+           <p *ngIf="monitor.refreshRate" class = "list-group-item-text">Refresh Rate: {{monitor.refreshRate}}Hz</p>
+        </li>
+    </ul>
+    </div>

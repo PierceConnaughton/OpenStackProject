@@ -1,0 +1,104 @@
+
+<body>
+    <div class="container-fluid">
+    
+        <h2 *ngIf="!showMonitorForm && !currentMonitor">List of Monitors</h2>
+    
+        
+    
+        <h2  *ngIf="showMonitorForm">Monitor Form</h2>
+    
+        <app-monitor-form *ngIf="showMonitorForm" 
+        (monitorFormClose)="monitorFormClose($event)" [monitor]="currentMonitor"></app-monitor-form>  
+    
+        <h2 class="h2Centered"  *ngIf="currentMonitor">Monitor Details</h2>
+    
+        <app-monitor-details *ngIf="currentMonitor" [monitor]="currentMonitor"></app-monitor-details>
+    
+        <br *ngIf="!showMonitorForm">
+        
+    
+        <div class="row justify-content-center">
+            <div class="col-sm-1">
+                <button (click)="openCreateMonitor()" *ngIf="!showMonitorForm"
+                class="btn btn btn-outline-primary" >Add Monitor</button>
+            </div>
+            
+            <div class="col-sm-1">
+                <button (click)="openEditMonitor()" *ngIf="!showMonitorForm" [disabled]="!currentMonitor"
+                class="btn btn btn-outline-secondary" >Edit Monitor</button>
+            </div>
+            
+            <div class="col-sm-2">
+                <button (click)="openDeleteMonitor(currentMonitor.id)" *ngIf="!showMonitorForm" [disabled]="!currentMonitor"
+                class="btn btn btn-outline-danger" >Delete Monitor</button>
+            </div>
+        </div>
+    
+        <br *ngIf="!showMonitorForm">
+    
+        
+        
+    
+    
+        <h2 *ngIf="showMonitorForm || currentMonitor">List of Monitors</h2>
+        
+        
+    <h2 *ngIf="message">{{message}}</h2>
+    
+    <!-- Search box -->
+    <div class="row justify-content-center">
+        <div class="col-sm-2">
+            <input type="text" [(ngModel)]="searchTextMonitorID" placeholder="Search By Monitor ID" />
+        </div>
+    
+        <div class="col-sm-2">
+            <input type="text" [(ngModel)]="searchTextBrand" placeholder="Search By Brand" />
+        </div>
+    
+       
+    
+        <div class="col-sm-2">
+            <input  type="text" [(ngModel)]="searchTextVersion" placeholder="Search By Version" />
+        </div>    
+    
+        <div class="col-sm-2">
+            <input type="text" [(ngModel)]="searchTextColor" placeholder="Search By Color" />
+        </div>
+    </div>
+    
+    <br>
+    
+    <div class="row card-header"> 
+        <div [class.active]="order === 'monitorID'" (click)="setOrder('monitorID')" class="col card-title"> <h4>Monitor ID</h4> 
+            <span *ngIf="order === 'monitorID'">▼</span>
+        </div>
+        <div [class.active]="order === 'brand'" (click)="setOrder('brand')" class="col "> <h4>Brand</h4> 
+            <span *ngIf="order === 'brand'">▼</span>
+        </div>
+        <div class="col "> <h4>Size</h4> 
+            
+        </div>
+        <div [class.active]="order === 'version'" (click)="setOrder('version')" class="col "> <h4>Version</h4> 
+            <span *ngIf="order === 'version'">▼</span>
+        </div>
+        <div [class.active]="order === 'color'" (click)="setOrder('color')" class="col "> <h4>Color</h4> 
+            <span *ngIf="order === 'color'">▼</span>
+        </div>
+        <div class="col "> <h4>Refresh Rate</h4> </div>
+    </div>
+     
+    <app-monitor-row  class="card" *ngFor="let m of monitorList| orderBy: order:reverse:'case-insensitive' | filter : searchTextMonitorID : 'monitorID' 
+    | filter : searchTextBrand : 'brand'| filter : searchTextVersion : 'version' | filter : searchTextColor : 'color'"
+    [monitor]="m"
+    (click)='clicked(m)'
+    [class.bg-info]="isSelected(m)" [class.text-white]="isSelected(m)"></app-monitor-row>
+    
+    
+    
+        
+    
+    </div>
+    
+    </body>
+    

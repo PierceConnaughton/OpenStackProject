@@ -8,6 +8,12 @@ import { AmazonGpuListComponent } from './Components/Amazon-Parts/Amazon-GPUs/am
 
 import {HomeComponent} from './Components/home/home.component';
 
+import {MonitorListComponent} from './Components/Internal-API-Parts/monitor/monitor-list/monitor-list.component';
+
+
+import {LoginComponent} from './Components/login/login.component';
+import {LogoutComponent} from './Components/logout/logout.component';
+
 const routes: Routes = [
 
  {path: '', component: HomeComponent},
@@ -16,6 +22,9 @@ const routes: Routes = [
  {path: 'amazon-cases-list-component', component: AmazonCasesListComponent},
  {path: 'amazon-cpu-list-component', component: AmazonCpuListComponent},
  {path: 'amazon-gpu-list-component', component: AmazonGpuListComponent},
+ { path: 'monitor-list-component', component: MonitorListComponent},
+ { path: 'login', component: LoginComponent },
+   {path: 'logout', component: LogoutComponent},
   
 ]; //sets up routes constant where you define your routes
 
