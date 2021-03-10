@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class OrderByPipe implements PipeTransform {
 
-  transform(value: any[], propertyName: string): any[] {
+  transform(value: any[], propertyName: any): any[] {
     if (propertyName)
       return value.sort((a: any, b: any) => a[propertyName].localeCompare(b[propertyName]));
     else

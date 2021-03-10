@@ -16,9 +16,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { PartFinderComponent } from './Components/part-finder/part-finder.component';
 import { AmazonMonitorDetailsComponent } from './Components/Amazon-Parts/Amazon-Monitors/amazon-monitor-details/amazon-monitor-details.component';
-import { AmazonMonitorRowComponent } from './Components/Amazon-Parts/Amazon-Monitors/amazon-monitor-row/amazon-monitor-row.component';
 import { AmazonCasesDetailsComponent } from './Components/Amazon-Parts/Amazon-Cases/amazon-cases-details/amazon-cases-details.component';
-import { AmazonCasesRowComponent } from './Components/Amazon-Parts/Amazon-Cases/amazon-cases-row/amazon-cases-row.component';
 import { AmazonCasesListComponent } from './Components/Amazon-Parts/Amazon-Cases/amazon-cases-list/amazon-cases-list.component';
 import { AmazonCpuListComponent } from './Components/Amazon-Parts/Amazon-CPUs/amazon-cpu-list/amazon-cpu-list.component';
 import { AmazonGpuListComponent } from './Components/Amazon-Parts/Amazon-GPUs/amazon-gpu-list/amazon-gpu-list.component';
@@ -41,9 +39,7 @@ import { LogoutComponent } from './Components/logout/logout.component';
     FilterPipe,
     PartFinderComponent,
     AmazonMonitorDetailsComponent,
-    AmazonMonitorRowComponent,
     AmazonCasesDetailsComponent,
-    AmazonCasesRowComponent,
     AmazonCasesListComponent,
     AmazonCpuListComponent,
     AmazonGpuListComponent,

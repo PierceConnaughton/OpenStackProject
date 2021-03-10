@@ -44,8 +44,6 @@ export class AmazonMonitorListComponent implements OnInit {
 
   monitorList: AmazonMonitorResponse;
 
-  showMonitorForm: boolean = false;
-
   currentMonitor : AmazonMonitorResponse;
 
   // search text property

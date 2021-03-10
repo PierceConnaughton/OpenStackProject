@@ -5,22 +5,32 @@
             <div class="col-sm-8">       
                 <a href="{{amazonData.request_metadata.amazon_url}}" class="col-sm-4" > Link to best selling monitors</a>
             </div>
+
+            <!--<amazon-monitor-details *ngIf="currentMonitor" [monitor]="currentMonitor"></amazon-monitor-details> -->
             
     <br>
+
+    
+    <div class="row justify-content-center">
+        <div class="col-sm-2">
+            <input type="text" [(ngModel)]="searchTextMonitorTitle" placeholder="Search By Monitor Title" />
+        </div>
+    </div>
+    
     
     <div class="row card-header"> 
-        <div class="col-sm-3"> <h4>Title</h4> 
+        <div [class.active]="order === 'title'" (click)="setOrder('title')" class="col-sm-3"> <h4>Title</h4> 
         </div>
-        <div class="col-sm-3"> <h4>Link</h4> 
+        <div [class.active]="order === 'link'" (click)="setOrder('link')" class="col-sm-3"> <h4>Link</h4> 
         </div>
-        <div class="col-sm-3"> <h4>Rank</h4> 
+        <div  class="col-sm-3"> <h4>Rank</h4> 
         </div>
-        <div class="col-sm-3"> <h4>Rating</h4> 
+        <div  class="col-sm-3"> <h4>Rating</h4> 
         </div>
 
     </div>
 
-    <div class="card" *ngFor="let results of amazonData.bestsellers"
+    <div class="card" *ngFor="let results of amazonData.bestsellers| orderBy: order:reverse:'case-insensitive' | filter : searchTextMonitorTitle : 'title'"
     [monitor]="results"
     (click)='clicked(results)'
     [class.bg-info]="isSelected(results)" [class.text-white]="isSelected(results)">       
