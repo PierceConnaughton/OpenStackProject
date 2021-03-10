@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Amazon-Project-BackEnd",
+    "\\Amazon-Project-FrontEnd"
   ],
-  "SelectedNode": "\\Amazon-Project-Backend",
+  "SelectedNode": "\\Amazon-Project-FrontEnd",
   "PreviewInSolutionExplorer": false
 }
