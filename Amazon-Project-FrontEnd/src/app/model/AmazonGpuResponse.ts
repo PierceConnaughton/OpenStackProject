@@ -30,8 +30,14 @@ export interface AmazonGpusResponse{
           title:string;
           link:string;
           rating: Int16Array;
+          image: string;
+          price: {
+            raw:string;
+          };
         }
       ];
+
+      
       
       
   }
@@ -57,6 +63,8 @@ export interface AmazonGpusResponse{
       request_metadata:{
         amazon_url: string;
       };
+
+      
   
       bestsellers: [
         {
@@ -64,6 +72,10 @@ export interface AmazonGpusResponse{
           title:string;
           link:string;
           rating: Int16Array;
+          image: string;
+          price: {
+            raw:string;
+          };
         }
       ];
       

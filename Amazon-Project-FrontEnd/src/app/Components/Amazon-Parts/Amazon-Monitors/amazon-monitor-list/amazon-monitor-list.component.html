@@ -1,3 +1,4 @@
+<body>
 <div class="container-fluid">
     <h1>List Of Monitors</h1>
         <div class="" *ngIf="amazonData">
@@ -23,9 +24,13 @@
         </div>
         <div [class.active]="order === 'link'" (click)="setOrder('link')" class="col-sm-3"> <h4>Link</h4> 
         </div>
-        <div  class="col-sm-3"> <h4>Rank</h4> 
+        <div  class="col-sm-1"> <h4>Rank</h4> 
         </div>
-        <div  class="col-sm-3"> <h4>Rating</h4> 
+        <div  class="col-sm-1"> <h4>Rating</h4> 
+        </div>
+        <div  class="col-sm-2"> <h4>Image</h4> 
+        </div>
+        <div  class="col-sm-2"> <h4>Price</h4> 
         </div>
 
     </div>
@@ -34,14 +39,16 @@
     [monitor]="results"
     (click)='clicked(results)'
     [class.bg-info]="isSelected(results)" [class.text-white]="isSelected(results)">       
-        <div class="row card-body"> 
-            <div class="col-sm-3 card-title">  <h5>{{results.title}}</h5> </div>
-            <div class="col-sm-3"> <a href="{{results.link}}">{{results.title}}</a> </div>
-            <div class="col-sm-3"> <h6>{{results.rank}}</h6> </div>
-            <div class="col-sm-3"> <h6>{{results.rating}}</h6> </div>
-        </div>
+    <div class="row card-body"> 
+        <div class="col-sm-3 card-title">  <h5>{{results.title}}</h5> </div>
+        <div class="col-sm-3"> <a href="{{results.link}}">{{results.title}}</a> </div>
+        <div class="col-sm-1"> <h6>{{results.rank}}</h6> </div>
+        <div class="col-sm-1"> <h6>{{results.rating}}</h6> </div>
+        <div class="col-sm-2"> <img  class="images" src="{{results.image}}"/> </div>
+        <div class="col-sm-2"> <h6>{{results.price.raw}}</h6> </div>
+    </div>
     </div>
 </div>
 </div>
-    
+
     

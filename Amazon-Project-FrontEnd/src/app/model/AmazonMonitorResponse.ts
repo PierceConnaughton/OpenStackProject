@@ -30,6 +30,10 @@ export interface AmazonMonitorResponse{
           title:string;
           link:string;
           rating: Int16Array;
+          image: string;
+          price: {
+            raw:string;
+          };
         }
       ];
       
@@ -64,6 +68,10 @@ export interface AmazonMonitorResponse{
           title:string;
           link:string;
           rating: Int16Array;
+          image: string;
+          price: {
+            raw:string;
+          };
         }
       ];
       
