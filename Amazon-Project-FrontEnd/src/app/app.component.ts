@@ -6,6 +6,8 @@ import { environment } from "../environments/environment";
 import { AmazonApiService } from './Services/amazon-api.service';
 
 import { AmazonMonitorResponse } from './model/AmazonMonitorResponse';
+import { MatSliderModule } from '@angular/material/slider';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

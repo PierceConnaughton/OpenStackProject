@@ -26,6 +26,10 @@ import { MonitorListComponent } from './Components/Internal-API-Parts/monitor/mo
 import { MonitorRowComponent } from './Components/Internal-API-Parts/monitor/monitor-row/monitor-row.component';
 import { LoginComponent } from './Components/login/login.component';
 import { LogoutComponent } from './Components/logout/logout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AmazonHomeComponent } from './Components/Amazon-Parts/amazon-home/amazon-home.component';
+import { RestApiHomeComponent } from './Components/Internal-API-Parts/rest-api-home/rest-api-home.component';
+
 
 
 
@@ -49,14 +53,18 @@ import { LogoutComponent } from './Components/logout/logout.component';
     MonitorRowComponent,
     LoginComponent,
     LogoutComponent,
+    AmazonHomeComponent,
+    RestApiHomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+ 
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
   ],
