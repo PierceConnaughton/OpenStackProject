@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireDatabaseModule, AngularFireDatabase} from '@angular/fire/database';
+import {environment} from '../environments/environment';
+
 import {AmazonMonitorListComponent} from '../app/Components/Amazon-Parts/Amazon-Monitors/amazon-monitor-list/amazon-monitor-list.component'
 
 import { HomeComponent } from './Components/home/home.component';
@@ -20,18 +24,27 @@ import { AmazonCasesDetailsComponent } from './Components/Amazon-Parts/Amazon-Ca
 import { AmazonCasesListComponent } from './Components/Amazon-Parts/Amazon-Cases/amazon-cases-list/amazon-cases-list.component';
 import { AmazonCpuListComponent } from './Components/Amazon-Parts/Amazon-CPUs/amazon-cpu-list/amazon-cpu-list.component';
 import { AmazonGpuListComponent } from './Components/Amazon-Parts/Amazon-GPUs/amazon-gpu-list/amazon-gpu-list.component';
+
 import { MonitorDetailsComponent } from './Components/Internal-API-Parts/monitor/monitor-details/monitor-details.component';
 import { MonitorFormComponent } from './Components/Internal-API-Parts/monitor/monitor-form/monitor-form.component';
 import { MonitorListComponent } from './Components/Internal-API-Parts/monitor/monitor-list/monitor-list.component';
 import { MonitorRowComponent } from './Components/Internal-API-Parts/monitor/monitor-row/monitor-row.component';
+
+import { GpuDetailsComponent } from './Components/Internal-API-Parts/gpu/gpu-details/gpu-details.component';
+import { GpuFormComponent } from './Components/Internal-API-Parts/gpu/gpu-form/gpu-form.component';
+import { GpuListComponent } from './Components/Internal-API-Parts/gpu/gpu-list/gpu-list.component';
+import { GpuRowComponent } from './Components/Internal-API-Parts/gpu/gpu-row/gpu-row.component';
+
 import { LoginComponent } from './Components/login/login.component';
 import { LogoutComponent } from './Components/logout/logout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AmazonHomeComponent } from './Components/Amazon-Parts/amazon-home/amazon-home.component';
 import { RestApiHomeComponent } from './Components/Internal-API-Parts/rest-api-home/rest-api-home.component';
 
-
-
+import { appInitializer } from './helpers/app.initialiser';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { UserService } from './Services/user.service';
 
 @NgModule({
   declarations: [
@@ -55,18 +68,29 @@ import { RestApiHomeComponent } from './Components/Internal-API-Parts/rest-api-h
     LogoutComponent,
     AmazonHomeComponent,
     RestApiHomeComponent,
+
+    GpuDetailsComponent,
+    GpuFormComponent,
+    GpuListComponent,
+    GpuRowComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
- 
+    
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],
   providers: [
+    { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [UserService] },
+  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, 
   ],
   bootstrap: [AppComponent]
 })

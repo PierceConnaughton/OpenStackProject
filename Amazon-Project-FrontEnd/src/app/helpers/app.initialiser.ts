@@ -1,5 +1,4 @@
-/*
-import { UserService } from '../Services/user.service';
+import { UserService } from '../Services/user.service'
 import { environment } from '../../environments/environment';
 
 export function appInitializer(userService: UserService) {
@@ -35,4 +34,3 @@ export function appInitializer(userService: UserService) {
         }(document, 'script', 'facebook-jssdk'));    
     });
 }
-*/

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { UserService } from '../../Services/user.service';
+import { UserService } from '../../Services/user.service';
 import { Router } from '@angular/router';
 import { User } from '../../model/user';
 
@@ -26,16 +26,13 @@ export class LogoutComponent implements OnInit {
 
   user : User;
 
-  //constructor (private userService: UserService, private router: Router) {
-   // this.userService.user.subscribe( user => this.user = user)
-  //}
-  constructor(){
-    
+  constructor (private userService: UserService, private router: Router) {
+    this.userService.user.subscribe( user => this.user = user)
   }
 
   logout(){
-    //this.userService.logout();
-    //this.router.navigate(['/login']);
+    this.userService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

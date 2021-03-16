@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-//import { UserService } from '../../Services/user.service';
+import { UserService } from '../../Services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -12,19 +12,19 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    //private userService: UserService
+    private userService: UserService
 ) {
     // redirect to home if already logged in
-   // if (this.userService.userValue) {
-    //    this.router.navigate(['/']);
-   // }
+    if (this.userService.userValue) {
+        this.router.navigate(['/']);
+    }
 }
 
   ngOnInit(): void {
   }
 
   login() {
-    //this.userService.login();
+    this.userService.login();
 }
 
 }

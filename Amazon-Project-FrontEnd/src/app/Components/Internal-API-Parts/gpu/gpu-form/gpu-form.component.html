@@ -1,0 +1,125 @@
+
+<!-- {{message}}
+
+<button type="button" class="close" aria-label="Close" (click)="closeForm()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+<form [formGroup]="gpuForm" (ngSubmit) = "onSubmit()" class="form-inline justify-content-center">
+    
+    <div class="row">
+    <div class="form-group">
+        <label  class="control-label col-md-4" for="id">
+            Gpu ID:
+        </label>  
+        <div class="col-md-2">
+            <input id="id" type="text" formControlName="id" class="form-control" placeholder="G***">
+            
+        </div>
+        
+    </div>
+    
+
+    <div class="form-group">
+        <label class="control-label col-md-3" for="brand">
+            Brand:
+        </label>  
+        <div class="col-md-2">
+            <input id="brand" type="text" formControlName="brand" class="form-control" placeholder="Brand Name">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="manufacturer">
+            Size:
+        </label>  
+        <div class="col-md-2">
+            <select id="manufacturer" type="text" formControlName="manufacturer" class="form-control" placeholder="ASUS">
+                <option>ASUS</option>
+                <option>Nvidia</option>
+                <option>AMD</option>
+                <option>Gigabyte</option>
+                <option>Intel</option>
+              </select>
+        </div>
+    </div>
+
+    
+    <div class="form-group">
+        <label class="control-label col-md-2" for="series">
+            Series:
+        </label>  
+        <div class="col-md-2">
+            <input id="series" type="text" formControlName="series" class="form-control" placeholder="Gpu Series">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="color">
+            Color:
+        </label>  
+        <div class="col-md-2">
+            <select id="color" type="text" formControlName="color" class="form-control" placeholder="Black">
+                <option>Black</option>
+                <option>Red</option>
+                <option>Silver</option>
+                <option>Gold</option>
+                <option>Rose Gold</option>
+              </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="hardDrive">
+            Hard Drive:
+        </label>  
+        <div class="col-md-2">
+            <input id="hardDrive" type="text" formControlName="hardDrive" class="form-control" placeholder="HardDrive">
+        </div>
+    </div>
+
+    
+        <div class="col-sm">
+    <button type="submit" [disabled]="!gpuForm.valid" class="btn btn btn-info">Submit</button>
+        </div>
+
+    </div>
+    
+
+
+    
+</form>
+
+<br>
+
+<div class="row justify-content-center">
+    <div *ngIf="id.invalid && id.touched" class="alert alert-danger col-sm-2" >
+        Gpu ID is required
+    </div>
+    <div *ngIf="brand.invalid && brand.touched"  class="alert alert-danger col-sm-2" >
+        Brand is required
+    </div>
+
+   
+    
+    <div *ngIf="manufacturer.invalid && manufacturer.touched" class="alert alert-danger col-sm-2" >
+        Manufacturer is required
+    </div>
+    <div *ngIf="series.invalid && series.touched" class="alert alert-danger col-sm-2" >
+        Series is required
+    </div>
+    <div *ngIf="color.invalid && color.touched" class="alert alert-danger col-sm-2" >
+        Color is required
+    </div>
+    <div *ngIf="hardDrive.invalid && hardDrive.touched" class="alert alert-danger col-sm-2" >
+        Hard Drive is required
+    </div>
+    
+</div> -->
+
+
+<!--
+{{this.monitorForm.get('brand').value}}
+
+{{monitorID.value}}
+    -->

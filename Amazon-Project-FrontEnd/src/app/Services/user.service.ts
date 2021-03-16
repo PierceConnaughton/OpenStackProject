@@ -28,7 +28,6 @@ export class UserService {
         return this.userSubject.value;
     }
 
-    /*
     login() {
         // login with facebook then authenticate with the API to get a JWT auth token
         this.facebookLogin()
@@ -123,5 +122,4 @@ export class UserService {
         // cancel timer for re-authenticating with the api
         clearTimeout(this.authenticateTimeout);
     }
-    */
 }
