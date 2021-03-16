@@ -36,7 +36,16 @@ export class FirebaseApiService {
     )
   }
 
-  // addGpuTwo(brand: string, manufacturer: string, series: string, color: string, hardDrive:string): Observable<Gpu> {
+  updateGpu(id:string, brand: string, manufacturer: string, series: string, color: string, hardDrive:string): Observable<Gpu> {
+
+    return this.http.delete<Gpu>(this.apiURL + '/updateGpu?id=' + id)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
+  // addGpu(brand: string, manufacturer: string, series: string, color: string, hardDrive:string): Observable<Gpu> {
 
   //   return this.http.post<Gpu>(this.apiURL + '/addGpu?brand=' + brand + '&manufacturer=' + manufacturer + '&series=' + series + '&color=' + color + '&hardDrive=' + hardDrive)
   //   .pipe(

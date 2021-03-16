@@ -23,7 +23,7 @@ const getGpusFromDatabase = (res) => {
         'value',
         snapshot => {
             snapshot.forEach(gpu => {
-                gpu.push({
+                gpus.push({
                     id: gpu.key,
                     brand: gpu.val().brand,
                     manufacturer: gpu.val().manufacturer,
@@ -67,7 +67,7 @@ exports.deleteGpu = functions.https.onRequest((req, res) => {
     return cors(req, res, () => {
       if(req.method !== 'DELETE') {
         return res.status(401).json({
-          message: 'Not allowed dude...'
+          message: 'Not allowed'
         })
       }
       const id = req.query.id;
@@ -77,7 +77,7 @@ exports.deleteGpu = functions.https.onRequest((req, res) => {
     });
   });
 
-exports.getGpus = functions.https.onRequest((req, res) => {
+  exports.getGpus = functions.https.onRequest((req, res) => {
     return cors(req, res, () => {
         if (req.method !== 'GET') {
             return res.status(404).json({
@@ -87,3 +87,24 @@ exports.getGpus = functions.https.onRequest((req, res) => {
         getGpusFromDatabase(res);
     });
 });
+
+exports.updateGpu = functions.https.onRequest((req, res) => {
+    return cors(req, res, () => {
+      if(req.method !== 'PUT') {
+        return res.status(401).json({
+          message: 'Not allowed'
+        })
+      }
+      const id = req.query.id;
+
+      const brand = req.query.brand;
+        const manufacturer = req.query.manufacturer;
+        const series = req.query.series;
+        const color = req.query.color;
+        const hardDrive = req.query.hardDrive;
+
+      //admin.database().ref(`/mybooks/${id}`).remove();
+      db.child(id).update(brand,manufacturer,series,color,hardDrive);
+      getGpusFromDatabase(res);
+    });
+  });

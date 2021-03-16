@@ -38,8 +38,7 @@ import { GpuRowComponent } from './Components/Internal-API-Parts/gpu/gpu-row/gpu
 import { LoginComponent } from './Components/login/login.component';
 import { LogoutComponent } from './Components/logout/logout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AmazonHomeComponent } from './Components/Amazon-Parts/amazon-home/amazon-home.component';
-import { RestApiHomeComponent } from './Components/Internal-API-Parts/rest-api-home/rest-api-home.component';
+
 
 import { appInitializer } from './helpers/app.initialiser';
 import { ErrorInterceptor } from './helpers/error.interceptor';
@@ -66,8 +65,7 @@ import { UserService } from './Services/user.service';
     MonitorRowComponent,
     LoginComponent,
     LogoutComponent,
-    AmazonHomeComponent,
-    RestApiHomeComponent,
+
 
     GpuDetailsComponent,
     GpuFormComponent,

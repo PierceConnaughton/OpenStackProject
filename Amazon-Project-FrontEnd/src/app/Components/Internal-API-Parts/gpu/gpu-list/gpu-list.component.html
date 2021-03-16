@@ -1,74 +1,17 @@
-<p>gpu-list works!</p>
-<ul>
-    <li *ngFor="let gpu of MyGpus"> {{ gpu.id }} -  {{ gpu.brand }} -  {{ gpu.color }} </li>
-  </ul>
- 
-  <div>
-    <!-- <form (ngSubmit)="addGpu()">
-  
-      <div class="form-group">
-        <label for="brand">Gpu Brand</label>
-        <input type="text" class="form-control" placeholder="Enter brand"
-        id="brand" required
-        [(ngModel)] ="brandValue" name="brand">
-      </div>
-  
-      <div class="form-group">
-        <label for="manufacturer">Gpu Manufacturer</label>
-        <input type="text" class="form-control" placeholder="Enter Manufacturer"
-        id="manufacturer" required
-        [(ngModel)] ="manufacturerValue" name="manufacturer">
-      </div>
 
-      <div class="form-group">
-        <label for="series">Gpu Series</label>
-        <input type="text" class="form-control" placeholder="Enter series"
-        id="series" required
-        [(ngModel)] ="seriesValue" name="series">
-      </div>
-  
-      <div class="form-group">
-        <label for="color">Gpu Color</label>
-        <input type="text" class="form-control" placeholder="Enter Color"
-        id="color" required
-        [(ngModel)] ="colorValue" name="color">
-      </div>
-
-      <div class="form-group">
-        <label for="hardDrive">Gpu Hard Drive</label>
-        <input type="text" class="form-control" placeholder="Enter hardDrive"
-        id="hardDrive" required
-        [(ngModel)] ="hardDriveValue" name="hardDrive">
-      </div>
-  
-  
-      <div class="btn-group">
-        <button type="submit" class="btn btn-success">Submit</button>
-      </div>
-  
-    </form> -->
-  </div>
-  
-  <li *ngFor="let gpu of MyGpus"> 
-    <button class="btn" (click)="deleteGpu(gpu.id)">Delete Gpu</button>
-    {{ gpu.id }} -  {{ gpu.brand }} -  {{ gpu.manufacturer }} - {{ gpu.series }} -  {{ gpu.color }} -  {{ gpu.hardDrive }} 
-  </li>
-<!-- <body>
+ <body>
     <div class="container-fluid">
-    
         <h2 *ngIf="!showGpuForm && !currentGpu">List of Gpus</h2>
-    
-        
-    
+
         <h2  *ngIf="showGpuForm">Gpu Form</h2>
-    
+
         <app-gpu-form *ngIf="showGpuForm" 
         (gpuFormClose)="gpuFormClose($event)" [gpu]="currentGpu"></app-gpu-form>  
     
         <h2 class="h2Centered"  *ngIf="currentGpu">Gpu Details</h2>
-    
+
         <app-gpu-details *ngIf="currentGpu" [gpu]="currentGpu"></app-gpu-details>
-    
+
         <br *ngIf="!showGpuForm">
         
     
@@ -100,6 +43,7 @@
         
     <h2 *ngIf="message">{{message}}</h2>
     
+        
      Search box 
     <div class="row justify-content-center">
         <div class="col-sm-2">
@@ -133,6 +77,7 @@
     <br>
     
    
+    
     <div class="row card-header"> 
         <div [class.active]="order === 'id'" (click)="setOrder('id')" class="col card-title"> <h4>Gpu ID</h4> 
             <span *ngIf="order === 'id'">▼</span>
@@ -140,7 +85,7 @@
         <div [class.active]="order === 'brand'" (click)="setOrder('brand')" class="col "> <h4>Brand</h4> 
             <span *ngIf="order === 'brand'">▼</span>
         </div>
-        </div>
+        
         <div [class.active]="order === 'manufacturer'" (click)="setOrder('manufacturer')" class="col "> <h4>Manufacturer</h4> 
             <span *ngIf="order === 'manufacturer'">▼</span>
         </div>
@@ -156,19 +101,39 @@
         
     </div>
      
+    <!-- <ul>
+    <li *ngFor="let gpu of MyGpus"> {{ gpu.id }} -  {{ gpu.brand }} -  {{ gpu.color }} </li>
+  </ul>
+ 
+
+  
+  <li *ngFor="let gpu of MyGpus"> 
+    <button class="btn" (click)="deleteGpu(gpu.id)">Delete Gpu</button>
+    {{ gpu.id }} -  {{ gpu.brand }} -  {{ gpu.manufacturer }} - {{ gpu.series }} -  {{ gpu.color }} -  {{ gpu.hardDrive }} 
+  </li>
+-->
     
-    <app-gpu-row  class="card" *ngFor="let m of gpuList| orderBy: order:reverse:'case-insensitive' | filter : searchTextGpuID : 'id' 
+    <div  class="card" *ngFor="let g of MyGpus| orderBy: order:reverse:'case-insensitive' | filter : searchTextGpuID : 'id' 
     | filter : searchTextBrand : 'brand'| filter : searchTextManufacturer : 'manufacturer' | filter : searchTextSeries : 'series' 
     | filter : searchTextColor : 'color' | filter : searchTextHardDrive : 'hardDrive'"
     [gpu]="g"
     (click)='clicked(g)'
-    [class.bg-info]="isSelected(g)" [class.text-white]="isSelected(g)"></app-gpu-row>
+    [class.bg-info]="isSelected(g)" [class.text-white]="isSelected(g)">
+    <div class="row card-body"> 
+        <div class="col card-title">  <h6>{{g.id}}</h6> </div>
+        <div class="col ">  <h6>{{g.brand}}</h6> </div>
+        <div class="col"> <h6>{{g.manufacturer}}</h6> </div>
+        <div class="col"> <h6>{{g.series}}</h6> </div>
+        <div class="col"> <h6>{{g.color}}</h6> </div>
+        <div class="col"> <h6>{{g.hardDrive}}</h6> </div>
+    </div>
+    </div>
     
     
     
         
-    
     </div>
     
+    
     </body>
-     -->
+    

@@ -11,8 +11,6 @@ import {HomeComponent} from './Components/home/home.component';
 import {MonitorListComponent} from './Components/Internal-API-Parts/monitor/monitor-list/monitor-list.component';
 import {GpuListComponent} from './Components/Internal-API-Parts/gpu/gpu-list/gpu-list.component';
 
-import {AmazonHomeComponent} from './Components/Amazon-Parts/amazon-home/amazon-home.component'
-import {RestApiHomeComponent} from './Components/Internal-API-Parts/rest-api-home/rest-api-home.component'
 
 
 import {LoginComponent} from './Components/login/login.component';
@@ -30,11 +28,10 @@ const routes: Routes = [
  {path: 'amazon-cpu-list-component', component: AmazonCpuListComponent, canActivate: [AuthGuard]},
  {path: 'amazon-gpu-list-component', component: AmazonGpuListComponent, canActivate: [AuthGuard]},
  { path: 'monitor-list-component', component: MonitorListComponent, canActivate: [AuthGuard]},
- { path: 'gpu-list-component', component: GpuListComponent, canActivate: [AuthGuard]},
+ { path: 'gpu-list-component', component: GpuListComponent},
  { path: 'login', component: LoginComponent },
    {path: 'logout', component: LogoutComponent},
-   {path: 'amazon-home', component: AmazonHomeComponent, canActivate: [AuthGuard]},
-   {path: 'rest-api-home', component: RestApiHomeComponent, canActivate: [AuthGuard]},
+
   
   
 ]; //sets up routes constant where you define your routes

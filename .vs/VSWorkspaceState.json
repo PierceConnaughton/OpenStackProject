@@ -5,7 +5,9 @@
     "\\Amazon-Project-BackEnd\\middleware",
     "\\Amazon-Project-BackEnd\\models",
     "\\Amazon-Project-BackEnd\\routes",
-    "\\Amazon-Project-FrontEnd"
+    "\\Amazon-Project-FrontEnd",
+    "\\Amazon-Project-FrontEnd\\src",
+    "\\Amazon-Project-FrontEnd\\src\\app"
   ],
   "SelectedNode": "\\Amazon-Project-BackEnd\\middleware\\verifyuser.js",
   "PreviewInSolutionExplorer": false

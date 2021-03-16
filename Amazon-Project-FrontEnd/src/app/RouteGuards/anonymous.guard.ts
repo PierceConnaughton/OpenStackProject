@@ -11,7 +11,7 @@ export class AnonymousGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     //return this.checkLogin();
-    return this.router.navigate['/home'];
+    return this.router.navigate[''];
   }
   
 }
