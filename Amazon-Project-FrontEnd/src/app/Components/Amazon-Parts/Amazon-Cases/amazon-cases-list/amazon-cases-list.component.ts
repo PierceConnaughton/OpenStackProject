@@ -64,7 +64,7 @@ export class AmazonCasesListComponent implements OnInit {
       return false;
     }
     else {
-      return cases.product.title === this.currentCases.product.title;
+      return cases.asin === this.currentCases.asin;
     }
   }
 

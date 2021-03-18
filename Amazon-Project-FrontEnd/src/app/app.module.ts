@@ -44,6 +44,12 @@ import { appInitializer } from './helpers/app.initialiser';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { UserService } from './Services/user.service';
+import { AmazonGpuRowComponent } from './Components/Amazon-Parts/Amazon-GPUs/amazon-gpu-row/amazon-gpu-row.component';
+import { AmazonGpuDetailsComponent } from './Components/Amazon-Parts/Amazon-GPUs/amazon-gpu-details/amazon-gpu-details.component';
+import { AmazonMonitorRowComponent } from './Components/Amazon-Parts/Amazon-Monitors/amazon-monitor-row/amazon-monitor-row.component';
+import { AmazonCpuRowComponent } from './Components/Amazon-Parts/Amazon-CPUs/amazon-cpu-row/amazon-cpu-row.component';
+import { AmazonCpuDetailsComponent } from './Components/Amazon-Parts/Amazon-CPUs/amazon-cpu-details/amazon-cpu-details.component';
+import { AmazonCasesRowComponent } from './Components/Amazon-Parts/Amazon-Cases/amazon-cases-row/amazon-cases-row.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +76,13 @@ import { UserService } from './Services/user.service';
     GpuDetailsComponent,
     GpuFormComponent,
     GpuListComponent,
-    GpuRowComponent
+    GpuRowComponent,
+    AmazonGpuRowComponent,
+    AmazonGpuDetailsComponent,
+    AmazonMonitorRowComponent,
+    AmazonCpuRowComponent,
+    AmazonCpuDetailsComponent,
+    AmazonCasesRowComponent
 
   ],
   imports: [

@@ -15,15 +15,20 @@ import { AmazonGpusResponse } from '../../../../model/AmazonGpuResponse';
 export class AmazonGpuListComponent implements OnInit {
 
   amazonData: AmazonGpusResponse;
+
+  amazonDataTwo: AmazonGpusResponse;
   errorMessage: any;
 
   AmazonGpusListComponent
 
+  // rankString: string;
+  // ratingString: string;
+
   results:[{
-    rank: Int16Array;
+    rank: string;
     title:string;
     link:string;
-    rating: Int16Array;
+    rating: string;
   }];
 
   constructor(private _amazonService:AmazonApiService){
@@ -33,15 +38,17 @@ export class AmazonGpuListComponent implements OnInit {
     this._amazonService.getGpuAmazonList().subscribe(
       amazonData => {
         this.amazonData=amazonData;
+
         console.log('"Best Selling Gpus URL": '  + JSON.stringify(amazonData.request_metadata.amazon_url));
 
       },
       error => this.errorMessage = <any>error
 
     );
+    
+    // this.rankString = this.rankToString(this.amazonData.rank)
+    // this.ratingString =  this.ratingToString(this.amazonData.rating)
   }
-
- 
 
   gpuList: AmazonGpusResponse;
 
@@ -57,6 +64,7 @@ export class AmazonGpuListComponent implements OnInit {
 
   clicked (gpu: AmazonGpusResponse): void {
     this.currentGpu = gpu;
+    this.getItemDetails(gpu.asin);
   }
 
   isSelected(gpu: AmazonGpusResponse): boolean{
@@ -64,12 +72,33 @@ export class AmazonGpuListComponent implements OnInit {
       return false;
     }
     else {
-      return gpu.product.title === this.currentGpu.product.title;
+      return gpu.asin === this.currentGpu.asin;
     }
   }
 
   setOrder(value: string) {
     this.order = value;
   }
+
+  getItemDetails(itemName:string) : boolean {
+    this._amazonService.getGpuItemData(itemName).subscribe(
+      amazonData => {
+        this.amazonDataTwo=amazonData;
+        console.log('"products asin": '  + JSON.stringify(amazonData.product.asin));
+
+      },
+      error => this.errorMessage = <any>error
+
+    );
+    return false;
+  }
+  
+  //  rankToString(rank) {
+  //   return String.fromCharCode.apply(null, new Uint16Array(rank));
+  // }
+
+  // ratingToString(rating) {
+  //   return String.fromCharCode.apply(null, new Uint16Array(rating));
+  // }
 
 }

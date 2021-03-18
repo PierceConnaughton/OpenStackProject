@@ -1,5 +1,16 @@
 export interface AmazonMonitorResponse{
   
+  //general
+  rank: Number;
+  asin: string;
+  title:string;
+  link:string;
+  rating: Number;
+  image: string;
+  price: {
+    raw:string;
+  };
+
     //for specific product
       product:{
         title:string;
@@ -26,10 +37,11 @@ export interface AmazonMonitorResponse{
       //for bestsellers
       bestsellers: [
         {
-          rank: Int16Array;
+          rank: Number;
+          asin: string;
           title:string;
           link:string;
-          rating: Int16Array;
+          rating: Number;
           image: string;
           price: {
             raw:string;
@@ -41,6 +53,18 @@ export interface AmazonMonitorResponse{
   }
   
   export class Item implements AmazonMonitorResponse {
+    
+    rank: Number;
+    asin: string;
+    title:string;
+    link:string;
+    rating: Number;
+    image: string;
+    price: {
+      raw:string;
+      value: Number;
+    };
+    
       product:{
         title:string;
         link:string;
@@ -64,10 +88,11 @@ export interface AmazonMonitorResponse{
   
       bestsellers: [
         {
-          rank: Int16Array;
+          rank: Number;
+          asin: string;
           title:string;
           link:string;
-          rating: Int16Array;
+          rating: Number;
           image: string;
           price: {
             raw:string;

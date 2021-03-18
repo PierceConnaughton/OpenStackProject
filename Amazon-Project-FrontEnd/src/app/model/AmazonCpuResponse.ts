@@ -1,5 +1,16 @@
 export interface AmazonCpusResponse{
   
+  //general
+  rank: Int16Array;
+  asin: string;
+  title:string;
+  link:string;
+  rating: Int16Array;
+  image: string;
+  price: {
+    raw:string;
+  };
+
     //for specific product
       product:{
         title:string;
@@ -27,6 +38,7 @@ export interface AmazonCpusResponse{
       bestsellers: [
         {
           rank: Int16Array;
+          asin: string;
           title:string;
           link:string;
           rating: Int16Array;
@@ -41,6 +53,16 @@ export interface AmazonCpusResponse{
   }
   
   export class Item implements AmazonCpusResponse {
+    rank: Int16Array;
+    asin: string;
+    title:string;
+    link:string;
+    rating: Int16Array;
+    image: string;
+    price: {
+      raw:string;
+    };
+
       product:{
         title:string;
         link:string;
@@ -65,6 +87,7 @@ export interface AmazonCpusResponse{
       bestsellers: [
         {
           rank: Int16Array;
+          asin: string;
           title:string;
           link:string;
           rating: Int16Array;

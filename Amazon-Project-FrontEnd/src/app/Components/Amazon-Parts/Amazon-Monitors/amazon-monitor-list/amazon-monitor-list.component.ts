@@ -61,7 +61,7 @@ export class AmazonMonitorListComponent implements OnInit {
       return false;
     }
     else {
-      return monitor.product.title === this.currentMonitor.product.title;
+      return monitor.asin === this.currentMonitor.asin;
     }
   }
 

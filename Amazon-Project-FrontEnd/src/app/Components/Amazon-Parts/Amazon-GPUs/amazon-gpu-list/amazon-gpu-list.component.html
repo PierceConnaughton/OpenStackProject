@@ -1,14 +1,17 @@
 <div class="container-fluid">
     <h1>List Of GPU's</h1>
-        <div class="" *ngIf="amazonData">
+    <h2 *ngIf="!amazonData">Loading...</h2>
+    <div class="" *ngIf="amazonData">
 
             <div class="col-sm-8">       
                 <a href="{{amazonData.request_metadata.amazon_url}}" class="col-sm-4" > Link to best selling gpus</a>
             </div>
+
+            <amazon-gpu-details *ngIf="currentGpu" [amazonDataTwo]="amazonDataTwo" [gpu]="currentGpu"></amazon-gpu-details>
             
     <br>
 
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-sm-2">
             <input type="text" [(ngModel)]="searchTextGpuTitle" placeholder="Search By GPU Title" />
         </div>
@@ -16,33 +19,30 @@
     
     <div class="row card-header"> 
         <div [class.active]="order === 'title'" (click)="setOrder('title')" class="col-sm-3"> <h4>Title</h4> 
+            <span *ngIf="order === 'title'">▼</span>
         </div>
         <div [class.active]="order === 'link'" (click)="setOrder('link')" class="col-sm-3"> <h4>Link</h4> 
+            <span *ngIf="order === 'link'">▼</span>
         </div>
-        <div  class="col-sm-1"> <h4>Rank</h4> 
+        <div [class.active]="order === 'rank'" (click)="setOrder('rank')"  class="col-sm-1"> <h4>Rank</h4> 
+            <span *ngIf="order === 'rank'">▼</span>
         </div>
-        <div  class="col-sm-1"> <h4>Rating</h4> 
+        <div [class.active]="order === 'rating'" (click)="setOrder('rating')" class="col-sm-1"> <h4>Rating</h4> 
+            <span *ngIf="order === 'rating'">▼</span>
         </div>
-        <div  class="col-sm-2"> <h4>Image</h4> 
+        <div  [class.active]="order === 'image'" (click)="setOrder('image')" class="col-sm-2"> <h4>Image</h4> 
+            <span *ngIf="order === 'image'">▼</span>
         </div>
-        <div  class="col-sm-2"> <h4>Price</h4> 
-        </div>
+        <!--<div [class.active]="order === 'amazonData.price.raw'" class="col-sm-2" (click)="setOrder('amazonData.price.raw')"> <h4>Price</h4> 
+        </div> -->
 
     </div>
 
-    <div class="card" *ngFor="let results of amazonData.bestsellers | orderBy: order:reverse:'case-insensitive' | filter : searchTextGpuTitle : 'title'"
-    [monitor]="results"
+    <amazon-gpu-row class="card" *ngFor="let results of amazonData.bestsellers | orderBy: order:reverse:'case-insensitive' | filter : searchTextGpuTitle : 'title'"
+    [gpu]="results"
     (click)='clicked(results)'
-    [class.bg-info]="isSelected(results)" [class.text-white]="isSelected(results)">       
-        <div class="row card-body"> 
-            <div class="col-sm-3 card-title">  <h5>{{results.title}}</h5> </div>
-            <div class="col-sm-3"> <a href="{{results.link}}">{{results.title}}</a> </div>
-            <div class="col-sm-1"> <h6>{{results.rank}}</h6> </div>
-            <div class="col-sm-1"> <h6>{{results.rating}}</h6> </div>
-            <div class="col-sm-2"> <img  class="images" src="{{results.image}}"/> </div>
-            <div class="col-sm-2"> <h6>{{results.price.raw}}</h6> </div>
-        </div>
-    </div>
+    [class.bg-info]="isSelected(results)" [class.text-white]="isSelected(results)"></amazon-gpu-row>
+    
 </div>
 </div>
     

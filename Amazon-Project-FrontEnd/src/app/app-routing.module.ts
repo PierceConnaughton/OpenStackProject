@@ -26,9 +26,9 @@ const routes: Routes = [
  { path: 'amazon-monitor-list-component', component: AmazonMonitorListComponent, canActivate: [AuthGuard]},
  {path: 'amazon-cases-list-component', component: AmazonCasesListComponent, canActivate: [AuthGuard]},
  {path: 'amazon-cpu-list-component', component: AmazonCpuListComponent, canActivate: [AuthGuard]},
- {path: 'amazon-gpu-list-component', component: AmazonGpuListComponent, canActivate: [AuthGuard]},
+ {path: 'amazon-gpu-list-component', component: AmazonGpuListComponent, },
  { path: 'monitor-list-component', component: MonitorListComponent, canActivate: [AuthGuard]},
- { path: 'gpu-list-component', component: GpuListComponent},
+ { path: 'gpu-list-component', component: GpuListComponent, canActivate: [AuthGuard]},
  { path: 'login', component: LoginComponent },
    {path: 'logout', component: LogoutComponent},
 

@@ -57,11 +57,47 @@ export class AmazonApiService {
     getItemData(itemName): Observable<AmazonMonitorResponse> {
       return this._http.get<AmazonMonitorResponse>(this._siteURL + this._key + this._product + this._asin + itemName + this._amazon_domain) 
       .pipe(
-        tap(data => console.log('Amazondata/error' + JSON.stringify(data))
+        tap(data => console.log('Amazondata/error' + JSON.stringify(data.asin))
         ),
         catchError(this.handleError)
       );  
   }
+
+  getGpuItemData(itemName): Observable<AmazonGpusResponse> {
+    return this._http.get<AmazonGpusResponse>(this._siteURL + this._key + this._product + this._asin + itemName + this._amazon_domain) 
+    .pipe(
+      tap(data => console.log('Amazondata/error' + JSON.stringify(data.asin))
+      ),
+      catchError(this.handleError)
+    );  
+}
+
+getMonitorItemData(itemName): Observable<AmazonMonitorResponse> {
+  return this._http.get<AmazonMonitorResponse>(this._siteURL + this._key + this._product + this._asin + itemName + this._amazon_domain) 
+  .pipe(
+    tap(data => console.log('Amazondata/error' + JSON.stringify(data.asin))
+    ),
+    catchError(this.handleError)
+  );  
+}
+
+getCpuItemData(itemName): Observable<AmazonCpusResponse> {
+  return this._http.get<AmazonCpusResponse>(this._siteURL + this._key + this._product + this._asin + itemName + this._amazon_domain) 
+  .pipe(
+    tap(data => console.log('Amazondata/error' + JSON.stringify(data.asin))
+    ),
+    catchError(this.handleError)
+  );  
+}
+
+getCaseItemData(itemName): Observable<AmazonCasesResponse> {
+  return this._http.get<AmazonCasesResponse>(this._siteURL + this._key + this._product + this._asin + itemName + this._amazon_domain) 
+  .pipe(
+    tap(data => console.log('Amazondata/error' + JSON.stringify(data.asin))
+    ),
+    catchError(this.handleError)
+  );  
+}
 
   getMonitorAmazonList(): Observable<AmazonMonitorResponse> {
     return this._http.get<AmazonMonitorResponse>(this._siteURL + this._key + this._best_sellers + this._url_monitors) 

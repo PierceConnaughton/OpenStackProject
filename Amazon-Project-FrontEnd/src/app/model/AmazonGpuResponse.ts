@@ -1,7 +1,19 @@
 export interface AmazonGpusResponse{
   
+          //general
+          rank: Number;
+          asin: string;
+          title:string;
+          link:string;
+          rating: Number;
+          image: string;
+          price: {
+            raw:string;
+          };
+
     //for specific product
       product:{
+        asin:string;
         title:string;
         link:string;
         brand:string;
@@ -10,6 +22,25 @@ export interface AmazonGpusResponse{
         model_number:string;
         description:string;
         rating: Int16Array;
+        images:[
+          {
+            link:string;
+          }
+        ];
+        categories:[
+          {
+            name:string;
+          }
+        ];
+        first_available:{
+          raw: string;
+        }
+        buybox_winner:{
+          price:{
+            raw: string;
+            value: Number
+          }
+        }
       };
   
       frequently_bought_together: {
@@ -26,13 +57,15 @@ export interface AmazonGpusResponse{
       //for bestsellers
       bestsellers: [
         {
-          rank: Int16Array;
+          rank: Number;
+          asin: string;
           title:string;
           link:string;
-          rating: Int16Array;
+          rating: Number;
           image: string;
           price: {
             raw:string;
+            
           };
         }
       ];
@@ -43,7 +76,19 @@ export interface AmazonGpusResponse{
   }
   
   export class Item implements AmazonGpusResponse {
+
+        rank: Number;
+          asin: string;
+          title:string;
+          link:string;
+          rating: Number;
+          image: string;
+          price: {
+            raw:string;
+          };
+
       product:{
+        asin:string;
         title:string;
         link:string;
         brand:string;
@@ -52,6 +97,26 @@ export interface AmazonGpusResponse{
         model_number:string;
         description:string;
         rating: Int16Array;
+        images:[
+          {
+            link:string;
+          }
+        ];
+        categories:[
+          {
+            name:string;
+          }
+        ];
+        first_available:{
+          raw: string;
+        }
+        buybox_winner:{
+          offer_id: string;
+          price:{
+            raw: string;
+            value: Number
+          }
+        }
       };
   
       frequently_bought_together: {
@@ -68,10 +133,11 @@ export interface AmazonGpusResponse{
   
       bestsellers: [
         {
-          rank: Int16Array;
+          rank: Number;
+          asin: string;
           title:string;
           link:string;
-          rating: Int16Array;
+          rating: Number;
           image: string;
           price: {
             raw:string;

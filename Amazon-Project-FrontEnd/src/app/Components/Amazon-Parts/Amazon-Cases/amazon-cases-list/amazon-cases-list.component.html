@@ -1,5 +1,6 @@
 <div class="container-fluid">
     <h1>List Of Cases</h1>
+    <h2 *ngIf="!amazonData">Loading...</h2>
         <div class="" *ngIf="amazonData">
 
             <div class="col-sm-8">       
@@ -16,33 +17,26 @@
 
     <div class="row card-header"> 
         <div [class.active]="order === 'title'" (click)="setOrder('title')" class="col-sm-3"> <h4>Title</h4> 
+            <span *ngIf="order === 'title'">▼</span>
         </div>
         <div [class.active]="order === 'link'" (click)="setOrder('link')" class="col-sm-3"> <h4>Link</h4> 
+            <span *ngIf="order === 'link'">▼</span>
         </div>
         <div  class="col-sm-1"> <h4>Rank</h4> 
         </div>
         <div  class="col-sm-1"> <h4>Rating</h4> 
         </div>
-        <div  class="col-sm-2"> <h4>Image</h4> 
+        <div  [class.active]="order === 'image'" (click)="setOrder('image')" class="col-sm-2"> <h4>Image</h4> 
+            <span *ngIf="order === 'image'">▼</span>
         </div>
-        <div  class="col-sm-2"> <h4>Price</h4> 
-        </div>
+        
 
     </div>
 
-    <div class="card" *ngFor="let results of amazonData.bestsellers | orderBy: order:reverse:'case-insensitive' | filter : searchTextCasesTitle : 'title'"
-    [monitor]="results"
+    <amazon-cases-row class="card" *ngFor="let results of amazonData.bestsellers | orderBy: order:reverse:'case-insensitive' | filter : searchTextCasesTitle : 'title'"
+    [case]="results"
     (click)='clicked(results)'
-    [class.bg-info]="isSelected(results)" [class.text-white]="isSelected(results)">       
-    <div class="row card-body"> 
-        <div class="col-sm-3 card-title">  <h5>{{results.title}}</h5> </div>
-        <div class="col-sm-3"> <a href="{{results.link}}">{{results.title}}</a> </div>
-        <div class="col-sm-1"> <h6>{{results.rank}}</h6> </div>
-        <div class="col-sm-1"> <h6>{{results.rating}}</h6> </div>
-        <div class="col-sm-2"> <img  class="images" src="{{results.image}}"/> </div>
-        <div class="col-sm-2"> <h6>{{results.price.raw}}</h6> </div>
-    </div>
-    </div>
+    [class.bg-info]="isSelected(results)" [class.text-white]="isSelected(results)"></amazon-cases-row>
 </div>
 </div>
     

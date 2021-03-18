@@ -1,5 +1,15 @@
 export interface AmazonCasesResponse{
-  
+  //general
+  rank: Int16Array;
+  asin: string;
+  title:string;
+  link:string;
+  rating: Int16Array;
+  image: string;
+  price: {
+    raw:string;
+  };
+
     //for specific product
       product:{
         title:string;
@@ -27,6 +37,7 @@ export interface AmazonCasesResponse{
       bestsellers: [
         {
           rank: Int16Array;
+          asin: string;
           title:string;
           link:string;
           rating: Int16Array;
@@ -41,6 +52,17 @@ export interface AmazonCasesResponse{
   }
   
   export class Item implements AmazonCasesResponse {
+   
+    rank: Int16Array;
+    asin: string;
+    title:string;
+    link:string;
+    rating: Int16Array;
+    image: string;
+    price: {
+      raw:string;
+    };
+
       product:{
         title:string;
         link:string;
@@ -65,6 +87,7 @@ export interface AmazonCasesResponse{
       bestsellers: [
         {
           rank: Int16Array;
+          asin: string;
           title:string;
           link:string;
           rating: Int16Array;

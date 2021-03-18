@@ -64,7 +64,7 @@ export class AmazonCpuListComponent implements OnInit {
       return false;
     }
     else {
-      return cpu.product.title === this.currentCpu.product.title;
+      return cpu.asin === this.currentCpu.asin;
     }
   }
 
