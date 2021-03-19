@@ -38,21 +38,21 @@ export class FirebaseApiService {
 
   updateGpu(id:string, brand: string, manufacturer: string, series: string, color: string, hardDrive:string): Observable<Gpu> {
 
-    return this.http.delete<Gpu>(this.apiURL + '/updateGpu?id=' + id)
+    return this.http.delete<Gpu>(this.apiURL + '/updateGpu?id=' + id + '&brand=' + brand + '&manufacturer=' + manufacturer + '&series=' + series + '&color=' + color + '&hardDrive=' + hardDrive)
     .pipe(
       retry(1),
       catchError(this.handleError)
     )
   }
 
-  // addGpu(brand: string, manufacturer: string, series: string, color: string, hardDrive:string): Observable<Gpu> {
+  addGpu(brand: string, manufacturer: string, series: string, color: string, hardDrive:string): Observable<Gpu> {
 
-  //   return this.http.post<Gpu>(this.apiURL + '/addGpu?brand=' + brand + '&manufacturer=' + manufacturer + '&series=' + series + '&color=' + color + '&hardDrive=' + hardDrive)
-  //   .pipe(
-  //     retry(1),
-  //     catchError(this.handleError)
-  //   )
-  // }
+    return this.http.post<Gpu>(this.apiURL + '/addGpu?brand=' + brand + '&manufacturer=' + manufacturer + '&series=' + series + '&color=' + color + '&hardDrive=' + hardDrive)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
  
 
 

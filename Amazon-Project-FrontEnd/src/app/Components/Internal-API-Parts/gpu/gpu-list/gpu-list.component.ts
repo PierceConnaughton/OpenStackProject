@@ -141,22 +141,22 @@ export class GpuListComponent implements OnInit {
 
 
 
-  // createNewGpu(): void {
-  //   this.firebaseApiService.addGpu(this.brandValue,this.manufacturerValue,this.seriesValue,this.colorValue,this.hardDriveValue).subscribe((data: {}) =>{
-  //     this.MyGpus = data;
-  //     this.brandValue='';
-  //     this.manufacturerValue='';
-  //     this.seriesValue='';
-  //     this.colorValue='';
-  //     this.hardDriveValue='';
-  //   })
-  //   this.showGpuForm = false;
+  createNewGpu(): void {
+    this.firebaseApiService.addGpu(this.brandValue,this.manufacturerValue,this.seriesValue,this.colorValue,this.hardDriveValue).subscribe((data: {}) =>{
+      this.MyGpus = data;
+      this.brandValue='';
+      this.manufacturerValue='';
+      this.seriesValue='';
+      this.colorValue='';
+      this.hardDriveValue='';
+    })
+    this.showGpuForm = false;
 
     
-  // this.loadGpus();
+  this.loadGpus();
 
-  // window.location.reload();
-  // }
+  window.location.reload();
+  }
   
 
   

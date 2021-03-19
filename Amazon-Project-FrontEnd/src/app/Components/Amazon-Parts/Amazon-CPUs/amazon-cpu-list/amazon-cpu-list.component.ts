@@ -16,7 +16,7 @@ export class AmazonCpuListComponent implements OnInit {
 
   amazonData: AmazonCpusResponse;
   errorMessage: any;
-
+  amazonDataTwo: AmazonCpusResponse;
   AmazonCpusListComponent
 
   results:[{
@@ -57,6 +57,7 @@ export class AmazonCpuListComponent implements OnInit {
 
   clicked (cpu: AmazonCpusResponse): void {
     this.currentCpu = cpu;
+    this.getItemDetails(cpu.asin);
   }
 
   isSelected(cpu: AmazonCpusResponse): boolean{
@@ -70,6 +71,19 @@ export class AmazonCpuListComponent implements OnInit {
 
   setOrder(value: string) {
     this.order = value;
+  }
+
+  getItemDetails(itemName:string) : boolean {
+    this._amazonService.getCpuItemData(itemName).subscribe(
+      amazonData => {
+        this.amazonDataTwo=amazonData;
+        console.log('"products asin": '  + JSON.stringify(amazonData.product.asin));
+
+      },
+      error => this.errorMessage = <any>error
+
+    );
+    return false;
   }
 
 }

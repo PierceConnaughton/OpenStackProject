@@ -9,10 +9,12 @@ export interface AmazonCpusResponse{
   image: string;
   price: {
     raw:string;
+    value:Number;
   };
 
     //for specific product
       product:{
+        asin:string;
         title:string;
         link:string;
         brand:string;
@@ -21,6 +23,26 @@ export interface AmazonCpusResponse{
         model_number:string;
         description:string;
         rating: Int16Array;
+        images:[
+          {
+            link:string;
+          }
+        ];
+        categories:[
+          {
+            name:string;
+          }
+        ];
+        first_available:{
+          raw: string;
+        }
+        buybox_winner:{
+          offer_id: string;
+          price:{
+            raw: string;
+            value: Number
+          }
+        }
       };
   
       frequently_bought_together: {
@@ -45,6 +67,7 @@ export interface AmazonCpusResponse{
           image: string;
           price: {
             raw:string;
+            value:Number;
           };
         }
       ];
@@ -61,9 +84,11 @@ export interface AmazonCpusResponse{
     image: string;
     price: {
       raw:string;
+      value:Number;
     };
 
       product:{
+        asin:string;
         title:string;
         link:string;
         brand:string;
@@ -72,6 +97,26 @@ export interface AmazonCpusResponse{
         model_number:string;
         description:string;
         rating: Int16Array;
+        images:[
+          {
+            link:string;
+          }
+        ];
+        categories:[
+          {
+            name:string;
+          }
+        ];
+        first_available:{
+          raw: string;
+        }
+        buybox_winner:{
+          offer_id: string;
+          price:{
+            raw: string;
+            value: Number
+          }
+        }
       };
   
       frequently_bought_together: {
@@ -94,6 +139,7 @@ export interface AmazonCpusResponse{
           image: string;
           price: {
             raw:string;
+            value:Number;
           };
         }
       ];

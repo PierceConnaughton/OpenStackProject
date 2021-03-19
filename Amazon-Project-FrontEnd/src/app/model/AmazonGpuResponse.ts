@@ -9,6 +9,7 @@ export interface AmazonGpusResponse{
           image: string;
           price: {
             raw:string;
+            value:Number;
           };
 
     //for specific product
@@ -65,6 +66,7 @@ export interface AmazonGpusResponse{
           image: string;
           price: {
             raw:string;
+            value:Number;
             
           };
         }
@@ -85,6 +87,7 @@ export interface AmazonGpusResponse{
           image: string;
           price: {
             raw:string;
+            value:Number;
           };
 
       product:{
@@ -141,6 +144,7 @@ export interface AmazonGpusResponse{
           image: string;
           price: {
             raw:string;
+            value:Number;
           };
         }
       ];

@@ -14,6 +14,7 @@ import { AmazonMonitorResponse } from '../../../../model/AmazonMonitorResponse';
 export class AmazonMonitorListComponent implements OnInit {
 
   amazonData: AmazonMonitorResponse;
+  amazonDataTwo: AmazonMonitorResponse;
   errorMessage: any;
 
   AmazonMonitorListComponent
@@ -54,6 +55,7 @@ export class AmazonMonitorListComponent implements OnInit {
 
   clicked (monitor: AmazonMonitorResponse): void {
     this.currentMonitor = monitor;
+    this.getItemDetails(monitor.asin);
   }
 
   isSelected(monitor: AmazonMonitorResponse): boolean{
@@ -68,4 +70,18 @@ export class AmazonMonitorListComponent implements OnInit {
   setOrder(value: string) {
     this.order = value;
   }
+
+  getItemDetails(itemName:string) : boolean {
+    this._amazonService.getMonitorItemData(itemName).subscribe(
+      amazonData => {
+        this.amazonDataTwo=amazonData;
+        console.log('"products asin": '  + JSON.stringify(amazonData.product.asin));
+
+      },
+      error => this.errorMessage = <any>error
+
+    );
+    return false;
+  }
+
 }

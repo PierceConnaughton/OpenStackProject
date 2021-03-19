@@ -16,7 +16,7 @@ export class AmazonCasesListComponent implements OnInit {
 
   amazonData: AmazonCasesResponse;
   errorMessage: any;
-
+  amazonDataTwo: AmazonCasesResponse;
   AmazonCasesListComponent
 
   results:[{
@@ -57,6 +57,7 @@ export class AmazonCasesListComponent implements OnInit {
 
   clicked (cases: AmazonCasesResponse): void {
     this.currentCases = cases;
+    this.getItemDetails(cases.asin);
   }
 
   isSelected(cases: AmazonCasesResponse): boolean{
@@ -70,5 +71,18 @@ export class AmazonCasesListComponent implements OnInit {
 
   setOrder(value: string) {
     this.order = value;
+  }
+
+  getItemDetails(itemName:string) : boolean {
+    this._amazonService.getCaseItemData(itemName).subscribe(
+      amazonData => {
+        this.amazonDataTwo=amazonData;
+        console.log('"products asin": '  + JSON.stringify(amazonData.product.asin));
+
+      },
+      error => this.errorMessage = <any>error
+
+    );
+    return false;
   }
 }

@@ -2,7 +2,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
 
-  <form [formGroup]="gpuForm" (ngSubmit) = "onSubmit()" class="form-inline justify-content-center">
+ <form [formGroup]="gpuForm" (ngSubmit) = "onSubmit()" class="form-inline justify-content-center">
     
     <div class="row">
     
@@ -76,8 +76,9 @@
     
 </form>
   
-  <!--<form (ngSubmit)="addGpu()"></form>-->
- <!--<form >
+<!--
+  <form (ngSubmit)="addGpu()">
+
   
     <div class="row">
     <div class="form-group">
@@ -132,9 +133,67 @@
 
     </div>
 
-  </form> -->
+  </form>
 
-  <!--
+  <form (ngSubmit)="addGpu()">
+
+  
+    <div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-12" for="brand">
+          Gpu Brand
+        </label>
+      <input class="col-md-12" type="text" class="form-control" placeholder="Enter brand"
+      id="brand" required
+      [(ngModel)] ="brandValue" name="brand">
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="manufacturer">
+          Gpu Manufacturer
+        </label>
+      <input class="col-md-2" type="text" class="form-control" placeholder="Enter Manufacturer"
+      id="manufacturer" required
+      [(ngModel)] ="manufacturerValue" name="manufacturer">
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="series">
+          Gpu Series
+        </label>
+      <input class="col-md-2" type="text" class="form-control" placeholder="Enter series"
+      id="series" required
+      [(ngModel)] ="seriesValue" name="series">
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="color">
+          Gpu Color
+        </label>
+      <input class="col-md-2" type="text" class="form-control" placeholder="Enter Color"
+      id="color" required
+      [(ngModel)] ="colorValue" name="color">
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="hardDrive">
+          Gpu Hard Drive
+        </label>
+      <input class="col-md-2" type="text" class="form-control" placeholder="Enter hardDrive"
+      id="hardDrive" required
+      [(ngModel)] ="hardDriveValue" name="hardDrive">
+    </div>
+
+
+    <div class="col-sm">
+      <button type="submit" [disabled]="!monitorForm.valid" class="btn btn-success">Submit</button>
+    </div>
+
+    </div>
+
+  </form>
+
+  
 
  {{message}}
 
@@ -247,3 +306,4 @@
 
 {{monitorID.value}}
     -->
+

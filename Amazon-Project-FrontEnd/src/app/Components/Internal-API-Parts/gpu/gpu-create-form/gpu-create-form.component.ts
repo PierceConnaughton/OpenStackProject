@@ -5,11 +5,11 @@ import { FirebaseApiService } from '../../../../Services/firebase-api.service';
 import {Gpu} from '../../../../model/gpu';
 
 @Component({
-  selector: 'app-gpu-form',
-  templateUrl: './gpu-form.component.html',
-  styleUrls: ['./gpu-form.component.css']
+  selector: 'app-gpu-create-form',
+  templateUrl: './gpu-create-form.component.html',
+  styleUrls: ['./gpu-create-form.component.css']
 })
-export class GpuFormComponent implements OnInit {
+export class GpuCreateFormComponent implements OnInit {
 
   @Input() gpu: Gpu;
 
@@ -106,4 +106,5 @@ onSubmit(){
 closeForm(){
 this.gpuFormClose.emit(null)
 }
+
 }

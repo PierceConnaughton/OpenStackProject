@@ -50,6 +50,7 @@ import { AmazonMonitorRowComponent } from './Components/Amazon-Parts/Amazon-Moni
 import { AmazonCpuRowComponent } from './Components/Amazon-Parts/Amazon-CPUs/amazon-cpu-row/amazon-cpu-row.component';
 import { AmazonCpuDetailsComponent } from './Components/Amazon-Parts/Amazon-CPUs/amazon-cpu-details/amazon-cpu-details.component';
 import { AmazonCasesRowComponent } from './Components/Amazon-Parts/Amazon-Cases/amazon-cases-row/amazon-cases-row.component';
+import { GpuCreateFormComponent } from './Components/Internal-API-Parts/gpu/gpu-create-form/gpu-create-form.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { AmazonCasesRowComponent } from './Components/Amazon-Parts/Amazon-Cases/
     AmazonMonitorRowComponent,
     AmazonCpuRowComponent,
     AmazonCpuDetailsComponent,
-    AmazonCasesRowComponent
+    AmazonCasesRowComponent,
+    GpuCreateFormComponent
 
   ],
   imports: [

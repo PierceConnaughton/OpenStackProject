@@ -4,9 +4,10 @@
         <h2 *ngIf="!showGpuForm && !currentGpu">List of Gpus</h2>
 
         <h2  *ngIf="showGpuForm">Gpu Form</h2>
-
         <app-gpu-form *ngIf="showGpuForm" 
         (gpuFormClose)="gpuFormClose($event)" [gpu]="currentGpu"></app-gpu-form>  
+
+       
     
         <h2 class="h2Centered"  *ngIf="currentGpu">Gpu Details</h2>
 
@@ -34,7 +35,7 @@
     
         <br *ngIf="!showGpuForm">
     
-        
+
         
     
     
