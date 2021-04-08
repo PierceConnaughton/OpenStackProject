@@ -29,6 +29,7 @@ const PcSchema = new Schema(
         value: {type: Number},
         rating: {type: Number},
         image: { type: String },
+        link: { type: String },
         
 
         

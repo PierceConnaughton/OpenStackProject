@@ -4,12 +4,29 @@
   class="btn btn btn-outline-danger" >Delete Pc Part</button>
 </div>
 
+<div class="row card-header"> 
+  <div  class="col-sm-2"> <h4>Title</h4> 
+     
+  </div>
+  <div  class="col-sm-2"> <h4>Link</h4>
+      
+  </div>
+  <div  class="col-sm-2"> <h4>Price</h4> 
+  </div>
+  <div  class="col-sm-1"> <h4>Rating</h4> 
+  </div>
+  <div    class="col-sm-1"> <h4>Asin</h4> 
+     
+  </div>
+  <div  class="col-sm-2"> <h4>Image</h4> 
+  </div>
+  
+
+</div>
+
 <ul *ngIf="userItems.length > 0" class="list-group">
-  <li  *ngFor="let item of userItems"
-  [userItem]="item"
-  (click)='clicked(item)'
-  [class.bg-info]="isSelected(item)" [class.text-white]="isSelected(item)">
-    <user-item  [userItem]="item"></user-item>
+  <li  *ngFor="let item of userItems">
+    <user-item (deletedItemBool)="deletedItemHandler($event)"  [userItem]="item"></user-item>
   </li>
 
   <li class="list-group-item active">

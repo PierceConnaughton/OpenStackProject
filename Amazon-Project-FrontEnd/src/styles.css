@@ -33,4 +33,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     
   }*/
 
+  #item-image {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border: 0.25rem solid rgb(0, 0, 0);
+    background-color: white;
+    box-shadow: 10px 10px rgb(43, 42, 42);
+  }
+
 

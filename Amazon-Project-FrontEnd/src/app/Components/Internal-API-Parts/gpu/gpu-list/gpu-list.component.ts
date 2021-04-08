@@ -91,25 +91,34 @@ export class GpuListComponent implements OnInit {
     if(gpu == null){
       this.currentGpu = null;
     }
-    window.location.reload();
+    
+    else if(this.currentGpu == null){
+      this.createNewGpu(gpu.brand, gpu.manufacturer, gpu.series, gpu.color, gpu.hardDrive);
+    }
+
+    else{
+      console.log('need to update gpu with id ' + this.currentGpu.id);
+      this.updateGpu(this.currentGpu.id, gpu.brand,gpu.manufacturer,gpu.series,gpu.color,gpu.hardDrive)
+    }
+    this.loadGpus();
   }
 
   setOrder(value: string) {
     this.order = value;
   }
 
-  // updateGpu( id: string, brand:string,manufacturer: string, series:string,color: string, hardDrive:string){
-  //   return this.firebaseApiService.updateGpu(id,this.brandValue,this.manufacturerValue,this.seriesValue,this.colorValue,this.hardDriveValue).subscribe((data: {}) =>{
-  //         this.MyGpus = data;
-  //         this.brandValue='';
-  //         this.manufacturerValue='';
-  //         this.seriesValue='';
-  //         this.colorValue='';
-  //         this.hardDriveValue='';
-  //       })
-  //   this.loadGpus();
+  updateGpu( id: string, brand:string,manufacturer: string, series:string,color: string, hardDrive:string){
+    return this.firebaseApiService.updateGpu(id,brand,manufacturer,series,color,hardDrive).subscribe((data: {}) =>{
+          this.MyGpus = data;
+          this.brandValue='';
+          this.manufacturerValue='';
+          this.seriesValue='';
+          this.colorValue='';
+          this.hardDriveValue='';
+        })
+    this.loadGpus();
     
-  // }
+  }
   
 
   isSelected(gpu: Gpu): boolean{
@@ -142,22 +151,20 @@ export class GpuListComponent implements OnInit {
 
 
 
-  // createNewGpu(): void {
-  //   this.firebaseApiService.addGpu(this.brandValue,this.manufacturerValue,this.seriesValue,this.colorValue,this.hardDriveValue).subscribe((data: {}) =>{
-  //     this.MyGpus = data;
-  //     this.brandValue='';
-  //     this.manufacturerValue='';
-  //     this.seriesValue='';
-  //     this.colorValue='';
-  //     this.hardDriveValue='';
-  //   })
-  //   this.showGpuForm = false;
+  createNewGpu(brand: string, manufacturer: string, series: string, color: string, hardDrive: string,): void {
+    this.firebaseApiService.addGpu(brand,manufacturer,series,color,hardDrive).subscribe((data: {}) =>{
+      this.MyGpus = data;
+      this.brandValue='';
+      this.manufacturerValue='';
+      this.seriesValue='';
+      this.colorValue='';
+      this.hardDriveValue='';
+    })
+    this.showGpuForm = false;
 
     
-  // this.loadGpus();
-
-  // window.location.reload();
-  // }
+  this.loadGpus();
+  }
   
 
   

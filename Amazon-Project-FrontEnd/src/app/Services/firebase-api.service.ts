@@ -40,23 +40,23 @@ export class FirebaseApiService {
     )
   }
 
-  // updateCpu(id:string, model: string, manufacturer: string, speed: string, processors: string): Observable<Cpu> {
+  updateCpu(id:string, model: string, manufacturer: string, speed: string, processors: string): Observable<Cpu> {
 
-  //   return this.http.put<Cpu>(this.apiURL + '/updateCpu?id=' + id + '&model=' + model + '&manufacturer=' + manufacturer + '&speed=' + speed + '&processors=' + processors)
-  //   .pipe(
-  //     retry(1),
-  //     catchError(this.handleError)
-  //   )
-  // }
+    return this.http.put<Cpu>(this.apiURL + '/updateCpu?id=' + id + '&model=' + model + '&manufacturer=' + manufacturer + '&speed=' + speed + '&processors=' + processors,null)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
 
-  // addCpu(model: string, manufacturer: string, speed: string, processors: string): Observable<Cpu> {
+  addCpu(model: string, manufacturer: string, speed: string, processors: string): Observable<Cpu> {
 
-  //   return this.http.post<Cpu>(this.apiURL + '/addCpu?model=' + model + '&manufacturer=' + manufacturer  + '&speed=' + speed + '&processors=' + processors)
-  //   .pipe(
-  //     retry(1),
-  //     catchError(this.handleError)
-  //   )
-  // }
+    return this.http.post<Cpu>(this.apiURL + '/addCpu?model=' + model + '&manufacturer=' + manufacturer  + '&speed=' + speed + '&processors=' + processors,null)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
 
   //#endregion "Cpu Function"
 
@@ -80,23 +80,23 @@ export class FirebaseApiService {
     )
   }
 
-  // updateGpu(id:string, brand: string, manufacturer: string, series: string, color: string, hardDrive:string): Observable<Gpu> {
+  updateGpu(id:string, brand: string, manufacturer: string, series: string, color: string, hardDrive:string): Observable<Gpu> {
 
-  //   return this.http.put<Gpu>(this.apiURL + '/updateGpu?id=' + id + '&brand=' + brand + '&manufacturer=' + manufacturer + '&series=' + series + '&color=' + color + '&hardDrive=' + hardDrive)
-  //   .pipe(
-  //     retry(1),
-  //     catchError(this.handleError)
-  //   )
-  // }
+    return this.http.put<Gpu>(this.apiURL + '/updateGpu?id=' + id + '&brand=' + brand + '&manufacturer=' + manufacturer + '&series=' + series + '&color=' + color + '&hardDrive=' + hardDrive,null)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
 
-  // addGpu(brand: string, manufacturer: string, series: string, color: string, hardDrive:string): Observable<Gpu> {
+  addGpu(brand: string, manufacturer: string, series: string, color: string, hardDrive:string): Observable<Gpu> {
 
-  //   return this.http.post<Gpu>(this.apiURL + '/addGpu?brand=' + brand + '&manufacturer=' + manufacturer + '&series=' + series + '&color=' + color + '&hardDrive=' + hardDrive)
-  //   .pipe(
-  //     retry(1),
-  //     catchError(this.handleError)
-  //   )
-  // }
+    return this.http.post<Gpu>(this.apiURL + '/addGpu?brand=' + brand + '&manufacturer=' + manufacturer + '&series=' + series + '&color=' + color + '&hardDrive=' + hardDrive,null)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
  
   //#endregion "Gpu Function"
 

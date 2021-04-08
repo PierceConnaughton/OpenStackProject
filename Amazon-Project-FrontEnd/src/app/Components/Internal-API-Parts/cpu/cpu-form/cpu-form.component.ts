@@ -21,31 +21,7 @@ export class CpuFormComponent implements OnInit {
   speedValue : string;
   processorsValue : string;
 
-  // addCpu(){
-  //   return this.firebaseApiService.addCpu(this.modelValue,this.manufacturerValue,this.speedValue,this.processorsValue).subscribe((data: {}) =>{
-  //     this.MyCpus = data;
-  //     this.modelValue='';
-  //     this.manufacturerValue='';
-  //     this.speedValue='';
-  //     this.processorsValue='';
-      
-  //   })
-  //   window.location.reload();
-  // }
-
-  // updateCpu( id: string){
-  //   this.firebaseApiService.updateCpu(id,this.modelValue,this.manufacturerValue,this.speedValue,this.processorsValue).subscribe((data: {}) =>{
-  //         this.MyCpus = data;
-  //         this.modelValue='';
-  //         this.manufacturerValue='';
-  //         this.speedValue='';
-  //         this.processorsValue='';
-          
-  //       })
-       
-  //     window.location.reload();
-  //   }
-
+  
   message: string = '';
 
   isNewCpuForm: boolean = false;

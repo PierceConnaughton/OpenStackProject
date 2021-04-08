@@ -67,11 +67,6 @@ export class MonitorFormComponent implements OnInit {
   });
 }
 
-
- 
-  
-
-
   onSubmit(){
       this.monitorFormClose.emit(this.monitorForm.value)
   }

@@ -1,13 +1,13 @@
-<div class="row card-body"> 
-    <div class="col-sm-2 card-title">  <h5>{{cpu.title | slice: 0:80}}...</h5> </div>
-    <div class="col-sm-3"> <a href="{{cpu.link}}">{{cpu.link| slice: 0:80}}...</a> </div>
+<div *ngIf="cpu.rating" class="row card-body"> 
+    <div class="col-sm-3 card-title">  <h5>{{cpu.title}}</h5> </div>
+    <div class="col-sm-2"> <a href="{{cpu.link}}">{{cpu.link| slice: 0:80}}...</a> </div>
     <div class="col-sm-1"> <h6>{{cpu.rank}}</h6> </div>
-    <div *ngIf="5 == cpu.rating" id="Five" class="col-sm-1"> <span class=" row ">{{cpu.rating}} out of 5.0</span> <img  class="row d-block h-75 w-75" src="{{imageFiveStar}}"/> </div>
-    <div *ngIf="5 > cpu.rating &&  cpu.rating >= 4.5" id="FourHalf" class="col-sm-1"> <span class=" row ">{{cpu.rating}} out of 5.0</span> <img  class="row d-block h-50 w-75" src="{{imageHalfFourStar}}"/>  </div>
-    <div *ngIf="4.5 > cpu.rating &&  cpu.rating >= 4" id="Four" class="col-sm-1"> <span class=" row ">{{cpu.rating}} out of 5.0</span> <img  class="row d-block h-50 w-75" src="{{imageFourStar}}"/>  </div>    
-    <div *ngIf="4 > cpu.rating &&  cpu.rating > 3" id="Three" class="col-sm-1"> <span class=" row ">{{cpu.rating}} out of 5.0</span> <img class="row d-block h-75 w-75" src="{{imageThreeStar}}"/> </div>
-    <div *ngIf="3 > cpu.rating &&  cpu.rating > 2" id="Two" class="col-sm-1"> <span class=" row ">{{cpu.rating}} out of 5.0</span> <img  class="row d-block h-75 w-75" src="{{imageTwoStar}}"/> </div>
-    <div *ngIf="2 > cpu.rating &&  cpu.rating > 0" id="One" class="col-sm-1"> <span class=" row ">{{cpu.rating}} out of 5.0</span> <img  class="row d-block h-75 w-75" src="{{imageOneStar}}"/> </div>
-    <div class="col-sm-3"> <img  class="images" src="{{cpu.image}}"/> </div>
+    <div *ngIf="5 == cpu.rating" id="Five" class="col-sm-1"> <span class=" row ">{{cpu.rating}} out of 5.0</span> <img  class="row d-block h-25 w-75" src="{{imageFiveStar}}"/> </div>
+    <div *ngIf="5 > cpu.rating &&  cpu.rating >= 4.5" id="FourHalf" class="col-sm-1"> <span class=" row ">{{cpu.rating}} out of 5.0</span> <img  class="row d-block h-25 w-75" src="{{imageHalfFourStar}}"/>  </div>
+    <div *ngIf="4.5 > cpu.rating &&  cpu.rating >= 4" id="Four" class="col-sm-1"> <span class=" row ">{{cpu.rating}} out of 5.0</span> <img  class="row d-block h-25 w-75" src="{{imageFourStar}}"/>  </div>    
+    <div *ngIf="4 > cpu.rating &&  cpu.rating > 3" id="Three" class="col-sm-1"> <span class=" row ">{{cpu.rating}} out of 5.0</span> <img class="row d-block h-25 w-75" src="{{imageThreeStar}}"/> </div>
+    <div *ngIf="3 > cpu.rating &&  cpu.rating > 2" id="Two" class="col-sm-1"> <span class=" row ">{{cpu.rating}} out of 5.0</span> <img  class="row d-block h-25 w-75" src="{{imageTwoStar}}"/> </div>
+    <div *ngIf="2 > cpu.rating &&  cpu.rating > 0" id="One" class="col-sm-1"> <span class=" row ">{{cpu.rating}} out of 5.0</span> <img  class="row d-block h-25 w-75" src="{{imageOneStar}}"/> </div>
+    <div class="col-sm-3"> <img id="item-image" class="images" src="{{cpu.image}}"/> </div>
     <div  class="col-sm-2"> <h6 >{{cpu.price.value | currency:'USD'}}</h6> </div>
 </div>

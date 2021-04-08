@@ -89,26 +89,22 @@ export class CpuListComponent implements OnInit {
     if(cpu == null){
       this.currentCpu = null;
     }
+    else if(this.currentCpu == null){
+      this.createNewGpu(cpu.model, cpu.manufacturer, cpu.speed, cpu.processors);
+    }
 
-    window.location.reload();
+    else{
+      console.log('need to update gpu with id ' + this.currentCpu.id);
+      this.updateCpu(this.currentCpu.id, cpu.model, cpu.manufacturer, cpu.speed, cpu.processors)
+    }
+    this.loadCpus();
   }
 
   setOrder(value: string) {
     this.order = value;
   }
 
-  // updateCpu( id: string, model:string,manufacturer: string, speed:string,processors: string){
-  //   return this.firebaseApiService.updateCpu(id,this.modelValue,this.manufacturerValue,this.speedValue,this.processorsValue).subscribe((data: {}) =>{
-  //         this.MyCpus = data;
-  //         this.modelValue='';
-  //         this.manufacturerValue='';
-  //         this.seriesValue='';
-  //         this.processorsValue='';
-  //        
-  //       })
-  //   this.loadCpus();
-    
-  // }
+  
   
 
   isSelected(cpu: Cpu): boolean{
@@ -126,37 +122,34 @@ export class CpuListComponent implements OnInit {
     })
   }
 
+  updateCpu( id: string, model:string,manufacturer: string, speed:string,processor: string){
+         this.firebaseApiService.updateCpu(id,model,manufacturer,speed,processor).subscribe((data: {}) =>{
+          this.MyCpus = data;
+          this.modelValue='';
+          this.manufacturerValue='';
+          this.manufacturerValue='';
+          this.speedValue='';
+          this.processorsValue='';
+        })
+    this.loadCpus();
+    
+  }
 
-  // deleteCpu(id: string){
-  //   this.firebaseApiService.delCpu(id)
-  //   .subscribe({
-  //     next: cpu => this.message = "cpu has been deleted",
-  //     error: (err) => this.message = err
-  //   });
 
-  //   this.loadCpus();
+  createNewGpu(model:string,manufacturer: string, speed:string,processor: string): void {
+    this.firebaseApiService.addCpu(model,manufacturer,speed,processor).subscribe((data: {}) =>{
+      this.MyCpus = data;
+      this.modelValue='';
+      this.manufacturerValue='';
+      this.manufacturerValue='';
+      this.speedValue='';
+      this.processorsValue='';
+    })
+    this.showCpuForm = false;
 
     
-  // }
-
-
-
-  // createNewCpu(): void {
-  //   this.firebaseApiService.addCpu(this.modelValue,this.manufacturerValue,this.speedValue,this.processorsValue).subscribe((data: {}) =>{
-  //     this.MyCpus = data;
-  //     this.modelValue='';
-  //     this.manufacturerValue='';
-  //     this.speedValue='';
-  //     this.processorsValue='';
-  //     
-  //   })
-  //   this.showCpuForm = false;
-
-    
-  // this.loadCpus();
-
-  // window.location.reload();
-  // }
+  this.loadCpus();
+  }
   
 
 }

@@ -22,31 +22,6 @@ export class GpuFormComponent implements OnInit {
   colorValue : string;
   hardDriveValue : string;
 
-  // addGpu(){
-  //   return this.firebaseApiService.addGpu(this.brandValue,this.manufacturerValue,this.seriesValue,this.colorValue,this.hardDriveValue).subscribe((data: {}) =>{
-  //     this.MyGpus = data;
-  //     this.brandValue='';
-  //     this.manufacturerValue='';
-  //     this.seriesValue='';
-  //     this.colorValue='';
-  //     this.hardDriveValue='';
-  //   })
-  //   window.location.reload();
-  // }
-
-  // updateGpu( id: string){
-  //   this.firebaseApiService.updateGpu(id,this.brandValue,this.manufacturerValue,this.seriesValue,this.colorValue,this.hardDriveValue).subscribe((data: {}) =>{
-  //         this.MyGpus = data;
-  //         this.brandValue='';
-  //         this.manufacturerValue='';
-  //         this.seriesValue='';
-  //         this.colorValue='';
-  //         this.hardDriveValue='';
-  //       })
-       
-  //     window.location.reload();
-  //   }
-
   message: string = '';
 
   isNewGpuForm: boolean = false;
@@ -94,9 +69,6 @@ export class GpuFormComponent implements OnInit {
     color: new FormControl(this.gpu.color,[Validators.required]),
     hardDrive: new FormControl(this.gpu.hardDrive,[Validators.required]),
   });
-
-  
-
 }
 
 onSubmit(){

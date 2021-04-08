@@ -1,39 +1,40 @@
 <div class="container-fluid">
-    <h1>List Of Cases</h1>
+    <h1>Bestselling Cases</h1>
     <h2 *ngIf="!amazonData">Loading...</h2>
         <div class="" *ngIf="amazonData">
 
-            <div class="col-sm-8">       
+            <!-- <div class="col-sm-8">       
                 <a href="{{amazonData.request_metadata.amazon_url}}" class="col-sm-4" > Link to best selling cases</a>
-            </div>
+            </div> -->
             
             <amazon-cases-details *ngIf="currentCases" [amazonDataTwo]="amazonDataTwo" [case]="currentCases"></amazon-cases-details>
     <br>
 
     <div class="row justify-content-center">
         <div class="col-sm-2">
-            <input type="text" [(ngModel)]="searchTextCasesTitle" placeholder="Search By Case Title" />
+            <input type="text" class="form-control form-control-md" [(ngModel)]="searchTextCasesTitle" placeholder="Search By Case Title" />
         </div>
     </div>
 
     <br>
 
     <div class="row card-header"> 
-        <div [class.active]="order === 'title'" (click)="setOrder('title')" class="col-sm-2"> <h4>Title</h4> 
+        <div [class.active]="order === 'title'" (click)="setOrder('title')" class="col-sm-3"> <h4>Title</h4> 
             <span *ngIf="order === 'title'">▼</span>
         </div>
-        <div [class.active]="order === 'link'" (click)="setOrder('link')" class="col-sm-3"> <h4>Link</h4>
+        <div [class.active]="order === 'link'" (click)="setOrder('link')" class="col-sm-2"> <h4>Link</h4>
             <span *ngIf="order === 'link'">▼</span> 
         </div>
-        <div  class="col-sm-1"> <h4>Rank</h4> 
+        <div  class="col-sm-1" [class.active]="order === 'rank'" (click)="setOrder('rank')"> <h4>Rank</h4> 
+            <span *ngIf="order === 'rank'">▼</span> 
         </div>
         <div  class="col-sm-1"> <h4>Rating</h4> 
         </div>
         <div  [class.active]="order === 'image'" (click)="setOrder('image')" class="col-sm-3"> <h4>Image</h4> 
             <span *ngIf="order === 'image'">▼</span>
         </div>
-        <div  [class.active]="order === 'amazonData.price.raw'" (click)="setOrder('amazonData.price.raw')" class="col-sm-2"> <h4>Price</h4> 
-            <span *ngIf="order === 'amazonData.price.raw'">▼</span>
+        <div  [class.active]="order === 'price.raw'" (click)="setOrder('price.raw')" class="col-sm-2"> <h4>Price</h4> 
+            <span *ngIf="order === 'price.raw'">▼</span>
         </div>
         
 

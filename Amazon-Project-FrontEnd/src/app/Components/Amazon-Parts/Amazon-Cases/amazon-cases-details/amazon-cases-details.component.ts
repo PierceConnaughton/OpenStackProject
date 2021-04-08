@@ -26,7 +26,8 @@ export class AmazonCasesDetailsComponent implements OnInit {
     title: "a",
     image: "a",
     qty: 0,
-    rating: 0
+    rating: 0,
+    link: "a"
   };
 
   categoriesString: String;
@@ -50,6 +51,7 @@ export class AmazonCasesDetailsComponent implements OnInit {
     this.newUserItem.title = this.amazonDataTwo.product.title;
     this.newUserItem.image = this.amazonDataTwo.product.images[0].link;
     this.newUserItem.rating = this.amazonDataTwo.product.rating;
+    this.newUserItem.link = this.amazonDataTwo.product.link;
 
     this.userService.addPartToPc(this.newUserItem).subscribe(() => {
       
