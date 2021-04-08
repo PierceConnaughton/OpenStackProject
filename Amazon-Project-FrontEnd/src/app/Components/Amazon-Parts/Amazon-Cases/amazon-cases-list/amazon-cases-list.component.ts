@@ -52,7 +52,7 @@ export class AmazonCasesListComponent implements OnInit {
   // search text property
   searchTextCasesTitle: string;
 
-  order: string = 'amazonCasesTitle';
+  order: string = 'title';
   reverse: boolean = false;
 
   clicked (cases: AmazonCasesResponse): void {

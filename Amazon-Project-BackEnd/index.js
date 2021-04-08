@@ -1,6 +1,7 @@
 import express from 'express';
 
 import monitors from './routes/monitors';
+import pcs from './routes/pc';
 
 import users from './routes/users';
 import auth from './routes/auth';
@@ -57,15 +58,16 @@ const sslOptions = {
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
+app.use('/pcs', pcs);
 app.use('/monitors', monitors);
 app.use('/users', users);
 app.use('/auth', auth);
 
 
 
+
 app.get('/', (req, res) =>
-  res.send('hello world, Una is using Express this has changed'));
+  res.send('hello world, Pierce is using Express this has changed'));
 
 app.all('*', (req, res) => {
   res.status(404).json({

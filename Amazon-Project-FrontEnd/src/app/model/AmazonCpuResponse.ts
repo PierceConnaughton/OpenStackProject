@@ -5,7 +5,7 @@ export interface AmazonCpusResponse{
   asin: string;
   title:string;
   link:string;
-  rating: Int16Array;
+  rating: Number;
   image: string;
   price: {
     raw:string;
@@ -22,7 +22,7 @@ export interface AmazonCpusResponse{
         manufacturer:string;
         model_number:string;
         description:string;
-        rating: Int16Array;
+        rating: Number;
         images:[
           {
             link:string;
@@ -80,7 +80,7 @@ export interface AmazonCpusResponse{
     asin: string;
     title:string;
     link:string;
-    rating: Int16Array;
+    rating: Number;
     image: string;
     price: {
       raw:string;
@@ -96,7 +96,7 @@ export interface AmazonCpusResponse{
         manufacturer:string;
         model_number:string;
         description:string;
-        rating: Int16Array;
+        rating: Number;
         images:[
           {
             link:string;

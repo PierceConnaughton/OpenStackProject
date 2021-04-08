@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GpuCreateFormComponent } from './gpu-create-form.component';
+import { CpuFormComponent } from './cpu-form.component';
 
-describe('GpuCreateFormComponent', () => {
-  let component: GpuCreateFormComponent;
-  let fixture: ComponentFixture<GpuCreateFormComponent>;
+describe('CpuFormComponent', () => {
+  let component: CpuFormComponent;
+  let fixture: ComponentFixture<CpuFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GpuCreateFormComponent ]
+      declarations: [ CpuFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GpuCreateFormComponent);
+    fixture = TestBed.createComponent(CpuFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

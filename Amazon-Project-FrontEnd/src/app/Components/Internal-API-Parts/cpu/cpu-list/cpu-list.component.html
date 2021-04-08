@@ -1,0 +1,118 @@
+<body>
+    <div class="container-fluid">
+        <h2 *ngIf="!showCpuForm && !currentCpu">List of Cpus</h2>
+
+        <h2  *ngIf="showCpuForm">Cpu Form</h2>
+        <app-cpu-form *ngIf="showCpuForm" 
+        (cpuFormClose)="cpuFormClose($event)" [cpu]="currentGpu"></app-cpu-form>  
+
+       
+    
+        <h2 class="h2Centered"  *ngIf="currentCpu">Cpu Details</h2>
+
+        <app-cpu-details *ngIf="currentCpu" [cpu]="currentCpu"></app-cpu-details>
+
+        <br *ngIf="!showCpuForm">
+        
+    
+        <div class="row justify-content-center">
+            <div class="col-sm-1">
+                <button (click)="openCreateCpu()" *ngIf="!showCpuForm"
+                class="btn btn btn-outline-primary" >Add Cpu</button>
+            </div>
+            
+            <div class="col-sm-1">
+                <button (click)="openEditCpu()" *ngIf="!showCpuForm" [disabled]="!currentCpu"
+                class="btn btn btn-outline-secondary" >Edit Cpu</button>
+            </div>
+            
+            <div class="col-sm-2">
+                <button (click)="openDeleteCpu(currentCpu.id)" *ngIf="!showCpuForm" [disabled]="!currentCpu"
+                class="btn btn btn-outline-danger" >Delete Cpu</button>
+            </div>
+        </div>
+    
+        <br *ngIf="!showCpuForm">
+    
+
+        
+    
+    
+        <h2 *ngIf="showCpuForm || currentCpu">List of Cpus</h2>
+        
+        
+    <h2 *ngIf="message">{{message}}</h2>
+    
+        
+     Search box 
+    <div class="row justify-content-center">
+        <div class="col-sm-2">
+            <input type="text" [(ngModel)]="searchTextCpuID" placeholder="Search By Cpu ID" />
+        </div>
+    
+        <div class="col-sm-2">
+            <input type="text" [(ngModel)]="searchTextModel" placeholder="Search By Model" />
+        </div>
+    
+    
+       
+    
+        <div class="col-sm-2">
+            <input  type="text" [(ngModel)]="searchTextManufacturer" placeholder="Search By Manufacturer" />
+        </div>    
+    
+        <div class="col-sm-2">
+            <input type="text" [(ngModel)]="searchTextSpeed" placeholder="Search By Speed" />
+        </div>
+
+        <div class="col-sm-2">
+            <input type="text" [(ngModel)]="searchTextProcessors" placeholder="Search By Processors" />
+        </div>
+
+        
+        
+    </div>
+    
+    <br>
+    
+   
+    
+    <div class="row card-header"> 
+        <div [class.active]="order === 'id'" (click)="setOrder('id')" class="col card-title"> <h4>Cpu ID</h4> 
+            <span *ngIf="order === 'id'">▼</span>
+        </div>
+        <div [class.active]="order === 'model'" (click)="setOrder('model')" class="col "> <h4>Model</h4> 
+            <span *ngIf="order === 'model'">▼</span>
+        </div>
+        
+        <div [class.active]="order === 'manufacturer'" (click)="setOrder('manufacturer')" class="col "> <h4>Manufacturer</h4> 
+            <span *ngIf="order === 'manufacturer'">▼</span>
+        </div>
+        <div [class.active]="order === 'speed'" (click)="setOrder('speed')" class="col "> <h4>Speed</h4> 
+            <span *ngIf="order === 'speed'">▼</span>
+        </div>
+        <div [class.active]="order === 'processors'" (click)="setOrder('processors')" class="col "> <h4>Processors</h4> 
+            <span *ngIf="order === 'processors'">▼</span>
+        </div>
+        <!-- <div class="col "> <h4>Add To Cart</h4> 
+            
+        </div> -->
+        
+    </div>
+     
+    
+    <cpu-row  class="card" *ngFor="let c of MyCpus| orderBy: order:reverse:'case-insensitive' | filter : searchTextCpuID : 'id' 
+    | filter : searchTextModel : 'model'| filter : searchTextManufacturer : 'manufacturer' | filter : searchTextSpeed : 'speed' 
+    | filter : searchTextProcessors : 'processors'"
+    [cpu]="c"
+    (click)='clicked(c)'
+    [class.bg-info]="isSelected(c)" [class.text-white]="isSelected(c)"></cpu-row>
+    
+    
+    
+        
+    </div>
+    
+    
+    </body>
+    

@@ -59,7 +59,7 @@ export class AmazonGpuListComponent implements OnInit {
   // search text property
   searchTextGpuTitle: string;
 
-  order: string = 'amazonGpuTitle';
+  order: string = 'title';
   reverse: boolean = false;
 
   clicked (gpu: AmazonGpusResponse): void {

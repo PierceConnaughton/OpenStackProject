@@ -1,0 +1,93 @@
+<button type="button" class="close" aria-label="Close" (click)="closeForm()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="cpuForm" class="form-inline justify-content-center">
+
+    <div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-2" for="model">
+          Model
+        </label>
+        <div class="col-md-2">
+            <input type="text" class="form-control" formControlName="model" placeholder="Enter model"
+            id="model" required
+            [(ngModel)] ="modelValue" name="model">
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-4" for="manufacturer">
+          Manufacturer
+        </label>
+        <div class="col-md-2">
+            <select type="text" class="form-control" formControlName="manufacturer" placeholder="Enter Manufacturer"
+            id="manufacturer" required
+            [(ngModel)] ="manufacturerValue" name="manufacturer">
+                <option>Intel</option>
+                <option>AMD</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-1" for="speed">
+          Speed
+        </label>
+        <div class="col-md-1">
+            <select type="text" class="form-control" formControlName="speed" placeholder="Enter speed"
+            id="speed" required
+            [(ngModel)] ="speedValue" name="speed">
+            <option>2.5 GHz</option>
+            <option>2.7 GHz</option>
+            <option>2.9 GHz</option>
+            <option>3.1 GHz</option>
+            <option>3.3 GHz</option>
+            <option>3.4 GHz</option>
+            <option>3.7 GHz</option>
+            <option>3.9 GHz</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-3" for="processors">
+          Processors
+        </label>
+        <div class="col-md-2">
+            <select type="text" class="form-control" formControlName="processors" placeholder="Enter Processors"
+            id="processors" required
+            [(ngModel)] ="processorsValue" name="processors">
+                <option>4 Cores</option>
+                <option>6 Cores</option>
+                <option>8 Cores</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="col-sm">
+      <button type="submit" [disabled]="!cpuForm.valid" class="btn btn-info">Submit</button>
+    </div>
+
+    </div>
+
+  </form>
+
+  <br>
+
+<div class="row justify-content-center">
+    <div *ngIf="model.invalid && model.touched" class="alert alert-danger col-sm-2" >
+        Model is required
+    </div>
+    <div *ngIf="manufacturer.invalid && manufacturer.touched"  class="alert alert-danger col-sm-2" >
+        Manufacturer is required
+    </div>
+    
+    <div *ngIf="speed.invalid && speed.touched" class="alert alert-danger col-sm-2" >
+        Speed is required
+    </div>
+    <div *ngIf="processors.invalid && processors.touched" class="alert alert-danger col-sm-2" >
+        Processors is required
+    </div>
+</div>

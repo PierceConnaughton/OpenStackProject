@@ -26,19 +26,27 @@
       <div class="dropdown-menu">
           <a class="dropdown-item" routerLink="/monitor-list-component" routerLinkActive="active">Monitors</a>
           <a class="dropdown-item" routerLink="/gpu-list-component" routerLinkActive="active">Gpus</a>
+          <a class="dropdown-item" routerLink="/cpu-list-component" routerLinkActive="active">Cpus</a>
       </div>
   </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/part-finder" routerLinkActive="active">Amazon Part Finder</a>
       </li>
      
-      <li class="nav-item">
+      <li *ngIf="!currentUser" class="nav-item">
         <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="currentUser" class="nav-item">
         <a class="nav-link" routerLink="/logout" routerLinkActive="active">Logout</a>
       </li>
       
+      <!-- <li *ngIf="currentUser" class="nav-item">
+        <p class="nav-link" >User: {{userName}}</p>
+      </li> -->
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/user-list" routerLinkActive="active">Users PC</a>
+      </li>
     </ul>
   </div>
 </nav>

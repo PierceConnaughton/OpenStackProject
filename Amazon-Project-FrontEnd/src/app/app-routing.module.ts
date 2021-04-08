@@ -10,8 +10,9 @@ import {HomeComponent} from './Components/home/home.component';
 
 import {MonitorListComponent} from './Components/Internal-API-Parts/monitor/monitor-list/monitor-list.component';
 import {GpuListComponent} from './Components/Internal-API-Parts/gpu/gpu-list/gpu-list.component';
+import {CpuListComponent} from './Components/Internal-API-Parts/cpu/cpu-list/cpu-list.component';
 
-
+import {UserListComponent} from './Components/user-list/user-list.component';
 
 import {LoginComponent} from './Components/login/login.component';
 import {LogoutComponent} from './Components/logout/logout.component';
@@ -26,11 +27,13 @@ const routes: Routes = [
  { path: 'amazon-monitor-list-component', component: AmazonMonitorListComponent, canActivate: [AuthGuard]},
  {path: 'amazon-cases-list-component', component: AmazonCasesListComponent, canActivate: [AuthGuard]},
  {path: 'amazon-cpu-list-component', component: AmazonCpuListComponent, canActivate: [AuthGuard]},
- {path: 'amazon-gpu-list-component', component: AmazonGpuListComponent, },
+ {path: 'amazon-gpu-list-component', component: AmazonGpuListComponent, canActivate: [AuthGuard]},
  { path: 'monitor-list-component', component: MonitorListComponent, canActivate: [AuthGuard]},
- { path: 'gpu-list-component', component: GpuListComponent, canActivate: [AuthGuard]},
+ { path: 'gpu-list-component', component: GpuListComponent},
+ { path: 'cpu-list-component', component: CpuListComponent},
  { path: 'login', component: LoginComponent },
-   {path: 'logout', component: LogoutComponent},
+ {path: 'logout', component: LogoutComponent},
+ {path: 'user-list', component: UserListComponent, canActivate: [AuthGuard]},
 
   
   

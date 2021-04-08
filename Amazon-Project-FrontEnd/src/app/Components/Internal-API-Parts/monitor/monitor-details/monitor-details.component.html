@@ -8,6 +8,7 @@
            <p class = "list-group-item-text">Version: {{monitor.version}}</p>
            <p class = "list-group-item-text">Color: {{monitor.color}}</p>
            <p *ngIf="monitor.refreshRate" class = "list-group-item-text">Refresh Rate: {{monitor.refreshRate}}Hz</p>
+           <button type="button" class="btn col btn-sm btn-primary product-btn" (click)="handleAddToPc()">Add to PC</button>
         </li>
     </ul>
     </div>

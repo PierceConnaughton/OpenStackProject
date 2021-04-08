@@ -17,6 +17,7 @@ function login (req, res)  {
         let refresh_token = b.toString('base64');
         res.status(201).send({appToken: appToken, refreshToken: refresh_token});
         console.log('login success');
+        //console.log(name);
     } catch (err) {
         res.status(500).send({errors: err});
     }

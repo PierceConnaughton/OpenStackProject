@@ -114,21 +114,12 @@
   </li>
 -->
     
-    <div  class="card" *ngFor="let g of MyGpus| orderBy: order:reverse:'case-insensitive' | filter : searchTextGpuID : 'id' 
+    <gpu-row  class="card" *ngFor="let g of MyGpus| orderBy: order:reverse:'case-insensitive' | filter : searchTextGpuID : 'id' 
     | filter : searchTextBrand : 'brand'| filter : searchTextManufacturer : 'manufacturer' | filter : searchTextSeries : 'series' 
     | filter : searchTextColor : 'color' | filter : searchTextHardDrive : 'hardDrive'"
     [gpu]="g"
     (click)='clicked(g)'
-    [class.bg-info]="isSelected(g)" [class.text-white]="isSelected(g)">
-    <div class="row card-body"> 
-        <div class="col card-title">  <h6>{{g.id}}</h6> </div>
-        <div class="col ">  <h6>{{g.brand}}</h6> </div>
-        <div class="col"> <h6>{{g.manufacturer}}</h6> </div>
-        <div class="col"> <h6>{{g.series}}</h6> </div>
-        <div class="col"> <h6>{{g.color}}</h6> </div>
-        <div class="col"> <h6>{{g.hardDrive}}</h6> </div>
-    </div>
-    </div>
+    [class.bg-info]="isSelected(g)" [class.text-white]="isSelected(g)"></gpu-row>
     
     
     

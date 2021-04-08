@@ -52,7 +52,7 @@ export class AmazonCpuListComponent implements OnInit {
   // search text property
   searchTextCpuTitle: string;
 
-  order: string = 'amazonCpuTitle';
+  order: string = 'title';
   reverse: boolean = false;
 
   clicked (cpu: AmazonCpusResponse): void {

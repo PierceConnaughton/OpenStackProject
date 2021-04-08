@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, from, of, EMPTY } from 'rxjs';
 import { map, concatMap, finalize } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { User } from '../model/user';
+import { SpecialUser, User } from '../model/user';
 
 const baseUrl = `${environment.apiUrl}/users`;
 
@@ -76,6 +76,12 @@ export class UserService {
     getById(id) {
         return this.http.get<User>(`${baseUrl}/${id}`);
     }
+
+    getBySpecialId(id) {
+        return this.http.get<SpecialUser>(`${baseUrl}/${id}`);
+    }
+
+    
     
     update(id, params) {
         return this.http.put(`${baseUrl}/${id}`, params)

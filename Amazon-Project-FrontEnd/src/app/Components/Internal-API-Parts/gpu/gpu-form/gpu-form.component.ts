@@ -34,18 +34,18 @@ export class GpuFormComponent implements OnInit {
   //   window.location.reload();
   // }
 
-  updateGpu( id: string){
-    this.firebaseApiService.updateGpu(id,this.brandValue,this.manufacturerValue,this.seriesValue,this.colorValue,this.hardDriveValue).subscribe((data: {}) =>{
-          this.MyGpus = data;
-          this.brandValue='';
-          this.manufacturerValue='';
-          this.seriesValue='';
-          this.colorValue='';
-          this.hardDriveValue='';
-        })
+  // updateGpu( id: string){
+  //   this.firebaseApiService.updateGpu(id,this.brandValue,this.manufacturerValue,this.seriesValue,this.colorValue,this.hardDriveValue).subscribe((data: {}) =>{
+  //         this.MyGpus = data;
+  //         this.brandValue='';
+  //         this.manufacturerValue='';
+  //         this.seriesValue='';
+  //         this.colorValue='';
+  //         this.hardDriveValue='';
+  //       })
        
-      window.location.reload();
-    }
+  //     window.location.reload();
+  //   }
 
   message: string = '';
 
@@ -100,6 +100,7 @@ export class GpuFormComponent implements OnInit {
 }
 
 onSubmit(){
+  //this.addGpu();
   this.gpuFormClose.emit(this.gpuForm.value)
 }
 

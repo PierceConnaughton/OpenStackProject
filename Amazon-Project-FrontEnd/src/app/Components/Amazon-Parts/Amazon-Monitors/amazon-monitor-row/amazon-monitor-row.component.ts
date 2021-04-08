@@ -10,9 +10,13 @@ export class AmazonMonitorRowComponent implements OnInit {
 
   @Input() monitor: AmazonMonitorResponse;
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
   }
+
+  
 
 }

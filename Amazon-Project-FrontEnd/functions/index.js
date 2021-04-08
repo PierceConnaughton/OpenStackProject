@@ -9,7 +9,9 @@ const admin = require('firebase-admin');
 
 admin.initializeApp();
 
-const db = admin.database().ref('/mygpus');
+const dbgpu = admin.database().ref('/mygpus');
+
+const dbcpu = admin.database().ref('/mycpus');
 
 /*
 exports.helloWorld = functions.https.onRequest((request, response) => {
@@ -19,7 +21,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 const getGpusFromDatabase = (res) => {
     let gpus = [];
-    return db.on(
+    return dbgpu.on(
         'value',
         snapshot => {
             snapshot.forEach(gpu => {
@@ -43,6 +45,31 @@ const getGpusFromDatabase = (res) => {
 
 };
 
+const getCpusFromDatabase = (res) => {
+  let cpus = [];
+  return dbcpu.on(
+      'value',
+      snapshot => {
+          snapshot.forEach(cpu => {
+              cpus.push({
+                  id: cpu.key,
+                  model: cpu.val().model,
+                  manufacturer: cpu.val().manufacturer,
+                  speed: cpu.val().speed,
+                  processors: cpu.val().processors,
+              });
+          });
+          res.status(200).json(cpus);
+      },
+      error => {
+          res.status(error.code).json({
+              message: `Error: ${error.message}`
+          });
+      }
+  );
+
+};
+
 exports.addGpu = functions.https.onRequest((req, res) => {
     return cors(req, res, () => {
         if (req.method !== 'POST') {
@@ -58,9 +85,27 @@ exports.addGpu = functions.https.onRequest((req, res) => {
         const hardDrive = req.query.hardDrive;
 
         
-        db.push({ brand,manufacturer,series,color,hardDrive });
+        dbgpu.push({ brand,manufacturer,series,color,hardDrive });
         getGpusFromDatabase(res);
     });
+});
+
+exports.addCpu = functions.https.onRequest((req, res) => {
+  return cors(req, res, () => {
+      if (req.method !== 'POST') {
+          return res.status(401).json({
+              message: 'Not allowed'
+          });
+      }
+      
+      const model = req.query.model;
+      const manufacturer = req.query.manufacturer;
+      const speed = req.query.speed;
+      const processors = req.query.processors;
+ 
+      dbcpu.push({ model,manufacturer,speed,processors });
+      getCpusFromDatabase(res);
+  });
 });
 
 exports.deleteGpu = functions.https.onRequest((req, res) => {
@@ -72,10 +117,24 @@ exports.deleteGpu = functions.https.onRequest((req, res) => {
       }
       const id = req.query.id;
       //admin.database().ref(`/mybooks/${id}`).remove();
-      db.child(id).remove();
+      dbgpu.child(id).remove();
       getGpusFromDatabase(res);
     });
   });
+
+  exports.deleteCpu = functions.https.onRequest((req, res) => {
+    return cors(req, res, () => {
+      if(req.method !== 'DELETE') {
+        return res.status(401).json({
+          message: 'Not allowed'
+        })
+      }
+      const id = req.query.id;
+      //admin.database().ref(`/mybooks/${id}`).remove();
+      dbcpu.child(id).remove();
+      getCpusFromDatabase(res);
+    });
+  });  
 
   exports.getGpus = functions.https.onRequest((req, res) => {
     return cors(req, res, () => {
@@ -86,6 +145,17 @@ exports.deleteGpu = functions.https.onRequest((req, res) => {
         }
         getGpusFromDatabase(res);
     });
+});
+
+exports.getCpus = functions.https.onRequest((req, res) => {
+  return cors(req, res, () => {
+      if (req.method !== 'GET') {
+          return res.status(404).json({
+              message: 'Not allowed'
+          })
+      }
+      getCpusFromDatabase(res);
+  });
 });
 
 exports.updateGpu = functions.https.onRequest((req, res) => {
@@ -104,7 +174,27 @@ exports.updateGpu = functions.https.onRequest((req, res) => {
         const hardDrive = req.query.hardDrive;
 
       //admin.database().ref(`/mybooks/${id}`).remove();
-      db.child(id).update(brand,manufacturer,series,color,hardDrive);
+      dbgpu.child(id).update(brand,manufacturer,series,color,hardDrive);
       getGpusFromDatabase(res);
     });
   });
+
+  exports.updateCpu = functions.https.onRequest((req, res) => {
+    return cors(req, res, () => {
+      if(req.method !== 'PUT') {
+        return res.status(401).json({
+          message: 'Not allowed'
+        })
+      }
+      const id = req.query.id;
+
+      const model = req.query.model;
+      const manufacturer = req.query.manufacturer;
+      const speed = req.query.speed;
+      const processors = req.query.processors;
+
+      //admin.database().ref(`/mybooks/${id}`).remove();
+      dbcpu.child(id).update(model,manufacturer,speed,processors);
+      getCpusFromDatabase(res);
+    });
+  });  

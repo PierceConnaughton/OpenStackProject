@@ -4,8 +4,10 @@ import { from, Observable } from 'rxjs';
 import { environment } from "../../../../../environments/environment";
 
 import { AmazonApiService } from '../../../../Services/amazon-api.service';
-
+import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
 import { AmazonMonitorResponse } from '../../../../model/AmazonMonitorResponse';
+import { of } from 'rxjs';
+
 @Component({
   selector: 'app-amazon-monitor-list',
   templateUrl: './amazon-monitor-list.component.html',
@@ -17,6 +19,9 @@ export class AmazonMonitorListComponent implements OnInit {
   amazonDataTwo: AmazonMonitorResponse;
   errorMessage: any;
 
+  // form: FormGroup;
+  // prices = [];
+
   AmazonMonitorListComponent
 
   results:[{
@@ -26,8 +31,25 @@ export class AmazonMonitorListComponent implements OnInit {
     rating: Int16Array;
   }];
 
-  constructor(private _amazonService:AmazonApiService){
+  constructor(private _amazonService:AmazonApiService, private formBuilder: FormBuilder){
+    // this.form = this.formBuilder.group({
+    //   prices: ['']
+    // });
+
+    // of(this.getPrices()).subscribe(prices => {
+    //   this.prices = prices;
+    //   this.form.controls.prices.patchValue(this.prices[0].id);
+    // });
   }
+
+  // getPrices() {
+  //   return [
+  //     { id: "1", name: 'below $100.00' },
+  //     { id: "2", name: '$100.00 - $200.00' },
+  //     { id: "3", name: 'above $200.00' },
+  //     { id: "4", name: 'any price' }
+  //   ];
+  // }
 
   ngOnInit(): void {
     this._amazonService.getMonitorAmazonList().subscribe(
@@ -41,6 +63,33 @@ export class AmazonMonitorListComponent implements OnInit {
     );
   }
 
+  // submit() {
+  //   console.log(this.form.value);
+  //   if(this.form.value == "1"){
+      
+  //   }
+  //   else if(this.form.value == "2"){
+      
+  //   }
+  //   else if(this.form.value == "3"){
+      
+  //   }
+  //   else()=>{
+      
+  //   }
+    
+  // }
+
+  LoadMonitorList(){
+    this._amazonService.getMonitorAmazonList().subscribe(
+      amazonData => {
+        this.amazonData=amazonData;
+        console.log('"Best Selling Monitors URL": '  + JSON.stringify(amazonData.request_metadata.amazon_url));
+
+      },
+      error => this.errorMessage = <any>error
+    );
+  }
  
 
   monitorList: AmazonMonitorResponse;
@@ -50,7 +99,7 @@ export class AmazonMonitorListComponent implements OnInit {
   // search text property
   searchTextMonitorTitle: string;
 
-  order: string = 'amazonMonitorTitle';
+  order: string = 'title';
   reverse: boolean = false;
 
   clicked (monitor: AmazonMonitorResponse): void {
@@ -66,6 +115,8 @@ export class AmazonMonitorListComponent implements OnInit {
       return monitor.asin === this.currentMonitor.asin;
     }
   }
+
+  
 
   setOrder(value: string) {
     this.order = value;

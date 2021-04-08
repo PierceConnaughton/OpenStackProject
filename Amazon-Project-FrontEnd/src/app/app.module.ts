@@ -50,14 +50,20 @@ import { AmazonMonitorRowComponent } from './Components/Amazon-Parts/Amazon-Moni
 import { AmazonCpuRowComponent } from './Components/Amazon-Parts/Amazon-CPUs/amazon-cpu-row/amazon-cpu-row.component';
 import { AmazonCpuDetailsComponent } from './Components/Amazon-Parts/Amazon-CPUs/amazon-cpu-details/amazon-cpu-details.component';
 import { AmazonCasesRowComponent } from './Components/Amazon-Parts/Amazon-Cases/amazon-cases-row/amazon-cases-row.component';
-import { GpuCreateFormComponent } from './Components/Internal-API-Parts/gpu/gpu-create-form/gpu-create-form.component';
+import { CpuRowComponent } from './Components/Internal-API-Parts/cpu/cpu-row/cpu-row.component';
+import { CpuListComponent } from './Components/Internal-API-Parts/cpu/cpu-list/cpu-list.component';
+import { CpuFormComponent } from './Components/Internal-API-Parts/cpu/cpu-form/cpu-form.component';
+import { CpuDetailsComponent } from './Components/Internal-API-Parts/cpu/cpu-details/cpu-details.component';
+import { UserListComponent } from './Components/user-list/user-list.component';
+import { UserItemComponent } from './Components/user-item/user-item.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AmazonMonitorListComponent,
     HomeComponent,
-    
     OrderByPipe,
     FilterPipe,
     PartFinderComponent,
@@ -84,7 +90,12 @@ import { GpuCreateFormComponent } from './Components/Internal-API-Parts/gpu/gpu-
     AmazonCpuRowComponent,
     AmazonCpuDetailsComponent,
     AmazonCasesRowComponent,
-    GpuCreateFormComponent
+    CpuRowComponent,
+    CpuListComponent,
+    CpuFormComponent,
+    CpuDetailsComponent,
+    UserListComponent,
+    UserItemComponent
 
   ],
   imports: [

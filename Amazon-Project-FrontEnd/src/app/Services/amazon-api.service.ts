@@ -108,6 +108,8 @@ getCaseItemData(itemName): Observable<AmazonCasesResponse> {
     );  
 }
 
+
+
 getCasesAmazonList(): Observable<AmazonCasesResponse> {
   return this._http.get<AmazonCasesResponse>(this._siteURL + this._key + this._best_sellers + this._url_cases) 
   .pipe(

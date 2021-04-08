@@ -100,7 +100,7 @@ async function getFacebookData(access_token) {
         method: 'get',
         params: {
             access_token: access_token,
-            //  fields: ['id','name', 'email'] - not working why????
+            //fields: ['name']
         }
     });
     return data;

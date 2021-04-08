@@ -12,6 +12,18 @@
             
     <br>
 
+    <!-- <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <label *ngFor="let price of prices">
+          <input formControlName="prices" type="radio" name="prices" [value]="price.id" />
+          {{price.name}}
+        </label>
+      
+        <br>
+        <button>Change List</button>
+    </form> -->
+
+    
     
     <div class="row justify-content-center">
         <div class="col-sm-2">
@@ -19,6 +31,7 @@
         </div>
     </div>
     
+    <br>
     
     <div class="row card-header"> 
         <div [class.active]="order === 'title'" (click)="setOrder('title')" class="col-sm-2"> <h4>Title</h4> 

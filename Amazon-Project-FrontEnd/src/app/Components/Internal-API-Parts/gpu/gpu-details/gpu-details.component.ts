@@ -1,5 +1,6 @@
 import { Component,Input, OnInit } from '@angular/core';
 import {Gpu} from '../../../../model/gpu';
+import { UserListService } from '../../../../Services/user-list.service';
 
 @Component({
   selector: 'app-gpu-details',
@@ -10,9 +11,12 @@ export class GpuDetailsComponent implements OnInit {
 
   @Input() gpu: Gpu;
 
-  constructor() { }
+  constructor(private userService: UserListService) { }
 
   ngOnInit(): void {
   }
 
+  handleAddToPc() {
+    
+  }
 }

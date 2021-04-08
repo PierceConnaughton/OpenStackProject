@@ -2,7 +2,7 @@ import { Component,Input, OnInit } from '@angular/core';
 import {Gpu} from '../../../../model/gpu';
 
 @Component({
-  selector: 'app-gpu-row',
+  selector: 'gpu-row',
   templateUrl: './gpu-row.component.html',
   styleUrls: ['./gpu-row.component.css']
 })

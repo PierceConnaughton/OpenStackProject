@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {IMonitor} from '../../../../model/monitor';
+import { UserListService } from '../../../../Services/user-list.service';
 
 @Component({
   selector: 'app-monitor-details',
@@ -10,9 +11,13 @@ export class MonitorDetailsComponent implements OnInit {
 
   @Input() monitor : IMonitor;
 
-  constructor() { }
+  constructor(private userService: UserListService) { }
 
   ngOnInit(): void {
   }
 
+  handleAddToPc() {
+   
+  }
+  
 }

@@ -90,5 +90,4 @@ function deleteUser(req, res) {
 
 
 
-export default { readUsers, createUser, readUser, deleteUser, findUserByEmail,
-findUserByAuthId}
+export default { readUsers, createUser, readUser, deleteUser, findUserByEmail, findUserByAuthId}
