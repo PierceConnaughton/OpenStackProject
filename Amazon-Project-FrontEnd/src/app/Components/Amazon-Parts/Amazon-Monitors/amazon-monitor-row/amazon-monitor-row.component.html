@@ -2,43 +2,36 @@
     <div class="col-sm-2 card-title">  <h5>{{monitor.title | slice: 0:80}}...</h5> </div>
     <div class="col-sm-3"> <a href="{{monitor.link}}">{{monitor.link | slice: 0:80}}...</a> </div>
     <div class="col-sm-1"> <h6>{{monitor.rank}}</h6> </div>
-    <div class="col-sm-1"> <h6>{{monitor.rating}}</h6>  
-        <div class="stars-outer">
-            <div class="stars-inner">
-
-            </div>
-        </div>
-        <span class="number-rating">
-
-        </span>
-     </div>
+    <div *ngIf="5 == monitor.rating" id="Five" class="col-sm-1"> <span class=" row ">{{monitor.rating}} out of 5.0</span> <img  class="row d-block h-75 w-75" src="{{imageFiveStar}}"/> </div>
+    <div *ngIf="5 > monitor.rating &&  monitor.rating >= 4.5" id="FourHalf" class="col-sm-1"> <span class=" row ">{{monitor.rating}} out of 5.0</span> <img  class="row d-block h-50 w-75" src="{{imageHalfFourStar}}"/>  </div>
+    <div *ngIf="4.5 > monitor.rating &&  monitor.rating >= 4" id="Four" class="col-sm-1"> <span class=" row ">{{monitor.rating}} out of 5.0</span> <img  class="row d-block h-50 w-75" src="{{imageFourStar}}"/>  </div>
+    <div *ngIf="4 > monitor.rating &&  monitor.rating > 3" id="Three" class="col-sm-1"> <span class=" row ">{{monitor.rating}} out of 5.0</span> <img  class="row d-block h-75 w-75" src="{{imageThreeStar}}"/> </div>
+    <div *ngIf="3 > monitor.rating &&  monitor.rating > 2" id="Two" class="col-sm-1"> <span class=" row ">{{monitor.rating}} out of 5.0</span> <img  class="row d-block h-75 w-75" src="{{imageTwoStar}}"/> </div>
+    <div *ngIf="2 > monitor.rating &&  monitor.rating > 0" id="One" class="col-sm-1"> <span class=" row ">{{monitor.rating}} out of 5.0</span> <img class="row d-block h-75 w-75" src="{{imageOneStar}}"/> </div>
+    
+    
+        
     <div class="col-sm-3"> <img  class="images" src="{{monitor.image}}"/> </div>
     <div  class="col-sm-2"> <h6 >{{ monitor.price.value | currency:'USD' }}</h6> </div>
 </div>
-<script>
-    // Initial Ratings
-    const rating = monitor.rating
 
-    // Total Stars
-    const starsTotal = 5;
 
-    // Run getRatings when DOM loads
-    document.addEventListener('DOMContentLoaded', getRatings);
+<!--
+<p><code>&lt;p&gt;&lt;span class="stars"&gt;4.32&lt;/span&gt;&lt;/p&gt;</code></p>
+  <p><span class="stars">4.32</span></p>
+ <script>
+    // Set this to the width of one star.
+    var starWidth = 40;
 
-    // Get ratings
-    function getRating() {
-      
-        // Get percentage
-        const starPercentage = (rating / starsTotal) * 100;
+    $.fn.stars = function() {
+    return $(this).each(function() {
+        $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * starWidth));
+    });
+    }
 
-        // Round to nearest 10
-        const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
+    $(document).ready(function() {
+        $('span.stars').stars();
+    });
+</script> 
+-->
 
-        // Set width of stars-inner to percentage
-        document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
-
-        // Add number rating
-        document.querySelector(`.${rating} .number-rating`).innerHTML = ratings[rating];
-      }
-    
-</script>
