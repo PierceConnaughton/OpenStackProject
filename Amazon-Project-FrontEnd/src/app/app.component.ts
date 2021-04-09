@@ -22,6 +22,8 @@ import {UserService} from './Services/user.service';
 export class AppComponent{
   title = 'Amazon-Project';
 
+  Logo: string = "assets/img/faviconInvert.ico";
+
   itemValue='';
   items: Observable<any[]>;
 

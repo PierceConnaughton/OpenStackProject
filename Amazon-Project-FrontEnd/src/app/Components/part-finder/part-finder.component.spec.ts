@@ -22,4 +22,9 @@ describe('PartFinderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get item details for "B0815JGFQ8" and the product asin should be the same ', () => {
+    component.getItemDetails("B0815JGFQ8");
+    expect(component.amazonData.product.asin).toBe("B0815JGFQ8");
+  });
 });

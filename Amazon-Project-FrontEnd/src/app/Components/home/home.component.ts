@@ -9,6 +9,8 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+  Logo: string = "assets/img/TransparentLogo.png";
+
   ngOnInit(): void {
   }
 

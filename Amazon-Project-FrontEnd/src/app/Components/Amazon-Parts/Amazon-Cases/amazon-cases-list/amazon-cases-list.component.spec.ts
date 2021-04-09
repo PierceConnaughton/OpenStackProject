@@ -22,4 +22,9 @@ describe('AmazonCasesListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('order should be the same as what i set ', () => {
+    component.setOrder("title");
+    expect(component.order).toBe("title");
+  });
 });
