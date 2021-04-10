@@ -1,33 +1,34 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UserService } from '../Services/user.service';
+import { NgAuthService } from "../ng-auth.service";
+import * as firebase from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthGuard implements CanActivate {
-  constructor(private userService: UserService, private router: Router) { }
+
+  constructor(
+    public ngAuthService: NgAuthService,
+    public router: Router
+  ){ }
 
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      console.log(this.router.url);
+  /*
+      if(this.ngAuthService.isLoggedIn) {
+        this.router.navigate(['profile'])
+      }   
+*/
+     if(this.ngAuthService.userAdmin !== true && this.router.url=="/") {
+        this.router.navigate(['home'])
+    }     
 
-    const user = this.userService.userValue
-
-    // note this is currently only checking if there is a user.
-    // it doesn't use the permission levels.
-
-    if (user) {
       return true;
-    }
-
-    // here there is no authenciated user so the application
-    // is routed back to login. it adds the URL to the query string. This can be used
-    // later when login succeds take the user back to their original location.
-
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-    return false;
   }
   
 }

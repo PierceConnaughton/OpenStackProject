@@ -1,6 +1,11 @@
 <div *ngIf="userItems.length === 0" class="alert alert-info">Your PC List is Empty.</div>
 <div *ngIf="userItems.length > 0" class="col-sm-12">
 
+  <div class="row "> 
+  <button (click)="openDeleteItem(currentItem.id)"   [disabled]="!currentItem"
+  class="btn btn btn-outline-danger" >Delete Pc Part</button>
+  </div>
+
 <div class="row card-header"> 
   <div  class="col-sm-2"> <h4>Title</h4> 
      
@@ -24,8 +29,12 @@
 </div>
 
 <ul *ngIf="userItems.length > 0" class="list-group">
-  <li  *ngFor="let item of userItems">
-    <user-item (deletedItemBool)="deletedItemHandler($event)"  [userItem]="item"></user-item>
+  <li  *ngFor="let item of userItems" 
+  (click)='clicked(item)'
+  [class.bg-info]="isSelected(item)" 
+  [class.text-white]="isSelected(item)">
+    <user-item   [userItem]="item"
+    ></user-item>
   </li>
 
   <li class="list-group-item active">

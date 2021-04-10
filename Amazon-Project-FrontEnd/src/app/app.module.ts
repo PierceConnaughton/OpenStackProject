@@ -56,8 +56,13 @@ import { CpuFormComponent } from './Components/Internal-API-Parts/cpu/cpu-form/c
 import { CpuDetailsComponent } from './Components/Internal-API-Parts/cpu/cpu-details/cpu-details.component';
 import { UserListComponent } from './Components/user-list/user-list.component';
 import { UserItemComponent } from './Components/user-item/user-item.component';
+import { ForgotPasswordComponent } from './Components/Firebase-Login/forgot-password/forgot-password.component';
+import { ProfileComponent } from './Components/Firebase-Login/profile/profile.component';
+import { SignInComponent } from './Components/Firebase-Login/sign-in/sign-in.component';
+import { SignUpComponent } from './Components/Firebase-Login/sign-up/sign-up.component';
+import { VerifyEmailComponent } from './Components/Firebase-Login/verify-email/verify-email.component';
 
-
+import { NgAuthService } from "./ng-auth.service";
 
 @NgModule({
   declarations: [
@@ -95,7 +100,12 @@ import { UserItemComponent } from './Components/user-item/user-item.component';
     CpuFormComponent,
     CpuDetailsComponent,
     UserListComponent,
-    UserItemComponent
+    UserItemComponent,
+    ForgotPasswordComponent,
+    ProfileComponent,
+    SignInComponent,
+    SignUpComponent,
+    VerifyEmailComponent
 
   ],
   imports: [
@@ -114,6 +124,7 @@ import { UserItemComponent } from './Components/user-item/user-item.component';
     { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [UserService] },
   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, 
+    NgAuthService
   ],
   bootstrap: [AppComponent]
 })

@@ -39,12 +39,24 @@ export class UserListComponent implements OnInit {
       this.loadUserItems();  
   }
 
+  openDeleteItem(id: string):void {
+    this.deleteItemBool = true;
+    console.log('need to delete item with id '+ this.currentItem.id);
+    this.deleteItem(this.currentItem.id)
+
+    this.loadUserItems();
+  }
+
+  deleteItem(id: string){
+    this.userService.deletePcItem(id)
+    .subscribe({
+      next: item => this.message = "item has been deleted",
+      error: (err) => this.message = err
+    });
+  }
+
   deletedItemHandler(deletedItemBool: Boolean) {
-    if(deletedItemBool == true){
-        this.loadUserItems();
-        deletedItemBool = false;
-        
-    }
+    
   }
   
 

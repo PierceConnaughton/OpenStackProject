@@ -1,0 +1,35 @@
+  <div class="wrapper">
+    <div class="sign-panels">
+        <div class="login">
+            <div class="title">
+                <span>Sign In</span>
+                <p>Welcome back, please login to your account. You can login with Google or by your regular user login.</p>
+            </div>
+
+            <div>
+                <a class="btn-google btn btn-danger" (click)="ngAuthService.GoogleAuth()">Google Sign In</a>
+            </div>
+
+            <div class="or"><span>OR</span></div>
+
+            <form action="">
+                <input type="text" class="form-control" placeholder="Username" #userName required>
+                <input type="password" class="form-control" placeholder="Password" #userPassword required>
+               
+                <a type="button" class="btn-signin" value="Sign in"
+                (click)="ngAuthService.SignIn(userName.value, userPassword.value)">Sign In</a>
+              
+
+                <a routerLink="/forgot-password" class="btn-reset btn-fade">Forgot Password <i class="fa fa-long-arrow-right"
+                                                                                aria-hidden="true"></i></a>
+                <a routerLink="/sign-up" class="btn-member btn-fade">Sign Up <i class="fa fa-long-arrow-right"
+                                                                             aria-hidden="true"></i></a>
+            </form>
+        </div>
+
+        
+
+        
+    </div>
+</div>
+  

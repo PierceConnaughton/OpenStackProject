@@ -55,10 +55,10 @@ describe('UserListComponent', () => {
     expect(component.currentItem).toBe(newUserItem);
   });
 
-  it('deleted item bool should be set to false no matter what ', () => {
-    component.deletedItemHandler(true);
-    expect(component.deleteItemBool).toBe(false);
-  });
+  // it('deleted item bool should be set to false no matter what ', () => {
+  //   component.deletedItemHandler(true);
+  //   expect(component.deleteItemBool).toBe(false);
+  // });
 
   
   

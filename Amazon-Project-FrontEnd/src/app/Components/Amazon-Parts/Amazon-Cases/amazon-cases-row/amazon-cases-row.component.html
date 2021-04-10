@@ -2,12 +2,12 @@
     <div class="col-sm-3 card-title">  <h5>{{case.title }}</h5> </div>
     <div class="col-sm-2"> <a href="{{case.link}}">{{case.link| slice: 0:80}}...</a> </div>
     <div class="col-sm-1"> <h6>{{case.rank}}</h6> </div>
-    <div *ngIf="5 == case.rating" id="Five" class="col-sm-1"> <span class=" row ">{{case.rating}} out of 5.0</span> <img  class="row d-block h-25 w-75" src="{{imageFiveStar}}"/>  </div>
-    <div *ngIf="5 > case.rating &&  case.rating >= 4.5" id="FourHalf" class="col-sm-1"> <span class=" row ">{{case.rating}} out of 5.0</span> <img  class="row d-block h-25 w-75" src="{{imageHalfFourStar}}"/>  </div>
-    <div *ngIf="4.5 > case.rating &&  case.rating >= 4" id="Four" class="col-sm-1"> <span class=" row ">{{case.rating}} out of 5.0</span> <img  class="row d-block h-25 w-75" src="{{imageFourStar}}"/>  </div>
-    <div *ngIf="4 > case.rating &&  case.rating >= 3" id="Three" class="col-sm-1"> <span class=" row ">{{case.rating}} out of 5.0</span> <img  class="row d-block h-25 w-75" src="{{imageThreeStar}}"/>  </div>
-    <div *ngIf="3 > case.rating &&  case.rating >= 2" id="Two" class="col-sm-1"> <span class=" row ">{{case.rating}} out of 5.0</span> <img  class="row d-block h-25 w-75" src="{{imageTwoStar}}"/>  </div>
-    <div *ngIf="2 > case.rating &&  case.rating >= 0" id="One" class="col-sm-1"> <span class=" row ">{{case.rating}} out of 5.0</span> <img  class="row d-block h-25 w-75" src="{{imageOneStar}}"/>  </div>
+    <div *ngIf="5 == case.rating" id="Five" class="col-sm-1"> <span class=" row ">{{case.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-75" src="{{imageFiveStar}}"/>  </div>
+    <div *ngIf="5 > case.rating &&  case.rating >= 4.5" id="FourHalf" class="col-sm-1"> <span class=" row ">{{case.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-75" src="{{imageHalfFourStar}}"/>  </div>
+    <div *ngIf="4.5 > case.rating &&  case.rating >= 4" id="Four" class="col-sm-1"> <span class=" row ">{{case.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-75" src="{{imageFourStar}}"/>  </div>
+    <div *ngIf="4 > case.rating &&  case.rating >= 3" id="Three" class="col-sm-1"> <span class=" row ">{{case.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-75" src="{{imageThreeStar}}"/>  </div>
+    <div *ngIf="3 > case.rating &&  case.rating >= 2" id="Two" class="col-sm-1"> <span class=" row ">{{case.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-75" src="{{imageTwoStar}}"/>  </div>
+    <div *ngIf="2 > case.rating &&  case.rating >= 0" id="One" class="col-sm-1"> <span class=" row ">{{case.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-75" src="{{imageOneStar}}"/>  </div>
     <div class="col-sm-3"> <img id="item-image"  class="images" src="{{case.image}}"/> </div>
     <div  class="col-sm-2"> <h6 >{{case.price.value | currency:'USD'}}</h6> </div>
 </div>

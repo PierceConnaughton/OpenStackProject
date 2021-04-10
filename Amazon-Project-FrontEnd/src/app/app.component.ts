@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import  { HttpClientModule,HttpHeaders } from '@angular/common/http'
 import { from, Observable } from 'rxjs';
 import {AngularFireDatabase} from "@angular/fire/database";
+import { NgAuthService } from "./ng-auth.service";
 
 import { environment } from "../environments/environment";
 
@@ -12,7 +13,7 @@ import { MatSliderModule } from '@angular/material/slider';
 
 import {User} from './model/user';
 import {SpecialUser} from './model/user';
-import {UserService} from './Services/user.service';
+
 
 @Component({
   selector: 'app-root',
@@ -32,9 +33,8 @@ export class AppComponent{
 
   user: SpecialUser;
 
-  constructor(public db:AngularFireDatabase, private userService: UserService){
+  constructor(public db:AngularFireDatabase, public ngAuthService: NgAuthService){
     this.items = db.list('items').valueChanges();
-    this.userService.user.subscribe( user => this.currentUser = user)
  
     
   }

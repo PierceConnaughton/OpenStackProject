@@ -20,21 +20,34 @@ import {LogoutComponent} from './Components/logout/logout.component';
 import { AnonymousGuard } from './RouteGuards/anonymous.guard';
 import { AuthGuard } from './RouteGuards/auth.guard';
 
+//firebase authentication routes
+import { SignInComponent } from './Components/Firebase-Login/sign-in/sign-in.component';
+import { SignUpComponent } from './Components/Firebase-Login/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './Components/Firebase-Login/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './Components/Firebase-Login/verify-email/verify-email.component';
+import { ProfileComponent } from './Components/Firebase-Login/profile/profile.component';
+
 const routes: Routes = [
 
  {path: '', component: HomeComponent},
- {path: 'part-finder', component: PartFinderComponent},
+ {path: 'part-finder', component: PartFinderComponent, canActivate: [AuthGuard]},
  { path: 'amazon-monitor-list-component', component: AmazonMonitorListComponent, canActivate: [AuthGuard]},
  {path: 'amazon-cases-list-component', component: AmazonCasesListComponent, canActivate: [AuthGuard]},
  {path: 'amazon-cpu-list-component', component: AmazonCpuListComponent, canActivate: [AuthGuard]},
  {path: 'amazon-gpu-list-component', component: AmazonGpuListComponent, canActivate: [AuthGuard]},
  { path: 'monitor-list-component', component: MonitorListComponent, canActivate: [AuthGuard]},
- { path: 'gpu-list-component', component: GpuListComponent},
- { path: 'cpu-list-component', component: CpuListComponent},
+ { path: 'gpu-list-component', component: GpuListComponent, canActivate: [AuthGuard]},
+ { path: 'cpu-list-component', component: CpuListComponent, canActivate: [AuthGuard]},
  { path: 'login', component: LoginComponent },
  {path: 'logout', component: LogoutComponent},
  {path: 'user-list', component: UserListComponent, canActivate: [AuthGuard]},
 
+ 
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'sign-up', component: SignUpComponent, },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]  },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'email-verification', component: VerifyEmailComponent }
   
   
 ]; //sets up routes constant where you define your routes
