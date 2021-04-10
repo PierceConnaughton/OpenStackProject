@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserItem } from 'src/app/model/user-Item';
 import { UserListService } from '../../Services/user-list.service';
+import { FirebaseApiService } from '../../Services/firebase-api.service';
 
 @Component({
   selector: 'user-item',
@@ -24,7 +25,7 @@ export class UserItemComponent implements OnInit {
   message: string;
   deleteItemBool: boolean = false;
 
-  constructor(private userService: UserListService) { }
+  constructor(private firebaseService: FirebaseApiService) { }
 
   ngOnInit(): void {
   }
@@ -37,7 +38,7 @@ export class UserItemComponent implements OnInit {
   }
 
   deleteItem(id: string){
-    this.userService.deletePcItem(id)
+    this.firebaseService.delPart(id)
     .subscribe({
       next: item => this.message = "item has been deleted",
       error: (err) => this.message = err

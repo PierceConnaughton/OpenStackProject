@@ -31,25 +31,9 @@ export class AmazonMonitorListComponent implements OnInit {
     rating: Int16Array;
   }];
 
-  constructor(private _amazonService:AmazonApiService, private formBuilder: FormBuilder){
-    // this.form = this.formBuilder.group({
-    //   prices: ['']
-    // });
-
-    // of(this.getPrices()).subscribe(prices => {
-    //   this.prices = prices;
-    //   this.form.controls.prices.patchValue(this.prices[0].id);
-    // });
+  constructor(private _amazonService:AmazonApiService){
+    
   }
-
-  // getPrices() {
-  //   return [
-  //     { id: "1", name: 'below $100.00' },
-  //     { id: "2", name: '$100.00 - $200.00' },
-  //     { id: "3", name: 'above $200.00' },
-  //     { id: "4", name: 'any price' }
-  //   ];
-  // }
 
   ngOnInit(): void {
     this._amazonService.getMonitorAmazonList().subscribe(
@@ -63,22 +47,6 @@ export class AmazonMonitorListComponent implements OnInit {
     );
   }
 
-  // submit() {
-  //   console.log(this.form.value);
-  //   if(this.form.value == "1"){
-      
-  //   }
-  //   else if(this.form.value == "2"){
-      
-  //   }
-  //   else if(this.form.value == "3"){
-      
-  //   }
-  //   else()=>{
-      
-  //   }
-    
-  // }
 
   LoadMonitorList(){
     this._amazonService.getMonitorAmazonList().subscribe(
@@ -96,8 +64,8 @@ export class AmazonMonitorListComponent implements OnInit {
 
   currentMonitor : AmazonMonitorResponse;
 
-  // search text property
-  searchTextMonitorTitle: string;
+// search text property
+searchTextMonitorTitle: string;
 
   order: string = 'title';
   reverse: boolean = false;

@@ -33,12 +33,7 @@
         <a class="nav-link" routerLink="/part-finder" routerLinkActive="active">Amazon Part Finder</a>
       </li>
      
-      <li *ngIf="!currentUser" class="nav-item">
-        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-      </li>
-      <li *ngIf="currentUser" class="nav-item">
-        <a class="nav-link" routerLink="/logout" routerLinkActive="active">Logout</a>
-      </li>
+      
       
       <!-- <li *ngIf="currentUser" class="nav-item">
         <p class="nav-link" >User: {{userName}}</p>
@@ -47,7 +42,23 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/user-list" routerLinkActive="active">Users PC</a>
       </li>
+
+      
+      
     </ul>
+    <div class="navbar-collapse collapse w-80 order-3 dual-collapse2">
+      <ul class="navbar-nav ml-auto">
+
+        <li *ngIf="!currentUser" class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+
+        <li *ngIf="currentUser" class="nav-item">
+          <a class="nav-link" routerLink="/logout" routerLinkActive="active">Logout</a>
+        </li>
+
+      </ul>
+  </div>
   </div>
 </nav>
 

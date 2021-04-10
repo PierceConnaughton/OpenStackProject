@@ -3,10 +3,6 @@
     <h2 *ngIf="!amazonData">Loading...</h2>
         <div class="" *ngIf="amazonData">
 
-            <!-- <div class="col-sm-8">       
-                <a href="{{amazonData.request_metadata.amazon_url}}" class="col-sm-4" > Link to best selling cases</a>
-            </div> -->
-            
             <amazon-cases-details *ngIf="currentCases" [amazonDataTwo]="amazonDataTwo" [case]="currentCases"></amazon-cases-details>
     <br>
 
@@ -22,19 +18,19 @@
         <div [class.active]="order === 'title'" (click)="setOrder('title')" class="col-sm-3"> <h4>Title</h4> 
             <span *ngIf="order === 'title'">▼</span>
         </div>
-        <div [class.active]="order === 'link'" (click)="setOrder('link')" class="col-sm-2"> <h4>Link</h4>
-            <span *ngIf="order === 'link'">▼</span> 
+        <div  class="col-sm-2"> <h4>Link</h4>
+          
         </div>
-        <div  class="col-sm-1" [class.active]="order === 'rank'" (click)="setOrder('rank')"> <h4>Rank</h4> 
-            <span *ngIf="order === 'rank'">▼</span> 
+        <div  class="col-sm-1" > <h4>Rank</h4> 
+            
         </div>
         <div  class="col-sm-1"> <h4>Rating</h4> 
         </div>
-        <div  [class.active]="order === 'image'" (click)="setOrder('image')" class="col-sm-3"> <h4>Image</h4> 
-            <span *ngIf="order === 'image'">▼</span>
+        <div   class="col-sm-3"> <h4>Image</h4> 
+            
         </div>
-        <div  [class.active]="order === 'price.raw'" (click)="setOrder('price.raw')" class="col-sm-2"> <h4>Price</h4> 
-            <span *ngIf="order === 'price.raw'">▼</span>
+        <div    class="col-sm-2"> <h4>Price</h4> 
+        
         </div>
         
 

@@ -4,24 +4,10 @@
     <h2 *ngIf="!amazonData">Loading...</h2>
         <div class="" *ngIf="amazonData">
 
-            <!-- <div class="col-sm-8">       
-                <a href="{{amazonData.request_metadata.amazon_url}}" class="col-sm-4" > Link to best selling monitors</a>
-            </div> -->
-
             <amazon-monitor-details *ngIf="currentMonitor" [amazonDataTwo]="amazonDataTwo" [monitor]="currentMonitor"></amazon-monitor-details>
             
     <br>
 
-    <!-- <form [formGroup]="form" (ngSubmit)="submit()">
-
-        <label *ngFor="let price of prices">
-          <input formControlName="prices" type="radio" name="prices" [value]="price.id" />
-          {{price.name}}
-        </label>
-      
-        <br>
-        <button>Change List</button>
-    </form> -->
 
     
     
@@ -37,18 +23,17 @@
         <div [class.active]="order === 'title'" (click)="setOrder('title')" class="col-sm-3"> <h4>Title</h4> 
             <span *ngIf="order === 'title'">▼</span>
         </div>
-        <div [class.active]="order === 'link'" (click)="setOrder('link')" class="col-sm-2"> <h4>Link</h4>
-            <span *ngIf="order === 'link'">▼</span> 
+        <div  class="col-sm-2"> <h4>Link</h4>
+            
         </div>
         <div  class="col-sm-1"> <h4>Rank</h4> 
         </div>
         <div  class="col-sm-1"> <h4>Rating</h4> 
         </div>
-        <div  [class.active]="order === 'image'" (click)="setOrder('image')" class="col-sm-3"> <h4>Image</h4> 
-            <span *ngIf="order === 'image'">▼</span>
+        <div  class="col-sm-3"> <h4>Image</h4> 
+           
         </div>
-        <div  [class.active]="order === 'raw'" (click)="setOrder('raw')" class="col-sm-2"> <h4>Price</h4> 
-            <span *ngIf="order === 'raw'">▼</span>
+        <div  class="col-sm-2"> <h4>Price</h4> 
         </div>
         
 

@@ -23,17 +23,17 @@
         <div [class.active]="order === 'title'" (click)="setOrder('title')" class="col-sm-4"> <h4>Title</h4> 
             <span *ngIf="order === 'title'">▼</span>
         </div>
-        <div [class.active]="order === 'link'" (click)="setOrder('link')" class="col-sm-2"> <h4>Link</h4> 
-            <span *ngIf="order === 'link'">▼</span>
+        <div class="col-sm-2"> <h4>Link</h4> 
+           
         </div>
-        <div [class.active]="order === 'rank'" (click)="setOrder('rank')"  class="col-sm-1"> <h4>Rank</h4> 
-            <span *ngIf="order === 'rank'">▼</span>
+        <div  class="col-sm-1"> <h4>Rank</h4> 
+          
         </div>
-        <div [class.active]="order === 'rating'" (click)="setOrder('rating')" class="col-sm-1"> <h4>Rating</h4> 
-            <span *ngIf="order === 'rating'">▼</span>
+        <div  class="col-sm-1"> <h4>Rating</h4> 
+           
         </div>
-        <div  [class.active]="order === 'image'" (click)="setOrder('image')" class="col-sm-2"> <h4>Image</h4> 
-            <span *ngIf="order === 'image'">▼</span>
+        <div  class="col-sm-2"> <h4>Image</h4> 
+            
         </div>
         <!--<div [class.active]="order === 'amazonData.price.raw'" class="col-sm-2" (click)="setOrder('amazonData.price.raw')"> <h4>Price</h4> 
         </div> -->

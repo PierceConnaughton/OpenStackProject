@@ -4,6 +4,8 @@ import {Gpu} from '../model/gpu';
 import {Cpu} from '../model/cpu';
 import {Observable,throwError} from 'rxjs';
 import {retry, catchError} from 'rxjs/operators';
+import { UserItem } from '../model/user-Item';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -92,6 +94,37 @@ export class FirebaseApiService {
   addGpu(brand: string, manufacturer: string, series: string, color: string, hardDrive:string): Observable<Gpu> {
 
     return this.http.post<Gpu>(this.apiURL + '/addGpu?brand=' + brand + '&manufacturer=' + manufacturer + '&series=' + series + '&color=' + color + '&hardDrive=' + hardDrive,null)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+ 
+  //#endregion "Gpu Function"
+
+   //#region "Gpu Functions"
+
+   getParts(): Observable<UserItem[]> {
+    return this.http.get<UserItem[]>(this.apiURL + '/getParts')
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
+
+  delPart(id:string): Observable<UserItem> {
+
+    return this.http.delete<UserItem>(this.apiURL + '/deletePart?id=' + id)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
+  addPart(asin: string, title: string, value: Number, rating: Number, image:string, link:string): Observable<UserItem> {
+
+    return this.http.post<UserItem>(this.apiURL + '/addPart?asin=' + asin + '&title=' + title + '&value=' + value + '&rating=' + rating + '&image=' + image + '&link=' + link ,null)
     .pipe(
       retry(1),
       catchError(this.handleError)

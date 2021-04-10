@@ -13,6 +13,8 @@ const dbgpu = admin.database().ref('/mygpus');
 
 const dbcpu = admin.database().ref('/mycpus');
 
+const dbpc = admin.database().ref('/mypcs');
+
 /*
 exports.helloWorld = functions.https.onRequest((request, response) => {
     response.send("Hello from Firebase!");
@@ -42,6 +44,35 @@ const getGpusFromDatabase = (res) => {
             });
         }
     );
+
+};
+
+const getPcsFromDatabase = (res) => {
+  let parts = [];
+  return dbpc.on(
+      'value',
+      snapshot => {
+          snapshot.forEach(part => {
+              parts.push({
+                  id: part.key,
+                  asin: part.val().asin,
+                  title: part.val().title,
+                  value: part.val().value,
+                  rating: part.val().rating,
+                  image: part.val().image,
+                  link: part.val().link
+
+                  
+              });
+          });
+          res.status(200).json(parts);
+      },
+      error => {
+          res.status(error.code).json({
+              message: `Error: ${error.message}`
+          });
+      }
+  );
 
 };
 
@@ -90,6 +121,8 @@ exports.addGpu = functions.https.onRequest((req, res) => {
     });
 });
 
+
+
 exports.addCpu = functions.https.onRequest((req, res) => {
   return cors(req, res, () => {
       if (req.method !== 'POST') {
@@ -105,6 +138,29 @@ exports.addCpu = functions.https.onRequest((req, res) => {
  
       dbcpu.push({ model,manufacturer,speed,processors });
       getCpusFromDatabase(res);
+  });
+});
+
+exports.addPart = functions.https.onRequest((req, res) => {
+  return cors(req, res, () => {
+      if (req.method !== 'POST') {
+          return res.status(401).json({
+              message: 'Not allowed'
+          });
+      }
+      
+      const asin = req.query.asin;
+      const title = req.query.title;
+      const value = req.query.value;
+      const rating = req.query.rating;
+      const image = req.query.image;
+      const link = req.query.link;
+
+      
+
+      
+      dbpc.push({ asin,title,value,rating,image,link });
+      getPcsFromDatabase(res);
   });
 });
 
@@ -136,6 +192,20 @@ exports.deleteGpu = functions.https.onRequest((req, res) => {
     });
   });  
 
+  exports.deletePart = functions.https.onRequest((req, res) => {
+    return cors(req, res, () => {
+      if(req.method !== 'DELETE') {
+        return res.status(401).json({
+          message: 'Not allowed'
+        })
+      }
+      const id = req.query.id;
+      //admin.database().ref(`/mybooks/${id}`).remove();
+      dbpc.child(id).remove();
+      getPcsFromDatabase(res);
+    });
+  });
+
   exports.getGpus = functions.https.onRequest((req, res) => {
     return cors(req, res, () => {
         if (req.method !== 'GET') {
@@ -155,6 +225,17 @@ exports.getCpus = functions.https.onRequest((req, res) => {
           })
       }
       getCpusFromDatabase(res);
+  });
+});
+
+exports.getParts = functions.https.onRequest((req, res) => {
+  return cors(req, res, () => {
+      if (req.method !== 'GET') {
+          return res.status(404).json({
+              message: 'Not allowed'
+          })
+      }
+      getPcsFromDatabase(res);
   });
 });
 

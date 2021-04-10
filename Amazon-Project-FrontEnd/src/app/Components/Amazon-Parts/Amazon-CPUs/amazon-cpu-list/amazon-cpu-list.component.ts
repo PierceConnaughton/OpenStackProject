@@ -41,6 +41,18 @@ export class AmazonCpuListComponent implements OnInit {
     );
   }
 
+  loadCpus(): void{
+    this._amazonService.getCpuAmazonList().subscribe(
+      amazonData => {
+        this.amazonData=amazonData;
+        console.log('"Best Selling Cpus URL": '  + JSON.stringify(amazonData.request_metadata.amazon_url));
+
+      },
+      error => this.errorMessage = <any>error
+
+    );
+  }
+
  
 
   cpuList: AmazonCpusResponse;

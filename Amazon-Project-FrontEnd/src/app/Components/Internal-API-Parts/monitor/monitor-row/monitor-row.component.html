@@ -5,6 +5,6 @@
     <div class="col"> <h6>"{{monitor.size}}</h6> </div>
     <div class="col"> <h6>{{monitor.version}}</h6> </div>
     <div class="col"> <h6>{{monitor.color}}</h6> </div>
-    <div class="col"> <h6>{{monitor.refreshRate}}</h6> </div>
+    <div class="col"> <h6 *ngIf="monitor.refreshRate">{{monitor.refreshRate}}Hz</h6> </div>
 </div>
   

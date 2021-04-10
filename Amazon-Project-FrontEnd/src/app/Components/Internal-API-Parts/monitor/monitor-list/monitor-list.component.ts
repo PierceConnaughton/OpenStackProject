@@ -44,6 +44,13 @@ export class MonitorListComponent implements OnInit {
     })
   }
 
+  loadMonitors(){
+    this.monitorService.getMonitors().subscribe({
+      next: (value: IMonitor[] )=> this.monitorList = value,
+      complete: () => console.log('monitor service finished'),
+      error: (mess) => this.message = mess
+    });
+  }
 
 
   clicked (monitor: IMonitor): void {
@@ -152,7 +159,10 @@ export class MonitorListComponent implements OnInit {
   }
 
   setOrder(value: string) {
-    this.order = value;
+    
+      this.order = value;
+    
+    
   }
 
  
