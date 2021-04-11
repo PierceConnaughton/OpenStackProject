@@ -1,0 +1,106 @@
+
+<br>
+<form   class="form-inline justify-content-center">
+
+    <div class="row">
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="id">
+                ID
+              </label>
+              <div class="col-md-2">
+                  <input type="text" class="form-control" formControlName="id"  #id placeholder="Enter id"
+                  id="id" required
+                   name="id">
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-2" for="brand">
+                Brand
+              </label>
+              <div class="col-md-3">
+                  <select type="text" class="form-control" formControlName="brand" #brand placeholder="Enter brand"
+                  id="brand" required>
+                        <option>MSI</option>
+                        <option>ASUS</option>
+                        <option>Corsair</option>
+                        <option>Gigabyte</option>
+                        <option>Palit</option>
+                  </select>
+              </div>
+          </div>
+        
+          <div class="form-group">
+            <label class="control-label col-md-4" for="manufacturer">
+                Manufacturer
+              </label>
+              <div class="col-md-2">
+                  <select type="text" class="form-control" formControlName="manufacturer" #manufacturer placeholder="Enter Manufacturer"
+                  id="manufacturer" required
+                  >
+                        <option>NVIDIA</option>
+                        <option>AMD</option>
+                        <option>ASUS</option>
+                        <option>Intel</option>
+                        <option>EVGA</option>
+                  </select>
+              </div>
+          </div>
+        
+          <div class="form-group">
+            <label class="control-label col-md-2" for="series">
+                Series
+              </label>
+              <div class="col-md-1">
+                  <input type="text" class="form-control" formControlName="series" placeholder="Enter series"
+                  id="series" required
+                  #series name="series">
+              </div>
+          </div>
+        
+          <div class="form-group">
+            <label class="control-label col-md-2" for="color">
+                Color
+              </label>
+              <div class="col-md-1">
+                  <select type="text" class="form-control" formControlName="color" placeholder="Enter Color"
+                  id="color" required
+                  #color name="color">
+                        <option>Red</option>
+                        <option>Black</option>
+                        <option>Blue</option>
+                        <option>Green</option>
+                        <option>White</option>
+                  </select>
+              </div>
+          </div>
+        
+          <div class="form-group">
+            <label class="control-label col-md-3" for="hardDrive">
+                Hard Drive
+              </label>
+              <div class="col-md-1">
+                  <select type="text" class="form-control" formControlName="hardDrive" placeholder="Enter hardDrive"
+                  id="hardDrive" required
+                  #hardDrive name="hardDrive">
+                      <option>2 GB</option>
+                      <option>3 GB</option>
+                      <option>6 GB</option>
+                      <option>8 GB</option>
+                      <option>12 GB</option>
+                  </select>
+              </div>
+          </div>
+
+
+    <div class="col-sm">
+      <button type="submit" (click)="addGpu(id.value,brand.value,manufacturer.value,series.value,color.value,hardDrive.value)" class="btn btn-info">Submit</button>
+    </div>
+
+    </div>
+
+  </form>
+
+  <br>
+

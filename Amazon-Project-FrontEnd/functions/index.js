@@ -247,15 +247,17 @@ exports.updateGpu = functions.https.onRequest((req, res) => {
         })
       }
       const id = req.query.id;
+      //admin.database().ref(`/mybooks/${id}`).remove();
+      dbpc.child(id).remove();
 
       const brand = req.query.brand;
-        const manufacturer = req.query.manufacturer;
-        const series = req.query.series;
-        const color = req.query.color;
-        const hardDrive = req.query.hardDrive;
+      const manufacturer = req.query.manufacturer;
+      const series = req.query.series;
+      const color = req.query.color;
+      const hardDrive = req.query.hardDrive;
 
-      //admin.database().ref(`/mybooks/${id}`).remove();
-      dbgpu.child(id).update(brand,manufacturer,series,color,hardDrive);
+      
+      dbgpu.push({ brand,manufacturer,series,color,hardDrive });
       getGpusFromDatabase(res);
     });
   });
@@ -268,29 +270,17 @@ exports.updateGpu = functions.https.onRequest((req, res) => {
         })
       }
 
-      
       const id = req.query.id;
+      //admin.database().ref(`/mybooks/${id}`).remove();
+      dbcpu.child(id).remove();
 
       const model = req.query.model;
       const manufacturer = req.query.manufacturer;
       const speed = req.query.speed;
       const processors = req.query.processors;
-
-      //admin.database().ref(`/mybooks/${id}`).remove();
-
-      const cpus = admin.firestore()
-      .collection('mycpus')
-      .where('manufacturer','<=', "Intel")
-      .get();
-    
-      const batch = admin.firestore().batch();
  
-      cpus.forEach(doc => {
-        batch.update(doc.ref,'color',"blue");
-      });
-      
-      
-      dbcpu.child(id).update(model,manufacturer,speed,processors);
+      dbcpu.push({ model,manufacturer,speed,processors });
+
       getCpusFromDatabase(res);
     });
   });  

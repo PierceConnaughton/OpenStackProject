@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
+import { StoreModule } from '@ngrx/store';
+
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule, AngularFireDatabase} from '@angular/fire/database';
 import {environment} from '../environments/environment';
@@ -63,6 +65,14 @@ import { SignUpComponent } from './Components/Firebase-Login/sign-up/sign-up.com
 import { VerifyEmailComponent } from './Components/Firebase-Login/verify-email/verify-email.component';
 
 import { NgAuthService } from "./ng-auth.service";
+import {reducerCpu} from './reducers/cpu.reducer';
+import {reducerGpu} from './reducers/gpu.reducer';
+import { CpuReadComponent } from './Components/regex/cpu/cpu-read/cpu-read.component';
+import { CpuCreateComponent } from './Components/regex/cpu/cpu-create/cpu-create.component';
+import { CpuHomeComponent } from './Components/regex/cpu/cpu-home/cpu-home.component';
+import { GpuHomeComponent } from './Components/regex/gpu/gpu-home/gpu-home.component';
+import { GpuCreateComponent } from './Components/regex/gpu/gpu-create/gpu-create.component';
+import { GpuReadComponent } from './Components/regex/gpu/gpu-read/gpu-read.component';
 
 @NgModule({
   declarations: [
@@ -105,7 +115,13 @@ import { NgAuthService } from "./ng-auth.service";
     ProfileComponent,
     SignInComponent,
     SignUpComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    CpuReadComponent,
+    CpuCreateComponent,
+    CpuHomeComponent,
+    GpuHomeComponent,
+    GpuCreateComponent,
+    GpuReadComponent
 
   ],
   imports: [
@@ -113,7 +129,10 @@ import { NgAuthService } from "./ng-auth.service";
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    
+    StoreModule.forRoot({
+      gpu: reducerGpu,
+      cpu: reducerCpu
+    }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     FormsModule,

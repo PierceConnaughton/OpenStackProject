@@ -127,10 +127,10 @@ export class CpuListComponent implements OnInit {
           this.MyCpus = data;
           this.modelValue='';
           this.manufacturerValue='';
-          this.manufacturerValue='';
           this.speedValue='';
           this.processorsValue='';
         })
+    this.currentCpu = null;
     this.loadCpus();
     
   }
@@ -140,7 +140,6 @@ export class CpuListComponent implements OnInit {
     this.firebaseApiService.addCpu(model,manufacturer,speed,processor).subscribe((data: {}) =>{
       this.MyCpus = data;
       this.modelValue='';
-      this.manufacturerValue='';
       this.manufacturerValue='';
       this.speedValue='';
       this.processorsValue='';

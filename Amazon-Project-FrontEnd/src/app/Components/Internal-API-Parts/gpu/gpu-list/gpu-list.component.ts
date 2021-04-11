@@ -108,7 +108,7 @@ export class GpuListComponent implements OnInit {
   }
 
   updateGpu( id: string, brand:string,manufacturer: string, series:string,color: string, hardDrive:string){
-    return this.firebaseApiService.updateGpu(id,brand,manufacturer,series,color,hardDrive).subscribe((data: {}) =>{
+     this.firebaseApiService.updateGpu(id,brand,manufacturer,series,color,hardDrive).subscribe((data: {}) =>{
           this.MyGpus = data;
           this.brandValue='';
           this.manufacturerValue='';
@@ -116,6 +116,7 @@ export class GpuListComponent implements OnInit {
           this.colorValue='';
           this.hardDriveValue='';
         })
+      this.currentGpu = null;
     this.loadGpus();
     
   }

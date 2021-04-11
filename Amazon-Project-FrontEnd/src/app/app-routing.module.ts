@@ -14,6 +14,9 @@ import {CpuListComponent} from './Components/Internal-API-Parts/cpu/cpu-list/cpu
 
 import {UserListComponent} from './Components/user-list/user-list.component';
 
+import {CpuHomeComponent} from './Components/regex/cpu/cpu-home/cpu-home.component';
+import {GpuHomeComponent} from './Components/regex/gpu/gpu-home/gpu-home.component';
+
 import {LoginComponent} from './Components/login/login.component';
 import {LogoutComponent} from './Components/logout/logout.component';
 
@@ -26,6 +29,7 @@ import { SignUpComponent } from './Components/Firebase-Login/sign-up/sign-up.com
 import { ForgotPasswordComponent } from './Components/Firebase-Login/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './Components/Firebase-Login/verify-email/verify-email.component';
 import { ProfileComponent } from './Components/Firebase-Login/profile/profile.component';
+import { GpuCreateComponent } from './Components/regex/gpu/gpu-create/gpu-create.component';
 
 const routes: Routes = [
 
@@ -38,6 +42,8 @@ const routes: Routes = [
  { path: 'monitor-list-component', component: MonitorListComponent, canActivate: [AuthGuard]},
  { path: 'gpu-list-component', component: GpuListComponent, canActivate: [AuthGuard]},
  { path: 'cpu-list-component', component: CpuListComponent, canActivate: [AuthGuard]},
+ { path: 'regex-gpu-list-component', component: GpuHomeComponent, canActivate: [AuthGuard]},
+ { path: 'regex-cpu-list-component', component: CpuHomeComponent, canActivate: [AuthGuard]},
  {path: 'user-list', component: UserListComponent, canActivate: [AuthGuard]},
 
  

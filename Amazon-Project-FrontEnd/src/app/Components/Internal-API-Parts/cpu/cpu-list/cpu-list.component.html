@@ -1,10 +1,10 @@
 <body>
     <div class="container-fluid">
-        <h2 *ngIf="!showCpuForm && !currentCpu">List of Cpus</h2>
+        <h2 *ngIf="!showCpuForm && !currentCpu">List of Cpus - This is on Firebase</h2>
 
         <h2  *ngIf="showCpuForm">Cpu Form</h2>
         <app-cpu-form *ngIf="showCpuForm" 
-        (cpuFormClose)="cpuFormClose($event)" [cpu]="currentGpu"></app-cpu-form>  
+        (cpuFormClose)="cpuFormClose($event)" [cpu]="currentCpu"></app-cpu-form>  
 
        
     

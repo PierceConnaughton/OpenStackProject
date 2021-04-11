@@ -1,0 +1,43 @@
+
+<div class="right" *ngIf="cpus">
+
+
+    <br>
+
+    
+    <div class="row card-header"> 
+        <div [class.active]="order === 'id'" (click)="setOrder('id')" class="col card-title"> <h4>Cpu ID</h4> 
+            <span *ngIf="order === 'id'">▼</span>
+        </div>
+        <div [class.active]="order === 'model'" (click)="setOrder('model')" class="col "> <h4>Model</h4> 
+            <span *ngIf="order === 'model'">▼</span>
+        </div>
+        
+        <div [class.active]="order === 'manufacturer'" (click)="setOrder('manufacturer')" class="col "> <h4>Manufacturer</h4> 
+            <span *ngIf="order === 'manufacturer'">▼</span>
+        </div>
+        <div [class.active]="order === 'speed'" (click)="setOrder('speed')" class="col "> <h4>Speed</h4> 
+            <span *ngIf="order === 'speed'">▼</span>
+        </div>
+        <div [class.active]="order === 'processors'" (click)="setOrder('processors')" class="col "> <h4>Processors</h4> 
+            <span *ngIf="order === 'processors'">▼</span>
+        </div>
+        <!-- <div class="col "> <h4>Add To Cart</h4> 
+            
+        </div> -->
+        
+    </div>
+    <ul>
+        <li class="card" (click)="delCpu(i)" *ngFor="let cpu of cpus | async; let i = index "  >
+            <div class="row card-body"> 
+                <div target="_blank" class="col card-title">  <h5>{{cpu.id}}</h5> </div>
+                <div class="col"> <h6>{{cpu.model}}</h6> </div>
+                <div class="col"> <h6>{{cpu.manufacturer}}</h6> </div>
+                <div class="col"> <h6>{{cpu.speed}}</h6> </div>
+                <div class="col"> <h6>{{cpu.processors}}</h6> </div>
+                <!--<button type="button" class="btn col btn-sm btn-primary product-btn" (click)="handleAddToCart()">Add to Cart</button>-->
+            </div>
+      </li>
+    </ul>
+  
+  </div>
