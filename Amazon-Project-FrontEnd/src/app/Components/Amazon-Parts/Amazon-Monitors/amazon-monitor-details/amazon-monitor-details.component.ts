@@ -3,6 +3,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { AmazonMonitorResponse } from '../../../../model/AmazonMonitorResponse';
 import { AmazonApiService } from '../../../../Services/amazon-api.service';
 import { UserItem } from '../../../../model/user-Item';
+import { FirebaseApiService } from 'src/app/Services/firebase-api.service';
 import { UserListService } from '../../../../Services/user-list.service';
 
 
@@ -37,9 +38,7 @@ export class AmazonMonitorDetailsComponent implements OnInit {
     link: "a"
   };
 
-  constructor(private userService: UserListService){
-    //this.currentRate = this.amazonDataTwo.product.rating;
-    //this.currentRate = Number(this.currentRateString);
+  constructor(private firebaseService: FirebaseApiService){
   }
 
   ngOnInit(): void {
@@ -59,7 +58,9 @@ export class AmazonMonitorDetailsComponent implements OnInit {
     this.newUserItem.rating = this.amazonDataTwo.product.rating;
     this.newUserItem.link = this.amazonDataTwo.product.link;
 
-    this.userService.addPartToPc(this.newUserItem).subscribe(() => {
+    this.firebaseService.addPart(this.newUserItem.asin, this.newUserItem.title, 
+      this.newUserItem.value, this.newUserItem.rating, 
+      this.newUserItem.image, this.newUserItem.link,).subscribe(() => {
       
     })
   }

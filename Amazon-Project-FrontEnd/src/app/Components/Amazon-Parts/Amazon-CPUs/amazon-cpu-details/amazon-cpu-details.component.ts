@@ -3,7 +3,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { AmazonCpusResponse } from '../../../../model/AmazonCpuResponse';
 import { UserItem } from '../../../../model/user-Item';
 import { AmazonApiService } from '../../../../Services/amazon-api.service';
-import { UserListService } from '../../../../Services/user-list.service';
+import { FirebaseApiService } from '../../../../Services/firebase-api.service';
 
 @Component({
   selector: 'amazon-cpu-details',
@@ -34,7 +34,7 @@ export class AmazonCpuDetailsComponent implements OnInit {
 
   errorMessage: any;
 
-  constructor(private userService: UserListService){
+  constructor(private firebaseService: FirebaseApiService){
   }
 
   ngOnInit(): void {
@@ -45,7 +45,6 @@ export class AmazonCpuDetailsComponent implements OnInit {
   public results = [];
 
   handleAddToPc(){
-
     this.newUserItem.asin = this.amazonDataTwo.product.asin;
     this.newUserItem.value = this.amazonDataTwo.product.buybox_winner.price.value;
     this.newUserItem.title = this.amazonDataTwo.product.title;
@@ -53,7 +52,9 @@ export class AmazonCpuDetailsComponent implements OnInit {
     this.newUserItem.rating = this.amazonDataTwo.product.rating;
     this.newUserItem.link = this.amazonDataTwo.product.link;
 
-    this.userService.addPartToPc(this.newUserItem).subscribe(() => {
+    this.firebaseService.addPart(this.newUserItem.asin, this.newUserItem.title, 
+      this.newUserItem.value, this.newUserItem.rating, 
+      this.newUserItem.image, this.newUserItem.link,).subscribe(() => {
       
     })
   }

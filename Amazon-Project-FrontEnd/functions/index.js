@@ -267,6 +267,8 @@ exports.updateGpu = functions.https.onRequest((req, res) => {
           message: 'Not allowed'
         })
       }
+
+      
       const id = req.query.id;
 
       const model = req.query.model;
@@ -275,7 +277,23 @@ exports.updateGpu = functions.https.onRequest((req, res) => {
       const processors = req.query.processors;
 
       //admin.database().ref(`/mybooks/${id}`).remove();
+
+      const cpus = admin.firestore()
+      .collection('mycpus')
+      .where('manufacturer','<=', "Intel")
+      .get();
+    
+      const batch = admin.firestore().batch();
+ 
+      cpus.forEach(doc => {
+        batch.update(doc.ref,'color',"blue");
+      });
+      
+      
       dbcpu.child(id).update(model,manufacturer,speed,processors);
       getCpusFromDatabase(res);
     });
   });  
+
+
+  

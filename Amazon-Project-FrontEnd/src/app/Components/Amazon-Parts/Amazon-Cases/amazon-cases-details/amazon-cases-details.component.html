@@ -1,4 +1,10 @@
-<h3 *ngIf="!amazonDataTwo">Loading Details...</h3>
+<div *ngIf="!amazonDataTwo">
+  <div class="loading-container">
+    <div class="loading"></div>
+    <div id="loading-text">loading</div>
+  </div>
+</div>
+
 <div *ngIf="amazonDataTwo" class="container-md h-100 bg-info"> 
     <ul class = "list-group ">
         <li class = "list-group-item "> 

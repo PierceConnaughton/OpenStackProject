@@ -1,12 +1,20 @@
-# Use nginx to serve the application ##
-FROM nginx:alpine
+FROM node AS builder
 
-## Remove default nginx website  
-RUN rm -rf /usr/share/nginx/html/*
+WORKDIR /Amazon-Project
 
-## Copy over the artifacts in dist folder to default nginx public folder  
-COPY /dist/Amazon-Project /usr/share/nginx/html
+COPY package*.json ./
 
-## nginx will run in the forground  
-CMD [ "nginx", "-g", "daemon off;" ]
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+FROM nginx:1.13.12-alpine
+
+COPY --from=builder /Amazon-Project/dist/Amazon-Project /usr/share/nginx/html
+
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
 

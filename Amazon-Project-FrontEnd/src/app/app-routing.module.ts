@@ -40,7 +40,7 @@ const routes: Routes = [
  { path: 'cpu-list-component', component: CpuListComponent, canActivate: [AuthGuard]},
  { path: 'login', component: LoginComponent },
  {path: 'logout', component: LogoutComponent},
- {path: 'user-list', component: UserListComponent, canActivate: [AuthGuard]},
+ {path: 'user-list', component: UserListComponent},
 
  
   { path: 'sign-in', component: SignInComponent },

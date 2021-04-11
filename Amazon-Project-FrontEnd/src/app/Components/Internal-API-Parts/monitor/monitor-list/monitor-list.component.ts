@@ -72,7 +72,7 @@ export class MonitorListComponent implements OnInit {
     this.deleteMonitorBool = true;
     console.log('need to delete monitor with id '+ this.currentMonitor.id);
     this.deleteMonitor(this.currentMonitor.id)
-  window.location.reload();
+    this.loadMonitors();
   }
 
 
@@ -103,13 +103,8 @@ export class MonitorListComponent implements OnInit {
       error: (err) => this.message = err
     });
 
-    this.monitorService.getMonitors().subscribe({
-      next: (value: IMonitor[] )=> this.monitorList = value,
-      complete: () => console.log('monitor service finished'),
-      error: (mess) => this.message = mess
-    });
 
-    window.location.reload();
+    this.loadMonitors();
   }
 
   deleteMonitor(id: string){
@@ -119,11 +114,7 @@ export class MonitorListComponent implements OnInit {
       error: (err) => this.message = err
     });
 
-    this.monitorService.getMonitors().subscribe({
-      next: (value: IMonitor[] )=> this.monitorList = value,
-      complete: () => console.log('monitor service finished'),
-      error: (mess) => this.message = mess
-    })
+    this.loadMonitors();
   }
 
 
@@ -140,13 +131,7 @@ export class MonitorListComponent implements OnInit {
     this.showMonitorForm = false;
 
     
-  this.monitorService.getMonitors().subscribe({
-    next: (value: IMonitor[] )=> this.monitorList = value,
-    complete: () => console.log('monitor service finished'),
-    error: (mess) => this.message = mess
-    
-  })
-  window.location.reload();
+    this.loadMonitors();
   }
 
   isSelected(monitor: IMonitor): boolean{

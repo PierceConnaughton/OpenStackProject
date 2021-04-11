@@ -1,6 +1,17 @@
 <div class="container-fluid">
     <h1>Bestselling  Cpus</h1>
-    <h2 *ngIf="!amazonData">Loading...</h2>
+    <div *ngIf="!amazonData">
+        <div id="load">
+            <div>G</div>
+            <div>N</div>
+            <div>I</div>
+            <div>D</div>
+            <div>A</div>
+            <div>O</div>
+            <div>L</div>
+          </div>
+    
+    </div>
         <div class="" *ngIf="amazonData">
 
             <!-- <div class="col-sm-8">       

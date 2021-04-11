@@ -1,6 +1,7 @@
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit,Input } from '@angular/core';
 import { UserItem } from 'src/app/model/user-Item';
+import { FirebaseApiService } from 'src/app/Services/firebase-api.service';
 import { AmazonCasesResponse } from '../../../../model/AmazonCasesResponse';
 import { AmazonApiService } from '../../../../Services/amazon-api.service';
 import { UserListService } from '../../../../Services/user-list.service';
@@ -34,7 +35,7 @@ export class AmazonCasesDetailsComponent implements OnInit {
 
   errorMessage: any;
 
-  constructor(private userService: UserListService){
+  constructor(private firebaseService: FirebaseApiService){
   }
 
   ngOnInit(): void {
@@ -53,7 +54,9 @@ export class AmazonCasesDetailsComponent implements OnInit {
     this.newUserItem.rating = this.amazonDataTwo.product.rating;
     this.newUserItem.link = this.amazonDataTwo.product.link;
 
-    this.userService.addPartToPc(this.newUserItem).subscribe(() => {
+    this.firebaseService.addPart(this.newUserItem.asin, this.newUserItem.title, 
+      this.newUserItem.value, this.newUserItem.rating, 
+      this.newUserItem.image, this.newUserItem.link,).subscribe(() => {
       
     })
   }

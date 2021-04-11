@@ -1,6 +1,18 @@
 <div class="container-fluid">
     <h1>Bestselling Cases</h1>
-    <h2 *ngIf="!amazonData">Loading...</h2>
+    <div *ngIf="!amazonData">
+        <div id="load">
+            <div>G</div>
+            <div>N</div>
+            <div>I</div>
+            <div>D</div>
+            <div>A</div>
+            <div>O</div>
+            <div>L</div>
+          </div>
+    
+    </div>
+    
         <div class="" *ngIf="amazonData">
 
             <amazon-cases-details *ngIf="currentCases" [amazonDataTwo]="amazonDataTwo" [case]="currentCases"></amazon-cases-details>

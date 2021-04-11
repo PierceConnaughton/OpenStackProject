@@ -1,9 +1,17 @@
+<div class="container-fluid">
+  <h1>Your PC Part List</h1>
 <div *ngIf="userItems.length === 0" class="alert alert-info">Your PC List is Empty.</div>
 <div *ngIf="userItems.length > 0" class="col-sm-12">
 
   <div class="row "> 
-  <button (click)="openDeleteItem(currentItem.id)"   [disabled]="!currentItem"
-  class="btn btn btn-outline-danger" >Delete Pc Part</button>
+  
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-sm-2">
+      <button (click)="openDeleteItem(currentItem.id)"  [disabled]="!currentItem"
+      class="btn btn btn-outline-danger" >Delete Pc Part</button>
+  </div>
   </div>
 
 <div class="row card-header"> 
@@ -41,5 +49,6 @@
     <strong>Total</strong> {{ userTotal | currency:'USD' }}
   </li>
 </ul>
+</div>
 
 
