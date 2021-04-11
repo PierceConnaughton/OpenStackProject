@@ -1,5 +1,4 @@
 <div class="container-fluid">
-    <h1>Bestselling Graphics Cards</h1>
     <div *ngIf="!amazonData">
         <div id="load">
             <div>G</div>
@@ -12,7 +11,7 @@
           </div>
     
     </div>
-    <div class="" *ngIf="amazonData">
+        <div class="" *ngIf="amazonData">
 
             <!-- <div class="col-sm-8">       
                 <a href="{{amazonData.request_metadata.amazon_url}}" class="col-sm-4" > Link to best selling gpus</a>
@@ -21,33 +20,34 @@
             <amazon-gpu-details *ngIf="currentGpu" [amazonDataTwo]="amazonDataTwo" [gpu]="currentGpu"></amazon-gpu-details>
             
     <br>
+    
 
     <div class="row justify-content-center">
         <div class="col-sm-2">
-            <input class="form-control form-control-md" type="text" [(ngModel)]="searchTextGpuTitle" placeholder="Search By GPU Title" />
+            <input type="text" class="form-control form-control-md" [(ngModel)]="searchTextGpuTitle" placeholder="Search By GPU Title" />
         </div>
     </div>
 
     <br>
-    
+
     <div class="row card-header"> 
-        <div [class.active]="order === 'title'" (click)="setOrder('title')" class="col-sm-4"> <h4>Title</h4> 
+        <div [class.active]="order === 'title'" (click)="setOrder('title')" class="col-sm-3"> <h4>Title</h4> 
             <span *ngIf="order === 'title'">▼</span>
         </div>
-        <div class="col-sm-2"> <h4>Link</h4> 
-           
-        </div>
-        <div  class="col-sm-1"> <h4>Rank</h4> 
+        <div  class="col-sm-2"> <h4>Link</h4>
           
         </div>
-        <div  class="col-sm-1"> <h4>Rating</h4> 
-           
+        <div  class="col-sm-1"> <h4>Rank</h4> 
         </div>
-        <div  class="col-sm-2"> <h4>Image</h4> 
+        <div  class="col-sm-1"> <h4>Rating</h4> 
+        </div>
+        <div  class="col-sm-3"> <h4>Image</h4> 
             
         </div>
-        <!--<div [class.active]="order === 'amazonData.price.raw'" class="col-sm-2" (click)="setOrder('amazonData.price.raw')"> <h4>Price</h4> 
-        </div> -->
+        <div  class="col-sm-2"> <h4>Price</h4> 
+        </div>
+
+        
 
     </div>
 
@@ -55,7 +55,6 @@
     [gpu]="results"
     (click)='clicked(results)'
     [class.bg-info]="isSelected(results)" [class.text-white]="isSelected(results)"></amazon-gpu-row>
-    
 </div>
 </div>
     

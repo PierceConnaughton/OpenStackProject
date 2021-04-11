@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
       }   
 */
      if(this.ngAuthService.userAdmin !== true && this.router.url=="/") {
-        this.router.navigate(['home'])
+        this.router.navigate([''])
     }     
 
       return true;

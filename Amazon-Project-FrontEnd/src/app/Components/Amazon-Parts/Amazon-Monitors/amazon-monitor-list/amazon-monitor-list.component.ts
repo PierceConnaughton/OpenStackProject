@@ -16,13 +16,9 @@ import { of } from 'rxjs';
 export class AmazonMonitorListComponent implements OnInit {
 
   amazonData: AmazonMonitorResponse;
-  amazonDataTwo: AmazonMonitorResponse;
   errorMessage: any;
-
-  // form: FormGroup;
-  // prices = [];
-
-  AmazonMonitorListComponent
+  amazonDataTwo: AmazonMonitorResponse;
+  AmazonMonitorsListComponent
 
   results:[{
     rank: Int16Array;
@@ -32,7 +28,6 @@ export class AmazonMonitorListComponent implements OnInit {
   }];
 
   constructor(private _amazonService:AmazonApiService){
-    
   }
 
   ngOnInit(): void {
@@ -47,8 +42,7 @@ export class AmazonMonitorListComponent implements OnInit {
     );
   }
 
-
-  LoadMonitorList(){
+  loadMonitorss(): void{
     this._amazonService.getMonitorAmazonList().subscribe(
       amazonData => {
         this.amazonData=amazonData;
@@ -56,16 +50,20 @@ export class AmazonMonitorListComponent implements OnInit {
 
       },
       error => this.errorMessage = <any>error
+
     );
   }
+
  
 
   monitorList: AmazonMonitorResponse;
 
+  showMonitorForm: boolean = false;
+
   currentMonitor : AmazonMonitorResponse;
 
-// search text property
-searchTextMonitorTitle: string;
+  // search text property
+  searchTextMonitorTitle: string;
 
   order: string = 'title';
   reverse: boolean = false;
@@ -83,8 +81,6 @@ searchTextMonitorTitle: string;
       return monitor.asin === this.currentMonitor.asin;
     }
   }
-
-  
 
   setOrder(value: string) {
     this.order = value;
