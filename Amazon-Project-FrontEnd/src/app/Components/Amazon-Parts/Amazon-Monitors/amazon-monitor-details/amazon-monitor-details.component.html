@@ -5,70 +5,96 @@
   </div>
 </div>
 
-<div *ngIf="amazonDataTwo" class="container-md h-100 bg-info"> 
-    <ul class = "list-group ">
-        <li class = "list-group-item "> 
-            <h3 class = "list-group-item-heading">All the details about {{amazonDataTwo.product.asin}}</h3>
-            <div class="row">
-              <div class="col-sm-2">
-            <p class = "list-group-item-text">Asin: {{amazonDataTwo.product.asin}}</p>
-              </div>
-              <div class="col-sm-8">
-            <p class = "list-group-item-text">Link: <a href="{{amazonDataTwo.product.link}}">{{amazonDataTwo.product.link}}</a></p>
-              </div>
-              <div class="col-sm-2">
-            <p class = "list-group-item-text">Brand: {{amazonDataTwo.product.brand}}</p>
-              </div>
+<div *ngIf="amazonDataTwo" style="border: thin black 0.25rem;" class="container-md h-100 product-details">
+  <br>
+  <div class="product-left">
+    <div class="product-info">
+      <div class="product-manufacturer">{{amazonDataTwo.product.manufacturer}}
+      </div>
+      <div class="product-title">
+        Computer Case
+      </div>
+      <div class="product-price" *ngIf="amazonDataTwo.product.buybox_winner.price.raw">
+        {{amazonDataTwo.product.buybox_winner.price.raw}}
+      </div>
+    </div>
+    <div class="product-image">
+      <div id="carouselExampleControls"  class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item " *ngFor="let image of amazonDataTwo.product.images let i = index"
+            [ngClass]="{'active': i == 0 }">
+            <img style="max-height:  12rem; min-height: 12rem;" [src]="image.link" >
           </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-right">
+    <div class="product-description">
+      
+        
+      <p class = "list-group-item-text"> Amazon Link: <a href="{{amazonDataTwo.product.link}}">{{amazonDataTwo.product.link}}</a></p>
+        
+      <p *ngIf="amazonDataTwo.product.color || amazonDataTwo.product.model_number" >Asin: {{amazonDataTwo.product.asin}}, 
 
-          <div class="row">
-            <div class="col-sm-4">
-            <p *ngIf="amazonDataTwo.product.color" class = "list-group-item-text">Color: {{amazonDataTwo.product.color}}</p>
-          </div>
-            <div class="col-sm-4">
-            <p *ngIf="amazonDataTwo.product.manufacturer" class = "list-group-item-text">Manufacturer: {{amazonDataTwo.product.manufacturer}}</p>
-          </div>
-            <div class="col-sm-4">
-            <p *ngIf="amazonDataTwo.product.model_number" class = "list-group-item-text">Model Number: {{amazonDataTwo.product.model_number}}</p>
-          </div>
-          </div>
-            <p *ngIf="amazonDataTwo.product.description" class = "list-group-item-text">{{amazonDataTwo.product.description}}</p>
-            <p class = "list-group-item-text">{{categoriesString}}</p>
+      Brand: {{amazonDataTwo.product.brand}},
 
-             <div class="row">
-              <div class="col-sm-3">
-            <p class = "list-group-item-text">First Available: {{amazonDataTwo.product.first_available.raw}}</p>
-            </div>
-             <div class="col-sm-2">
-            <p  class = "list-group-item-text">Rating: {{amazonDataTwo.product.rating}}</p>
-          </div>
-          <div class="col-sm-3">
-          <p *ngIf="amazonDataTwo.product.buybox_winner.price.raw" class = "list-group-item-text">Price: {{amazonDataTwo.product.buybox_winner.price.raw}}</p>
-          </div>
+      Color: {{amazonDataTwo.product.color}}, 
+
+      Model Number: {{amazonDataTwo.product.model_number}} </p>
+        
+      <p *ngIf="amazonDataTwo.product.description" class = "list-group-item-text">{{amazonDataTwo.product.description | slice: 0:300}}...</p>
+
+      <p class = "list-group-item-text">First Available: {{amazonDataTwo.product.first_available.raw}}</p>
+    
+    </div>
+
+    <div class="product-rating">
+      <div class="row" *ngIf="5 == amazonDataTwo.product.rating" id="Five" >  <img style="max-height:  1rem;" src="{{imageFiveStar}}"/> 
+        
+      </div>
+      <div class="row"  *ngIf="5 > amazonDataTwo.product.rating &&  amazonDataTwo.product.rating >= 4.5" id="FourHalf" >  <img style="max-height:  1rem;"  src="{{imageHalfFourStar}}"/>
           
-            <div id="carouselExampleControls"  class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item " *ngFor="let image of amazonDataTwo.product.images let i = index"
-                    [ngClass]="{'active': i == 0 }">
-                    <img  [src]="image.link" class="d-block h-25 w-50 col-sm-4">
-                  </div>
-                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </div>
-              </div>
-            
-            </div>
+      </div>
+      <div class="row"  *ngIf="4.5 > amazonDataTwo.product.rating &&  amazonDataTwo.product.rating >= 4" id="Four" >  <img style="max-height:  1rem;" src="{{imageFourStar}}"/> 
+         
+      </div>
+      <div class="row"  *ngIf="4 > amazonDataTwo.product.rating &&  amazonDataTwo.product.rating >= 3" id="Three" >  <img style="max-height:  1rem;" src="{{imageThreeStar}}"/> 
+        
+      </div>
+      <div class="row"  *ngIf="3 > amazonDataTwo.product.rating &&  amazonDataTwo.product.rating >= 2" id="Two" >  <img style="max-height:  1rem;" src="{{imageTwoStar}}"/> 
+        
+      </div>
+      <div class="row"  *ngIf="2 > amazonDataTwo.product.rating && amazonDataTwo.product.rating >= 0" id="One" >  <img style="max-height:  1rem;" src="{{imageOneStar}}"/> 
+      
+      </div>
+      
 
-            <button type="button" class="btn col btn-sm btn-primary product-btn" (click)="handleAddToPc()">Add to PC</button>
-
-            
-
-        </li>
-    </ul>
+    </div>
+  </div>
+  <div class="product-bottom">
+    <div class="product-checkout">
+      Total Price
+      <div class="product-checkout-total">
+        <i class="fa fa-usd"></i>
+        <div class="product-checkout-total-amount">
+          {{amazonDataTwo.product.buybox_winner.price.value}}
+        </div>
+      </div>
+    </div>
+    <div class="product-checkout-actions">
+      <button class="btn col btn-sm btn-primary product-btn"  (click)="handleAddToPc()">Add Cpu to PC</button>
+      
+    </div>
+  </div>
 </div>
+
+<br>

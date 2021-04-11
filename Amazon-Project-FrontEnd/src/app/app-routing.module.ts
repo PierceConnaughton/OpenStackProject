@@ -32,7 +32,7 @@ const routes: Routes = [
  {path: '', component: HomeComponent},
  {path: 'part-finder', component: PartFinderComponent, canActivate: [AuthGuard]},
  { path: 'amazon-monitor-list-component', component: AmazonMonitorListComponent, canActivate: [AuthGuard]},
- {path: 'amazon-cases-list-component', component: AmazonCasesListComponent, canActivate: [AuthGuard]},
+ {path: 'amazon-cases-list-component', component: AmazonCasesListComponent},
  {path: 'amazon-cpu-list-component', component: AmazonCpuListComponent, canActivate: [AuthGuard]},
  {path: 'amazon-gpu-list-component', component: AmazonGpuListComponent, canActivate: [AuthGuard]},
  { path: 'monitor-list-component', component: MonitorListComponent, canActivate: [AuthGuard]},
