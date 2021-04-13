@@ -71,7 +71,15 @@ export class UserListComponent implements OnInit {
 
   loadUserItems() {
     this.firebaseService.getParts().subscribe((items: UserItem[]) => {
-      this.userItems = items;
+      var i = 0;
+      items.forEach(item => {
+        if(item.userID == this.newUser.uid){
+          this.userItems[i] = item
+          i++
+        }
+        
+      });
+      // this.userItems = items;
       this.calcUserTotal();
     })
   }

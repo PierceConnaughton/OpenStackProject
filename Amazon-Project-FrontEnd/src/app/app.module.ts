@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
+
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 import { StoreModule } from '@ngrx/store';
 
 import {AngularFireModule} from '@angular/fire';
@@ -73,6 +77,7 @@ import { CpuHomeComponent } from './Components/regex/cpu/cpu-home/cpu-home.compo
 import { GpuHomeComponent } from './Components/regex/gpu/gpu-home/gpu-home.component';
 import { GpuCreateComponent } from './Components/regex/gpu/gpu-create/gpu-create.component';
 import { GpuReadComponent } from './Components/regex/gpu/gpu-read/gpu-read.component';
+import { DashboardComponent } from './Components/Firebase-Login/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -121,7 +126,8 @@ import { GpuReadComponent } from './Components/regex/gpu/gpu-read/gpu-read.compo
     CpuHomeComponent,
     GpuHomeComponent,
     GpuCreateComponent,
-    GpuReadComponent
+    GpuReadComponent,
+    DashboardComponent
 
   ],
   imports: [
@@ -138,6 +144,8 @@ import { GpuReadComponent } from './Components/regex/gpu/gpu-read/gpu-read.compo
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,    
   ],
   providers: [
     { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [UserService] },
