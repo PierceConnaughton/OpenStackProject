@@ -5,7 +5,8 @@ import { AmazonApiService } from '../../../../Services/amazon-api.service';
 import { UserItem } from '../../../../model/user-Item';
 import { FirebaseApiService } from 'src/app/Services/firebase-api.service';
 import { UserListService } from '../../../../Services/user-list.service';
-
+import { NgAuthService } from "../../../../ng-auth.service";
+import { User } from "../../../../ng-auth.service";
 
 @Component({
   selector: 'amazon-monitor-details',
@@ -42,10 +43,13 @@ export class AmazonMonitorDetailsComponent implements OnInit {
     image: "a",
     qty: 0,
     rating: 0,
-    link: "a"
+    link: "a",
+    userID: "a"
   };
 
-  constructor(private firebaseService: FirebaseApiService){
+  newUser: User = this.ngAuthService.userState;
+
+  constructor(private firebaseService: FirebaseApiService, public ngAuthService: NgAuthService ){
   }
 
   ngOnInit(): void {
@@ -56,7 +60,9 @@ export class AmazonMonitorDetailsComponent implements OnInit {
   
   public results = [];
 
-  handleAddToPc(){
+  handleAddToPc(userID: string){
+
+    
 
     this.newUserItem.asin = this.amazonDataTwo.product.asin;
     this.newUserItem.value = this.amazonDataTwo.product.buybox_winner.price.value;
@@ -64,10 +70,11 @@ export class AmazonMonitorDetailsComponent implements OnInit {
     this.newUserItem.image = this.amazonDataTwo.product.images[0].link;
     this.newUserItem.rating = this.amazonDataTwo.product.rating;
     this.newUserItem.link = this.amazonDataTwo.product.link;
+    this.newUserItem.userID = userID
 
     this.firebaseService.addPart(this.newUserItem.asin, this.newUserItem.title, 
       this.newUserItem.value, this.newUserItem.rating, 
-      this.newUserItem.image, this.newUserItem.link,).subscribe(() => {
+      this.newUserItem.image, this.newUserItem.link,this.newUserItem.userID).subscribe(() => {
       
     })
   }

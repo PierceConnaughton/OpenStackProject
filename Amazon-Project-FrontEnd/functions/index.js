@@ -60,8 +60,8 @@ const getPcsFromDatabase = (res) => {
                   value: part.val().value,
                   rating: part.val().rating,
                   image: part.val().image,
-                  link: part.val().link
-
+                  link: part.val().link,
+                  userID: part.val().userID
                   
               });
           });
@@ -155,11 +155,12 @@ exports.addPart = functions.https.onRequest((req, res) => {
       const rating = req.query.rating;
       const image = req.query.image;
       const link = req.query.link;
+      const userID = req.query.userID;
 
       
 
       
-      dbpc.push({ asin,title,value,rating,image,link });
+      dbpc.push({ asin,title,value,rating,image,link,userID });
       getPcsFromDatabase(res);
   });
 });

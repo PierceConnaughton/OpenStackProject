@@ -5,6 +5,8 @@ import { FirebaseApiService } from 'src/app/Services/firebase-api.service';
 import { AmazonCasesResponse } from '../../../../model/AmazonCasesResponse';
 import { AmazonApiService } from '../../../../Services/amazon-api.service';
 import { UserListService } from '../../../../Services/user-list.service';
+import { NgAuthService } from "../../../../ng-auth.service";
+import { User } from "../../../../ng-auth.service";
 
 @Component({
   selector: 'amazon-cases-details',
@@ -28,8 +30,13 @@ export class AmazonCasesDetailsComponent implements OnInit {
     image: "a",
     qty: 0,
     rating: 0,
-    link: "a"
+    link: "a",
+    userID: "a"
   };
+
+  newUser: User = this.ngAuthService.userState;
+
+  
 
   imageOneStar: string = "assets/img/OneStar.png";
   imageTwoStar: string = "assets/img/TwoStar.png";
@@ -42,7 +49,7 @@ export class AmazonCasesDetailsComponent implements OnInit {
 
   errorMessage: any;
 
-  constructor(private firebaseService: FirebaseApiService){
+  constructor(private firebaseService: FirebaseApiService, public ngAuthService: NgAuthService ){
   }
 
   ngOnInit(): void {
@@ -52,7 +59,9 @@ export class AmazonCasesDetailsComponent implements OnInit {
   
   public results = [];
 
-  handleAddToPc(){
+  handleAddToPc(userID: string){
+
+    
 
     this.newUserItem.asin = this.amazonDataTwo.product.asin;
     this.newUserItem.value = this.amazonDataTwo.product.buybox_winner.price.value;
@@ -60,10 +69,11 @@ export class AmazonCasesDetailsComponent implements OnInit {
     this.newUserItem.image = this.amazonDataTwo.product.images[0].link;
     this.newUserItem.rating = this.amazonDataTwo.product.rating;
     this.newUserItem.link = this.amazonDataTwo.product.link;
+    this.newUserItem.userID = userID
 
     this.firebaseService.addPart(this.newUserItem.asin, this.newUserItem.title, 
       this.newUserItem.value, this.newUserItem.rating, 
-      this.newUserItem.image, this.newUserItem.link,).subscribe(() => {
+      this.newUserItem.image, this.newUserItem.link,this.newUserItem.userID).subscribe(() => {
       
     })
   }

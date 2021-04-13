@@ -78,7 +78,8 @@ describe('FirebaseApiService', () => {
         processors: "Processors Sample"
       };
     
-    const req = httpMock.expectOne(apiUrl + '/addCpu?model=' + dummyCpu.model + '&manufacturer=' + dummyCpu.manufacturer  + '&speed=' + dummyCpu.speed + '&processors=' + dummyCpu.processors,null);
+    const req = httpMock.expectOne(apiUrl + '/addCpu?model=' + dummyCpu.model + '&manufacturer=' + dummyCpu.manufacturer  + '&speed=' + dummyCpu.speed + 
+    '&processors=' + dummyCpu.processors,null);
     expect(req.request.method).toBe("POST");
     
   });
@@ -109,7 +110,8 @@ describe('FirebaseApiService', () => {
         processors: "Processors Sample"
       };
     
-    const req = httpMock.expectOne(apiUrl + '/updateCpu?id=' + 1 + '&model=' + dummyCpu.model + '&manufacturer=' + dummyCpu.manufacturer + '&speed=' + dummyCpu.speed + '&processors=' + dummyCpu.processors,null);
+    const req = httpMock.expectOne(apiUrl + '/updateCpu?id=' + 1 + '&model=' + dummyCpu.model + '&manufacturer=' + dummyCpu.manufacturer + '&speed=' + dummyCpu.speed 
+    + '&processors=' + dummyCpu.processors,null);
     expect(req.request.method).toBe("PUT");
     
   });

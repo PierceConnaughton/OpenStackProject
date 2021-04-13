@@ -6,7 +6,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" *ngIf="ngAuthService.userState">
         <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
             Amazon Parts
         </a>
@@ -18,7 +18,7 @@
             <a class="dropdown-item" routerLink="/amazon-gpu-list-component" routerLinkActive="active">Gpus</a>
         </div>
     </li>
-    <li class="nav-item dropdown">
+    <li class="nav-item dropdown" *ngIf="ngAuthService.userState">
       <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
           Rest Api Parts
       </a>
@@ -30,7 +30,7 @@
       </div>
   </li>
 
-  <li class="nav-item dropdown">
+  <li class="nav-item dropdown" *ngIf="ngAuthService.userState">
     <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
         Regex Parts
     </a>
@@ -41,7 +41,7 @@
         <a class="dropdown-item" routerLink="/regex-cpu-list-component" routerLinkActive="active">Cpus</a>
     </div>
 </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="ngAuthService.userState">
         <a class="nav-link" routerLink="/part-finder" routerLinkActive="active">Amazon Part Finder</a>
       </li>
      
@@ -51,7 +51,7 @@
         <p class="nav-link" >User: {{userName}}</p>
       </li> -->
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="ngAuthService.userState">
         <a class="nav-link" routerLink="/user-list" routerLinkActive="active">Users PC</a>
       </li>
 
@@ -65,8 +65,20 @@
           <a class="nav-link" routerLink="/sign-in" routerLinkActive="active">Sign In</a>
         </li>
         <li class="nav-item" *ngIf="ngAuthService.userState">
+          
+          <img style="max-height: 3rem; border: 1px" *ngIf="ngAuthService.userState as user" class="align-self-start  img-thumbnail rounded-circle"  src="{{(user.photoURL) ? user.photoURL : '/assets/dummy.jpg'}}" alt="{{user.displayName}}">
+        </li>
+        <li class="nav-item" *ngIf="ngAuthService.userState">
+          
+          <p class="nav-link" *ngIf="ngAuthService.userState as user"> {{user.displayName}} </p>
+        </li>
+        <li class="nav-item" *ngIf="ngAuthService.userState">
+          
           <a class="nav-link" routerLink="/profile" routerLinkActive="active">Profile</a>
         </li>
+
+       
+        
         
         <li class="nav-item" *ngIf="ngAuthService.userState">
           <a class="nav-link" (click)="ngAuthService.SignOut()" routerLinkActive="active">Sign Out</a>

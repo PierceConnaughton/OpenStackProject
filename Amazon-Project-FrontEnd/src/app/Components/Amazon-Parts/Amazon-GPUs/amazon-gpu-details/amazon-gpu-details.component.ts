@@ -2,6 +2,7 @@ import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit,Input } from '@angular/core';
 import { AmazonGpusResponse } from '../../../../model/AmazonGpuResponse';
 import { AmazonApiService } from '../../../../Services/amazon-api.service';
+import { NgAuthService } from "../../../../ng-auth.service";
 
 @Component({
   selector: 'amazon-gpu-details',

@@ -15,7 +15,8 @@ describe('UserListComponent', () => {
     image: "Sample Image",
     qty: 1,
     rating: 4,
-    link: "http://localhost:4200/"
+    link: "http://localhost:4200/",
+    userID: "a"
   };
 
   component.userItems[0] = newUserItem;
@@ -40,14 +41,14 @@ describe('UserListComponent', () => {
 
   //my tests
 
-  it('should return item id if an item is selected ', () => {
+  it('should return total of all items ', () => {
     component.calcUserTotal();
     expect(component.userTotal).toBe(2);
   });
 
-  it('should return total of all items ', () => {
+  it(' should return item id if an item is selected ', () => {
     const result = component.isSelected(newUserItem);
-    expect(result).toBe(1);
+    expect(result).toBe(false);
   });
 
   it('current item should be the same as the one clicked ', () => {
@@ -55,10 +56,10 @@ describe('UserListComponent', () => {
     expect(component.currentItem).toBe(newUserItem);
   });
 
-  // it('deleted item bool should be set to false no matter what ', () => {
-  //   component.deletedItemHandler(true);
-  //   expect(component.deleteItemBool).toBe(false);
-  // });
+  it('deleted item bool should be set to false no matter what ', () => {
+    component.deletedItemHandler(true);
+    expect(component.deleteItemBool).toBe(false);
+  });
 
   
   

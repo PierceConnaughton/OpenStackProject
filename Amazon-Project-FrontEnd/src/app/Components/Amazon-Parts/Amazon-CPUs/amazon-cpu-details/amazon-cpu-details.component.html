@@ -91,7 +91,7 @@
       </div>
     </div>
     <div class="product-checkout-actions">
-      <button class="btn col btn-sm btn-primary product-btn"  (click)="handleAddToPc()">Add Cpu to PC</button>
+      <button class="btn col btn-sm btn-primary product-btn"  *ngIf="ngAuthService.userState as user"  (click)="handleAddToPc(user.uid)">Add Cpu to PC</button>
       
     </div>
   </div>

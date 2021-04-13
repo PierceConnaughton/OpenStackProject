@@ -122,9 +122,9 @@ export class FirebaseApiService {
     )
   }
 
-  addPart(asin: string, title: string, value: Number, rating: Number, image:string, link:string): Observable<UserItem> {
+  addPart(asin: string, title: string, value: Number, rating: Number, image:string, link:string, userID: string): Observable<UserItem> {
 
-    return this.http.post<UserItem>(this.apiURL + '/addPart?asin=' + asin + '&title=' + title + '&value=' + value + '&rating=' + rating + '&image=' + image + '&link=' + link ,null)
+    return this.http.post<UserItem>(this.apiURL + '/addPart?asin=' + asin + '&title=' + title + '&value=' + value + '&rating=' + rating + '&image=' + image + '&link=' + link + '&userID=' + userID,null)
     .pipe(
       retry(1),
       catchError(this.handleError)

@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserItem } from 'src/app/model/user-Item';
 import { UserListService } from '../../Services/user-list.service';
 import { FirebaseApiService } from '../../Services/firebase-api.service';
+import { NgAuthService } from "../../ng-auth.service";
+import { User } from "../../ng-auth.service";
 
 @Component({
   selector: 'user-item',
@@ -14,6 +16,9 @@ export class UserItemComponent implements OnInit {
 
   @Output() deletedItemBool: EventEmitter<boolean> = new EventEmitter();
 
+  newUser: User = this.ngAuthService.userState;
+
+
 
   imageOneStar: string = "assets/img/OneStar.png";
   imageTwoStar: string = "assets/img/TwoStar.png";
@@ -25,7 +30,7 @@ export class UserItemComponent implements OnInit {
   message: string;
   deleteItemBool: boolean = false;
 
-  constructor(private firebaseService: FirebaseApiService) { }
+  constructor(private firebaseService: FirebaseApiService, public ngAuthService: NgAuthService) { }
 
   ngOnInit(): void {
   }

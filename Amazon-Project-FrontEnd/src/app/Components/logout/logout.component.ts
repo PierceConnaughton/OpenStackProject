@@ -24,15 +24,15 @@ export class LogoutComponent implements OnInit {
   //   this.router.navigate(['/login']);
   // }
 
-  user : User;
+  // user : User;
 
   constructor (private userService: UserService, private router: Router) {
-    this.userService.user.subscribe( user => this.user = user)
+    //this.userService.user.subscribe( user => this.user = user)
   }
 
-  logout(){
-    this.userService.logout();
-    this.router.navigate(['/login']);
-  }
+  // logout(){
+  //   this.userService.logout();
+  //   this.router.navigate(['/login']);
+  // }
 
 }

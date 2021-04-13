@@ -43,14 +43,16 @@
   (click)='clicked(item)'
   [class.bg-info]="isSelected(item)" 
   [class.text-white]="isSelected(item)">
-    <user-item   [userItem]="item"
+    <user-item *ngIf="newUser.uid === item.userID"  [userItem]="item"
     ></user-item>
+    
   </li>
 
   <li class="list-group-item active">
     <strong>Total</strong> {{ userTotal | currency:'USD' }}
   </li>
 </ul>
+
 </div>
 
 

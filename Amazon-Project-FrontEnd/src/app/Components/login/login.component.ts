@@ -15,17 +15,17 @@ export class LoginComponent implements OnInit {
     private userService: UserService
 ) {
     // redirect to home if already logged in
-    if (this.userService.userValue) {
-        this.router.navigate(['/']);
-    }
+    // if (this.userService.userValue) {
+    //     this.router.navigate(['/']);
+    // }
 }
 
   ngOnInit(): void {
   }
 
-  login() {
-    this.userService.login();
+//   login() {
+//     this.userService.login();
     
-}
+// }
 
 }

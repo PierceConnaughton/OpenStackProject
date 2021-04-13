@@ -5,6 +5,8 @@ import { UserListService } from '../../Services/user-list.service';
 import { FirebaseApiService} from '../../Services/firebase-api.service';
 import { isNull } from '@angular/compiler/src/output/output_ast';
 
+import { NgAuthService } from "../../ng-auth.service";
+import { User } from "../../ng-auth.service";
 
 @Component({
   selector: 'app-user-list',
@@ -30,10 +32,11 @@ export class UserListComponent implements OnInit {
   deleteItemBool: boolean = false;
 
   
+  newUser: User = this.ngAuthService.userState;
 
   constructor(
     
-    private userService: UserListService,private firebaseService: FirebaseApiService
+    private userService: UserListService,private firebaseService: FirebaseApiService, public ngAuthService: NgAuthService
   ) { }
 
   ngOnInit() {
@@ -77,21 +80,26 @@ export class UserListComponent implements OnInit {
     this.userTotal = 0
     var i = 0;
     this.userItems.forEach(item => {
-      this.userTotalsString[i] = parseFloat(item.value).toFixed(2)
-      
-      
-      this.userTotals[i] = +this.userTotalsString[i];
-      
 
-      if(+this.userTotals[i] == NaN || +this.userTotals[i] == null ){
-       
-      }
-      else{
-        console.log("This is the current value " + this.userTotals[i]);
-        this.userTotal = (+this.userTotalsString[i] + this.userTotal);
+     
+      if(this.newUser.uid == item.userID){
+        this.userTotalsString[i] = parseFloat(item.value).toFixed(2)
+      
+      
+        this.userTotals[i] = +this.userTotalsString[i];
+        
+  
+        if(+this.userTotals[i] == NaN || +this.userTotals[i] == null ){
+         
+        }
+        else{
+          console.log("This is the current value " + this.userTotals[i]);
+          this.userTotal = (+this.userTotalsString[i] + this.userTotal);
+        }
+        
+        i++;
       }
       
-      i++;
     })
     
   }
