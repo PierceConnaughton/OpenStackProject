@@ -1,2 +1,6 @@
+<div *ngIf="ngAuthService.userState as user">
+<div *ngIf="user.email == userEmail">
 <gpu-create></gpu-create>
 <gpu-read></gpu-read>
+</div>
+<div>

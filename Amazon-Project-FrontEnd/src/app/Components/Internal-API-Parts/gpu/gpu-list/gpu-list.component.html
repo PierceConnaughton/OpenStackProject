@@ -1,6 +1,5 @@
-
- <body>
-    <div class="container-fluid">
+<body *ngIf="ngAuthService.userState as user">
+    <div *ngIf="user.email == userEmail" class="container-fluid">
         <h2 *ngIf="!showGpuForm && !currentGpu">List of Gpus - This is on Firebase</h2>
 
         <h2  *ngIf="showGpuForm">Gpu Form</h2>

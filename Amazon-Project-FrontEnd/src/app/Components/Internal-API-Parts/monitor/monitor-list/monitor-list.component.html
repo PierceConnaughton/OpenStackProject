@@ -1,6 +1,5 @@
-
-<body>
-    <div class="container-fluid">
+<body *ngIf="ngAuthService.userState as user">
+    <div *ngIf="user.email == userEmail" class="container-fluid">
     
         <h2 *ngIf="!showMonitorForm && !currentMonitor">List of Monitors - This is on Mongoose</h2>
     

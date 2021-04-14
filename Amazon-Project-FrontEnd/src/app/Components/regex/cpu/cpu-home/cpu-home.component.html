@@ -1,2 +1,6 @@
+<div *ngIf="ngAuthService.userState as user">
+<div *ngIf="user.email == userEmail">
 <cpu-create></cpu-create>
 <cpu-read></cpu-read>
+</div>
+</div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Cpu} from '../../../../model/cpu';
 import { retry } from 'rxjs/operators';
 import { FirebaseApiService } from '../../../../Services/firebase-api.service';
+import {NgAuthService} from '../../../../ng-auth.service';
 
 @Component({
   selector: 'app-cpu-list',
@@ -26,7 +27,7 @@ export class CpuListComponent implements OnInit {
   speedValue : string;
   processorsValue : string;
   
-
+  userEmail: string = "partypierce1234@gmail.com";
   
   // search text property
   searchTextCpuID: string;
@@ -36,7 +37,7 @@ export class CpuListComponent implements OnInit {
   searchTextSpeed: string;
   searchTextProcessors: string;
 
-  constructor(public firebaseApiService: FirebaseApiService) {
+  constructor(public firebaseApiService: FirebaseApiService, public ngAuthService: NgAuthService) {
 
   }
 

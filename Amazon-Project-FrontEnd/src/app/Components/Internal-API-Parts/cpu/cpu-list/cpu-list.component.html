@@ -1,5 +1,5 @@
-<body>
-    <div class="container-fluid">
+<body *ngIf="ngAuthService.userState as user">
+    <div *ngIf="user.email == userEmail" class="container-fluid">
         <h2 *ngIf="!showCpuForm && !currentCpu">List of Cpus - This is on Firebase</h2>
 
         <h2  *ngIf="showCpuForm">Cpu Form</h2>

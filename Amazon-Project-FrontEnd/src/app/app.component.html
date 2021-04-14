@@ -18,8 +18,8 @@
             <a class="dropdown-item" routerLink="/amazon-gpu-list-component" routerLinkActive="active">Gpus</a>
         </div>
     </li>
-    <li class="nav-item dropdown" *ngIf="ngAuthService.userState">
-      <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+    <li class="nav-item dropdown" *ngIf="ngAuthService.userState && ngAuthService.userState as user">
+      <a *ngIf="user.email == userEmail" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
           Rest Api Parts
       </a>
 
@@ -30,8 +30,8 @@
       </div>
   </li>
 
-  <li class="nav-item dropdown" *ngIf="ngAuthService.userState">
-    <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+  <li class="nav-item dropdown"  *ngIf="ngAuthService.userState && ngAuthService.userState as user">
+    <a *ngIf="user.email == userEmail" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
         Regex Parts
     </a>
 

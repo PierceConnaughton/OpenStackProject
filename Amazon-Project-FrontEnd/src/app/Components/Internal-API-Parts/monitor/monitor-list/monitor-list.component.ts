@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {IMonitor} from '../../../../model/monitor';
 import { MonitorService  }  from '../../../../Services/monitor.service'
 import { OrderByPipe } from '../../../../order-by.pipe';
+import {NgAuthService} from '../../../../ng-auth.service';
 
 
 @Component({
@@ -21,6 +22,8 @@ export class MonitorListComponent implements OnInit {
 
   deleteMonitorBool: boolean = false;
 
+  userEmail: string = "partypierce1234@gmail.com";
+
   // search text property
   searchTextMonitorID: string;
   searchTextBrand: string;
@@ -31,7 +34,7 @@ export class MonitorListComponent implements OnInit {
   order: string = 'monitorID';
   reverse: boolean = false;
 
-  constructor(private monitorService: MonitorService) { }
+  constructor(private monitorService: MonitorService, public ngAuthService: NgAuthService) { }
 
   ngOnInit(): void {
 

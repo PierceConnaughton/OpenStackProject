@@ -28,6 +28,8 @@ export class AppComponent{
   itemValue='';
   items: Observable<any[]>;
 
+  userEmail: string = "partypierce1234@gmail.com";
+
   currentUser: User;
   userName: string = null;
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Gpu} from '../../../../model/gpu';
 import { retry } from 'rxjs/operators';
 import { FirebaseApiService } from '../../../../Services/firebase-api.service';
+import {NgAuthService} from '../../../../ng-auth.service';
 
 @Component({
   selector: 'app-gpu-list',
@@ -39,9 +40,10 @@ export class GpuListComponent implements OnInit {
   searchTextColor: string;
   searchTextHardDrive: string;
 
+  userEmail: string = "partypierce1234@gmail.com";
   
 
-  constructor(public firebaseApiService: FirebaseApiService) {
+  constructor(public firebaseApiService: FirebaseApiService, public ngAuthService: NgAuthService) {
 
   }
 

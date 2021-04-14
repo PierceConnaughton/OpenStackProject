@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgAuthService} from '../../../../ng-auth.service';
 
 @Component({
   selector: 'app-gpu-home',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GpuHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public ngAuthService: NgAuthService) { }
 
   ngOnInit(): void {
   }
