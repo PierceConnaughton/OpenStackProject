@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from './../../../../app.state';
 import { Cpu } from './../../../../model/cpu'
 import * as CpuActions from './../../../../actions/cpu.actions'
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,6 +12,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./cpu-create.component.css']
 })
 export class CpuCreateComponent implements OnInit {
+
+  CpuForm: FormGroup;
 
   constructor(private store: Store<AppState>) { }
 

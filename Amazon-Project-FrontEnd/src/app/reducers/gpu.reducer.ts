@@ -4,12 +4,12 @@ import * as GpuActions from './../actions/gpu.actions'
 
 
 const initialState: Gpu = {
-    id: "a",
-    brand: "string",
-    manufacturer: "string",
-    series: "string",
-    color: "string",
-    hardDrive: "string",
+    id: "ID 1",
+    brand: "Sample Brand",
+    manufacturer: "Sample Manufacturer",
+    series: "Sample Series",
+    color: "Sample Color",
+    hardDrive: "Sample HardDrive",
 }
 
 

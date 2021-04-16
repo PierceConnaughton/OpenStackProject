@@ -8,6 +8,8 @@ import {NgAuthService} from '../../../../ng-auth.service';
 })
 export class GpuHomeComponent implements OnInit {
 
+  userEmail: string = "partypierce1234@gmail.com";
+
   constructor(public ngAuthService: NgAuthService) { }
 
   ngOnInit(): void {

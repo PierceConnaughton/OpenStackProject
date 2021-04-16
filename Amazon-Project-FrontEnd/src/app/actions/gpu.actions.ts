@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core'
 import {Action} from '@ngrx/store'
 import {Gpu} from '../model/gpu'
 
-export const ADD_GPU       = '[TUTORIAL] Add'
-export const REMOVE_GPU    = '[TUTORIAL] REMOVE'
+export const ADD_GPU       = '[GPU] Add'
+export const REMOVE_GPU    = '[GPU] REMOVE'
 
 
 export class AddGpu implements Action {

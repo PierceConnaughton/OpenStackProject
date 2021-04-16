@@ -27,18 +27,20 @@
         
     </div>
 
-    <ul>
+    
         <li >
-            <div class="card" (click)="delGpu(i)" *ngFor="let gpu of gpus | async; let i = index " class="row card-body"> 
+            <div class="card"  *ngFor="let gpu of gpus | async; let i = index ">
+                <div target="_blank" class="row card-body"> 
                 <div class="col card-title">  <h5>{{gpu.id}}</h5> </div>
                 <div class="col"> <h6>{{gpu.brand}}</h6> </div>
                 <div class="col"> <h6>{{gpu.manufacturer}}</h6> </div>
                 <div class="col"> <h6>{{gpu.series}}</h6> </div>
                 <div class="col"> <h6>{{gpu.color}}</h6> </div>
                 <div class="col"> <h6>{{gpu.hardDrive}}</h6> </div>
+                </div>
                 <!--<button type="button" class="btn col btn-sm btn-primary product-btn" (click)="handleAddToCart()">Add to Cart</button>-->
             </div>
       </li>
-    </ul>
+   
   
   </div>

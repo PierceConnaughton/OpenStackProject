@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from './../../../../app.state';
 import { Gpu } from './../../../../model/gpu'
 import * as GpuActions from './../../../../actions/gpu.actions'
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,6 +12,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./gpu-create.component.css']
 })
 export class GpuCreateComponent implements OnInit {
+
+  gpuForm: FormGroup;
 
   constructor(private store: Store<AppState>) { }
 

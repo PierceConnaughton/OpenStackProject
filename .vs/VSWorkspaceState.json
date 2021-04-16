@@ -5,8 +5,7 @@
     "\\Amazon-Project-BackEnd\\middleware",
     "\\Amazon-Project-BackEnd\\models",
     "\\Amazon-Project-BackEnd\\routes",
-    "\\Amazon-Project-FrontEnd",
-    "\\Amazon-Project-FrontEnd\\src\\app"
+    "\\Amazon-Project-FrontEnd"
   ],
   "SelectedNode": "\\Amazon-Project-FrontEnd\\karma.conf.js",
   "PreviewInSolutionExplorer": false

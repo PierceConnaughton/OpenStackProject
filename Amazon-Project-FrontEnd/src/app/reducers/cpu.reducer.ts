@@ -4,11 +4,11 @@ import * as CpuActions from './../actions/cpu.actions'
 
 
 const initialState: Cpu = {
-    id: "string",
-    model: "string",
-    manufacturer:" string",
-    speed: "string",
-    processors: "string"
+    id: "ID 1",
+    model: "Sample Model",
+    manufacturer:"Sample Manufacturer",
+    speed: "Sample Speed",
+    processors: "Sample Processor"
 }
 
 

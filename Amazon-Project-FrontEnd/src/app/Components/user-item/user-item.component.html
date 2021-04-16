@@ -4,15 +4,15 @@
         <div class="col-sm-2"> <a href="{{userItem.link}}">{{userItem.link | slice: 0:80}}...</a> </div>
         <div  class="col-sm-2"> <h6 >{{userItem.value | currency:'USD' }}</h6> </div>
     
-        <div *ngIf="5 == userItem.rating" id="Five" class="col-sm-1"> <span class=" row ">{{userItem.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-75" src="{{imageFiveStar}}"/> </div>
-        <div *ngIf="5 > userItem.rating &&  userItem.rating >= 4.5" id="FourHalf" class="col-sm-1"> <span class=" row ">{{userItem.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-75" src="{{imageHalfFourStar}}"/>  </div>
-        <div *ngIf="4.5 > userItem.rating &&  userItem.rating >= 4" id="Four" class="col-sm-1"> <span class=" row ">{{userItem.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-75" src="{{imageFourStar}}"/>  </div>
-        <div *ngIf="4 > userItem.rating &&  userItem.rating > 3" id="Three" class="col-sm-1"> <span class=" row ">{{userItem.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-75" src="{{imageThreeStar}}"/> </div>
-        <div *ngIf="3 > userItem.rating &&  userItem.rating > 2" id="Two" class="col-sm-1"> <span class=" row ">{{userItem.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-75" src="{{imageTwoStar}}"/> </div>
-        <div *ngIf="2 > userItem.rating &&  userItem.rating > 0" id="One" class="col-sm-1"> <span class=" row ">{{userItem.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-75" src="{{imageOneStar}}"/> </div>
+        <div *ngIf="5 == userItem.rating" id="Five" class="col-sm-2"> <span class=" row ">{{userItem.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-50" src="{{imageFiveStar}}"/> </div>
+        <div *ngIf="5 > userItem.rating &&  userItem.rating >= 4.5" id="FourHalf" class="col-sm-2"> <span class=" row ">{{userItem.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-50" src="{{imageHalfFourStar}}"/>  </div>
+        <div *ngIf="4.5 > userItem.rating &&  userItem.rating >= 4" id="Four" class="col-sm-2"> <span class=" row ">{{userItem.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-50" src="{{imageFourStar}}"/>  </div>
+        <div *ngIf="4 > userItem.rating &&  userItem.rating > 3" id="Three" class="col-sm-2"> <span class=" row ">{{userItem.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-50" src="{{imageThreeStar}}"/> </div>
+        <div *ngIf="3 > userItem.rating &&  userItem.rating > 2" id="Two" class="col-sm-2"> <span class=" row ">{{userItem.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-50" src="{{imageTwoStar}}"/> </div>
+        <div *ngIf="2 > userItem.rating &&  userItem.rating > 0" id="One" class="col-sm-2"> <span class=" row ">{{userItem.rating}} out of 5.0</span> <img style="max-height: 1rem;" class="row d-block h-25 w-50" src="{{imageOneStar}}"/> </div>
 
 
-        <div  class="col-sm-1"> <h6 >{{userItem.asin }}</h6> </div>
+        <div  class="col-sm-2"> <h6 >{{userItem.asin }}</h6> </div>
         <div class="col-sm-2"> <img id="item-image"  class="d-block h-75 w-75" src="{{userItem.image}}"/> </div> 
         
     

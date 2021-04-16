@@ -2,6 +2,10 @@
 <div class="right" *ngIf="cpus">
 
 
+
+    
+
+
     <br>
 
     
@@ -27,10 +31,10 @@
         </div> -->
         
     </div>
-    <ul>
-        <li class="card" (click)="delCpu(i)" *ngFor="let cpu of cpus | async; let i = index "  >
-            <div class="row card-body"> 
-                <div target="_blank" class="col card-title">  <h5>{{cpu.id}}</h5> </div>
+    
+        <li class="card" *ngFor="let cpu of cpus | async; let i = index" >
+            <div target="_blank" class="row card-body"> 
+                <div class="col card-title">  <h5>{{cpu.id}}</h5> </div>
                 <div class="col"> <h6>{{cpu.model}}</h6> </div>
                 <div class="col"> <h6>{{cpu.manufacturer}}</h6> </div>
                 <div class="col"> <h6>{{cpu.speed}}</h6> </div>
@@ -38,6 +42,6 @@
                 <!--<button type="button" class="btn col btn-sm btn-primary product-btn" (click)="handleAddToCart()">Add to Cart</button>-->
             </div>
       </li>
-    </ul>
+   
   
   </div>

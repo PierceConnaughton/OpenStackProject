@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core'
 import {Action} from '@ngrx/store'
 import {Cpu} from '../model/cpu'
 
-export const ADD_CPU       = '[TUTORIAL] Add'
-export const REMOVE_CPU    = '[TUTORIAL] REMOVE'
+export const ADD_CPU       = '[CPU] Add'
+export const REMOVE_CPU    = '[CPU] REMOVE'
 
 
 export class AddCpu implements Action {
